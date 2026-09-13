@@ -4,6 +4,8 @@
     display: flex;
     gap: 0.2rem;
     border-bottom: var(--fa-border-width) solid var(--fa-border);
+    position: relative;
+    box-sizing: border-box;
 }
 
 .fa-tabs-tab {
@@ -16,7 +18,8 @@
     color: var(--fa-text-muted);
     padding: 0.6rem 1rem;
     cursor: pointer;
-    transition: color var(--fa-transition-fast);
+    transition: color var(--fa-transition-fast), background-color var(--fa-transition-fast), border-color var(--fa-transition-fast), transform var(--fa-transition-fast);
+    box-sizing: border-box;
 }
 
     .fa-tabs-tab::after {
@@ -47,3 +50,320 @@
         .fa-tabs-tab-active::after {
             background: var(--fa-primary);
         }
+
+/* ----------------------------- 1. File Folder Style ----------------------------- */
+
+.fa-tabs.fa-tabs-folder {
+    border-bottom: var(--fa-border-width) solid var(--fa-border);
+    gap: 0.35rem;
+    align-items: flex-end;
+    padding: 0.5rem 0.5rem 0 0.5rem;
+
+    .fa-tabs-tab {
+        background: var(--fa-cream);
+        border: var(--fa-border-width) solid var(--fa-border);
+        border-bottom: none;
+        border-radius: var(--fa-radius-sm) var(--fa-radius-sm) 0 0;
+        padding: 0.55rem 1.25rem;
+        color: var(--fa-text-muted);
+        margin-bottom: calc(-1 * var(--fa-border-width));
+        position: relative;
+        transform: translateY(2px);
+        transition: background-color var(--fa-transition-fast), color var(--fa-transition-fast), border-color var(--fa-transition-fast), transform var(--fa-transition-fast), box-shadow var(--fa-transition-fast);
+
+        &::after {
+            display: none;
+        }
+
+        &:hover {
+            background: var(--fa-surface);
+            color: var(--fa-text);
+            border-color: var(--fa-primary-light);
+            transform: translateY(0);
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.04);
+        }
+
+        &:focus-visible {
+            outline: none;
+            border-color: var(--fa-primary);
+            box-shadow: 0 0 0 2px var(--fa-border-focus);
+        }
+
+        &.fa-tabs-tab-active {
+            background: var(--fa-surface);
+            color: var(--fa-primary-dark);
+            font-weight: 800;
+            border-color: var(--fa-border);
+            border-top: calc(var(--fa-border-width) + 1px) solid var(--fa-primary);
+            transform: translateY(0);
+            z-index: 2;
+            padding-top: calc(0.55rem - 1px);
+            box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.05);
+
+            /* Seamless folder tab bottom connection to panel */
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: calc(-1 * var(--fa-border-width));
+                height: calc(var(--fa-border-width) + 1px);
+                background: var(--fa-surface);
+                z-index: 3;
+            }
+        }
+    }
+}
+
+/* ----------------------------- 2. Slide Left (Placed First) Style ----------------------------- */
+
+.fa-tabs.fa-tabs-slide {
+    border-bottom: none;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.35rem 0;
+    flex-wrap: wrap;
+
+    .fa-tabs-tab {
+        order: 0;
+        background: var(--fa-surface);
+        border: var(--fa-border-width) solid var(--fa-border);
+        border-radius: var(--fa-radius-pill);
+        padding: 0.5rem 1.15rem;
+        color: var(--fa-text-muted);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        transition: background-color var(--fa-transition-medium), color var(--fa-transition-medium), border-color var(--fa-transition-medium), transform var(--fa-transition-fast), box-shadow var(--fa-transition-fast);
+
+        &::after {
+            display: none;
+        }
+
+        &:hover {
+            background: var(--fa-cream);
+            color: var(--fa-text);
+            border-color: var(--fa-primary-light);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        &:focus-visible {
+            outline: none;
+            border-color: var(--fa-primary);
+            box-shadow: 0 0 0 2px var(--fa-border-focus);
+        }
+
+        &.fa-tabs-tab-active {
+            order: -1; /* Placed first at far left */
+            background: var(--fa-primary);
+            color: var(--fa-text-on-primary);
+            border-color: var(--fa-primary-dark);
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(191, 91, 38, 0.35), var(--fa-border-glow);
+            animation: fa-tabs-slide-left 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--fa-text-on-primary);
+            }
+        }
+    }
+}
+
+@keyframes fa-tabs-slide-left {
+    0% {
+        transform: translateX(28px) scale(0.96);
+        opacity: 0.7;
+    }
+    60% {
+        transform: translateX(-3px) scale(1.02);
+    }
+    100% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* ----------------------------- 3. Thumbwheel Switch Scroll Style ----------------------------- */
+
+.fa-tabs.fa-tabs-wheel {
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    background: var(--fa-cream);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius-md);
+    padding: 0.35rem 0.5rem;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06), inset 0 -2px 4px rgba(0, 0, 0, 0.04);
+    user-select: none;
+
+    .fa-tabs-wheel-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--fa-surface);
+        border: var(--fa-border-width) solid var(--fa-border);
+        border-radius: var(--fa-radius-sm);
+        width: 2.1rem;
+        height: 2.1rem;
+        padding: 0;
+        cursor: pointer;
+        color: var(--fa-text);
+        flex-shrink: 0;
+        transition: background-color var(--fa-transition-fast), color var(--fa-transition-fast), border-color var(--fa-transition-fast), transform var(--fa-transition-fast);
+
+        &:hover:not(:disabled) {
+            background: var(--fa-primary-light);
+            color: var(--fa-surface);
+            border-color: var(--fa-primary);
+        }
+
+        &:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        &:focus-visible {
+            outline: none;
+            border-color: var(--fa-primary);
+            box-shadow: 0 0 0 2px var(--fa-border-focus);
+        }
+    }
+
+    .fa-tabs-wheel-viewport {
+        position: relative;
+        flex: 1;
+        overflow: hidden;
+        margin: 0 0.4rem;
+        mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    }
+
+    .fa-tabs-wheel-indicator {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        pointer-events: none;
+        z-index: 1;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: -4px;
+            width: 12px;
+            height: 3px;
+            background: var(--fa-primary);
+            border-radius: 2px;
+        }
+
+        &::before {
+            top: 0;
+        }
+
+        &::after {
+            bottom: 0;
+        }
+    }
+
+    .fa-tabs-wheel-track {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        padding: 0.25rem 2rem;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .fa-tabs-tab {
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        background: var(--fa-surface);
+        border: var(--fa-border-width) solid var(--fa-border);
+        border-radius: var(--fa-radius-sm);
+        padding: 0.45rem 1rem;
+        color: var(--fa-text-muted);
+        opacity: 0.65;
+        transform: scale(0.9);
+        transition: background-color var(--fa-transition-medium), color var(--fa-transition-medium), border-color var(--fa-transition-medium), transform var(--fa-transition-medium), opacity var(--fa-transition-medium);
+
+        &::after {
+            display: none;
+        }
+
+        &:hover {
+            opacity: 0.9;
+            transform: scale(0.95);
+            color: var(--fa-text);
+            border-color: var(--fa-primary-light);
+        }
+
+        &:focus-visible {
+            outline: none;
+            border-color: var(--fa-primary);
+            box-shadow: 0 0 0 2px var(--fa-border-focus);
+            opacity: 1;
+        }
+
+        &.fa-tabs-tab-active {
+            opacity: 1;
+            transform: scale(1.04);
+            background: var(--fa-primary);
+            color: var(--fa-text-on-primary);
+            border-color: var(--fa-primary-dark);
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(191, 91, 38, 0.35), var(--fa-border-glow);
+            z-index: 2;
+        }
+    }
+}
+
+/* ----------------------------- Tab Section & Panel ----------------------------- */
+
+.fa-tabs-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.fa-tabs-panel {
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius-sm);
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    margin-top: 0.5rem;
+}
+
+.fa-tabs-folder + .fa-tabs-panel,
+.fa-tabs-section-folder .fa-tabs-panel {
+    border-top: none;
+    border-radius: 0 0 var(--fa-radius-sm) var(--fa-radius-sm);
+    margin-top: calc(-1 * var(--fa-border-width));
+    position: relative;
+    z-index: 1;
+}
+
+.fa-tabs-slide + .fa-tabs-panel,
+.fa-tabs-section-slide .fa-tabs-panel,
+.fa-tabs-wheel + .fa-tabs-panel,
+.fa-tabs-section-wheel .fa-tabs-panel {
+    margin-top: 0.75rem;
+}

@@ -290,6 +290,34 @@ public sealed class FaIcon : ComponentBase
                 FillRulePath("M5 5h7v2H7v10h10v-5h2v7H5V5z");
                 Path("M13 3h8v8h-2V6.4l-7.3 7.3-1.4-1.4L17.6 5H13z");
                 break;
+            case FaIconName.Document:
+                FillRulePath("M6 2a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7.5L13.5 2H6zm7 1.8 4.2 4.2H13V3.8z");
+                Rect("7.5", "11", "9", "1.6", "0.8");
+                Rect("7.5", "14", "9", "1.6", "0.8");
+                Rect("7.5", "17", "6", "1.6", "0.8");
+                break;
+            case FaIconName.DocumentSearch:
+                FillRulePath("M5 2a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h6v-2H6V4h6v4h4v2h2V7.5L13.5 2H5zm6.5 2 3.5 3.5H11.5V4z");
+                Rect("7.5", "10", "4", "1.6", "0.8");
+                Rect("7.5", "13", "3", "1.6", "0.8");
+                FillRulePath("M16 10.8a4.2 4.2 0 1 0 0 8.4 4.2 4.2 0 0 0 0-8.4zm0 1.6a2.6 2.6 0 1 1 0 5.2 2.6 2.6 0 0 1 0-5.2z");
+                Rect("18.8", "18", "1.8", "4.8", "0.9", "rotate(-45 19.7 20.4)");
+                break;
+            case FaIconName.Stopwatch:
+                FillRulePath("M12 6a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15zm0 1.8a5.7 5.7 0 1 1 0 11.4 5.7 5.7 0 0 1 0-11.4z");
+                Rect("11", "3.5", "2", "2.8", "0.5");
+                Rect("9.5", "1.8", "5", "1.8", "0.8");
+                Rect("17.5", "4.5", "1.8", "2.6", "0.6", "rotate(40 18.4 5.8)");
+                Circle("12", "13.5", "1.1");
+                Rect("11.3", "9.2", "1.4", "4.5", "0.7");
+                break;
+            case FaIconName.Trophy:
+                Path("M6 3h12v6c0 3.3-2.5 6-5 6.8V18h3v2H8v-2h3v-2.2C8.5 15 6 12.3 6 9V3z");
+                Path("M6 5H3.5a1.5 1.5 0 0 0-1.5 1.5v1A3.5 3.5 0 0 0 5.5 11H6V9H5.5A1.5 1.5 0 0 1 4 7.5v-1A.5.5 0 0 1 4.5 6H6V5zm12 0h2.5a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-1.5 1.5H18v2h.5a3.5 3.5 0 0 0 3.5-3.5v-1A1.5 1.5 0 0 0 20.5 5H18V5z");
+                break;
+            case FaIconName.Bolt:
+                Path("M13 2 4.5 13.5h6L9.5 22l9-11.5h-6.2L14 2z");
+                break;
         }
 
         builder.CloseElement();

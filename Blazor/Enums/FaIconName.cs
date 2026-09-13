@@ -56,5 +56,12 @@ public enum FaIconName
     Login,
     Logout,
     Share,
-    ExternalLink
+    ExternalLink,
+
+    // Documents, files, and domain tools
+    Document,
+    DocumentSearch,
+    Stopwatch,
+    Trophy,
+    Bolt
 }
