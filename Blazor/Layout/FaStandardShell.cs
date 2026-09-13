@@ -21,6 +21,28 @@ public sealed class FaStandardShell : ComponentBase
     [Parameter] public string? UserImageUrl { get; set; }
     [Parameter] public EventCallback OnLogin { get; set; }
     [Parameter] public EventCallback OnLogout { get; set; }
+
+    /// <summary>Passed straight through to <see cref="FaHeader.UseAvatarForm"/>.</summary>
+    [Parameter] public bool UseAvatarForm { get; set; }
+
+    /// <summary>Passed straight through to <see cref="FaHeader.ShowUserNameInHeader"/>.</summary>
+    [Parameter] public bool ShowUserNameInHeader { get; set; }
+
+    /// <summary>Passed straight through to <see cref="FaHeader.UserEmail"/>.</summary>
+    [Parameter] public string? UserEmail { get; set; }
+
+    /// <summary>Passed straight through to <see cref="FaHeader.AccountHref"/>.</summary>
+    [Parameter] public string? AccountHref { get; set; }
+
+    /// <summary>Passed straight through to <see cref="FaHeader.OnAccountClick"/>.</summary>
+    [Parameter] public EventCallback OnAccountClick { get; set; }
+
+    /// <summary>Passed straight through to <see cref="FaHeader.AccountText"/>.</summary>
+    [Parameter] public string AccountText { get; set; } = "Account settings";
+
+    /// <summary>Passed straight through to <see cref="FaHeader.UserMenuContent"/>.</summary>
+    [Parameter] public RenderFragment? UserMenuContent { get; set; }
+
     [Parameter] public RenderFragment? ChildContent { get; set; }
     [Parameter] public RenderFragment? FooterContent { get; set; }
 
@@ -55,6 +77,13 @@ public sealed class FaStandardShell : ComponentBase
         builder.AddComponentParameter(8, nameof(FaHeader.OnLogin), OnLogin);
         builder.AddComponentParameter(9, nameof(FaHeader.OnLogout), OnLogout);
         builder.AddComponentParameter(20, nameof(FaHeader.Position), HeaderPosition);
+        builder.AddComponentParameter(23, nameof(FaHeader.UseAvatarForm), UseAvatarForm);
+        builder.AddComponentParameter(24, nameof(FaHeader.ShowUserNameInHeader), ShowUserNameInHeader);
+        builder.AddComponentParameter(25, nameof(FaHeader.UserEmail), UserEmail);
+        builder.AddComponentParameter(26, nameof(FaHeader.AccountHref), AccountHref);
+        builder.AddComponentParameter(27, nameof(FaHeader.OnAccountClick), OnAccountClick);
+        builder.AddComponentParameter(28, nameof(FaHeader.AccountText), AccountText);
+        builder.AddComponentParameter(29, nameof(FaHeader.UserMenuContent), UserMenuContent);
         builder.CloseComponent();
 
         builder.OpenElement(10, "main");

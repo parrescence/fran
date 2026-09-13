@@ -16,6 +16,7 @@
     var CUSTOM_PALETTE_STORAGE_KEY = 'fa-custom-palette';
     var INPUT_STYLE_STORAGE_KEY = 'fa-input-style';
     var UI_STYLE_STORAGE_KEY = 'fa-ui-style';
+    var FONT_STYLE_STORAGE_KEY = 'fa-font-style';
 
     // The same token set FaPaletteColors (Blazor/Models/FaPalette.cs) requires, in
     // camelCase to match its System.Text.Json-serialized JSON. --fa-<kebab-case> is the
@@ -141,6 +142,36 @@
         markActiveUiStyle(uiStyle);
     };
 
+    function markActiveFontStyle(fontStyle) {
+        var resolved = fontStyle || 'flow';
+        var buttons = document.querySelectorAll('[data-font-style-btn]');
+        for (var i = 0; i < buttons.length; i++) {
+            var btn = buttons[i];
+            var isActive = btn.getAttribute('data-font-style-btn') === resolved;
+            btn.classList.toggle('fa-font-style-btn-active', isActive);
+            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        }
+        var selects = document.querySelectorAll('[data-font-style-select]');
+        for (var j = 0; j < selects.length; j++) {
+            selects[j].value = resolved;
+        }
+    }
+
+    window.faSetFontStyle = function (fontStyle) {
+        if (!fontStyle || fontStyle === 'flow') {
+            document.documentElement.removeAttribute('data-fa-font-style');
+            localStorage.removeItem(FONT_STYLE_STORAGE_KEY);
+        } else {
+            document.documentElement.setAttribute('data-fa-font-style', fontStyle);
+            localStorage.setItem(FONT_STYLE_STORAGE_KEY, fontStyle);
+        }
+        markActiveFontStyle(fontStyle);
+    };
+
+    window.faGetFontStyle = function () {
+        return document.documentElement.getAttribute('data-fa-font-style') || 'flow';
+    };
+
     window.faSetTheme = function (theme) {
         if (theme === 'light') {
             // "light" is the explicit choice, not just "no attribute" — otherwise
@@ -240,6 +271,12 @@
             document.documentElement.setAttribute('data-fa-ui-style', storedUiStyle);
         }
         markActiveUiStyle(storedUiStyle || document.documentElement.getAttribute('data-fa-ui-style'));
+
+        var storedFontStyle = localStorage.getItem(FONT_STYLE_STORAGE_KEY);
+        if (storedFontStyle) {
+            document.documentElement.setAttribute('data-fa-font-style', storedFontStyle);
+        }
+        markActiveFontStyle(storedFontStyle || document.documentElement.getAttribute('data-fa-font-style'));
     }
 
     document.addEventListener('DOMContentLoaded', syncAll);
