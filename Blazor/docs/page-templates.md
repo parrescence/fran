@@ -11,6 +11,31 @@ one recurring page shape needs beyond the bare shell:
 | [FaDashboardTemplate](fa-dashboard-template.md) | `FaSidebarShell` | a title/actions row above the body |
 | [FaFormTemplate](fa-form-template.md) | `FaStandardShell` | a centered card, optional back-link |
 | [FaHomeTemplate](fa-home-template.md) | `FaStandardShell` | a hero band above the page's own sections |
+| [FaPricingTemplate](fa-pricing-template.md) | `FaStandardShell` | pricing header, billing toggle, tier cards, FAQ teaser |
+| [FaContactTemplate](fa-contact-template.md) | `FaStandardShell` | side-by-side contact details, inquiry form, map embed |
+| [FaFaqTemplate](fa-faq-template.md) | `FaStandardShell` | search bar, category pills, accordion Q&A, support prompt |
+| [FaNotFoundTemplate](fa-not-found-template.md) | *(none or FaStandardShell)* | 404 / error code badge, explanation, return actions |
+| [FaSettingsTemplate](fa-settings-template.md) | `FaSidebarShell` | settings categories sub-nav sidebar, active section card |
+| [FaListViewTemplate](fa-list-view-template.md) | `FaSidebarShell` | title/actions row, search/filter toolbar, data grid, pagination |
+| [FaDetailViewTemplate](fa-detail-view-template.md) | `FaSidebarShell` | back link, status badge, action buttons, tabs, main/aside split |
+| [FaAboutTemplate](fa-about-template.md) | `FaStandardShell` | hero, key stats grid, mission narrative, team grid, CTA |
+| [FaDocsTemplate](fa-docs-template.md) | `FaSidebarShell` | hierarchy tree nav, breadcrumbs, search, code blocks, "on this page" TOC |
+| [FaChangelogTemplate](fa-changelog-template.md) | `FaStandardShell` | title/actions row, category/version filters, release timeline |
+| [FaLegalTemplate](fa-legal-template.md) | `FaStandardShell` | terms / privacy policy, sticky TOC navigation rail, readable clauses |
+| [FaThankYouTemplate](fa-thank-you-template.md) | *(none or FaStandardShell)* | success badge, order summary, next steps, action buttons |
+| [FaComingSoonTemplate](fa-coming-soon-template.md) | *(none or FaStandardShell)* | countdown timer, notify email signup, brand hero, social links |
+| [FaTutorialTemplate](fa-tutorial-template.md) | `FaStandardShell` | step-by-step instructions, difficulty/time metadata, jump list |
+| [FaKnowledgeBaseTemplate](fa-knowledge-base-template.md) | `FaStandardShell` | searchable article index, topic cards, trending articles, support CTA |
+| [FaRoadmapTemplate](fa-roadmap-template.md) | `FaStandardShell` | Kanban/timeline columns (Planned, In Progress, Shipped), filters |
+| [FaGlossaryTemplate](fa-glossary-template.md) | `FaStandardShell` | A–Z alphabetical index, term definitions, quick-jump letter bar |
+| [FaBlogIndexTemplate](fa-blog-index-template.md) | `FaStandardShell` | featured article hero, category pills, 3-column post grid, pagination |
+| [FaBlogPostTemplate](fa-blog-post-template.md) | `FaStandardShell` | single-article layout, author card, reading time, share actions, related posts |
+| [FaBillingTemplate](fa-billing-template.md) | `FaSidebarShell` | subscription tier, payment cards, billing contact, invoices history table |
+| [FaActivityFeedTemplate](fa-activity-feed-template.md) | `FaSidebarShell` | audit log & timeline stream, summary metrics, filter toolbar, pagination |
+| [FaStatusTemplate](fa-status-template.md) | `FaStandardShell` | system status banner, component health list, 90-day uptime metrics, incidents |
+| [FaOnboardingTemplate](fa-onboarding-template.md) | `FaStandardShell` | step progress wizard, step title & desc, active step card, Back/Continue |
+| [FaCalendarTemplate](fa-calendar-template.md) | `FaSidebarShell` | date pager, month/week/day view switcher, calendar grid, agenda aside |
+| [FaFileManagerTemplate](fa-file-manager-template.md) | `FaSidebarShell` | storage quota, folder breadcrumbs, search, file grid, inspector drawer |
 | [FaAuthTemplate](fa-auth-template.md) | *(none — chrome-free)* | a centered card, no header/sidebar/footer |
 
 They're **routed pages, not layouts** — use one directly on a `@page`-attributed

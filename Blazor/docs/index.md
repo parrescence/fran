@@ -67,6 +67,8 @@ Two binding shapes show up repeatedly:
 - [FaForm](fa-form.md) — wraps EditForm around your own field markup, returns the populated model on submit; `Mode` (Create/Edit) covers "new" vs "update"
 - [FaLoginForm](fa-login-form.md) — username/password + remember-me, emits an `FaLoginRequest`
 - [FaLogoutForm](fa-logout-form.md) — "are you sure?" confirm/cancel
+- [FaAvatarForm](fa-avatar-form.md) — avatar trigger + dropdown identity card, theme switcher, app items, account navigation, login/logout
+- [FaAccountForm](fa-account-form.md) — profile picture preview/input, personal information, bio, save/cancel actions
 
 ## Validation
 
@@ -108,6 +110,31 @@ Two binding shapes show up repeatedly:
 - [FaFormTemplate](fa-form-template.md) — standard shell + centered form card
 - [FaHomeTemplate](fa-home-template.md) — standard shell + hero band
 - [FaAuthTemplate](fa-auth-template.md) — chrome-free centered card, for login/register/reset-password
+- [FaPricingTemplate](fa-pricing-template.md) — standard shell + pricing header, tier cards, billing toggle, FAQ teaser
+- [FaContactTemplate](fa-contact-template.md) — standard shell + contact cards, message form, map embed
+- [FaFaqTemplate](fa-faq-template.md) — standard shell + search bar, category chips, accordion Q&A, support prompt
+- [FaNotFoundTemplate](fa-not-found-template.md) — chrome-free or standard shell + error code, description, return action
+- [FaSettingsTemplate](fa-settings-template.md) — sidebar shell + settings categories sub-nav, active section card
+- [FaListViewTemplate](fa-list-view-template.md) — sidebar shell + title/actions row, search/filter toolbar, data grid, pagination
+- [FaDetailViewTemplate](fa-detail-view-template.md) — sidebar shell + back link, status badge, action bar, tabs, main/aside split
+- [FaAboutTemplate](fa-about-template.md) — standard shell + hero, key stats grid, mission narrative, team grid, CTA
+- [FaDocsTemplate](fa-docs-template.md) — sidebar shell + hierarchy tree nav, breadcrumbs, search, code blocks, TOC
+- [FaChangelogTemplate](fa-changelog-template.md) — standard shell + title/actions row, category/version filters, release timeline
+- [FaLegalTemplate](fa-legal-template.md) — standard shell + terms / privacy policy, sticky TOC nav rail, readable clauses
+- [FaThankYouTemplate](fa-thank-you-template.md) — chrome-free or standard shell + success badge, order summary, next steps, actions
+- [FaComingSoonTemplate](fa-coming-soon-template.md) — chrome-free or standard shell + countdown timer, notify form, brand hero, social links
+- [FaTutorialTemplate](fa-tutorial-template.md) — standard shell + step-by-step instructions, difficulty/time metadata, jump list
+- [FaKnowledgeBaseTemplate](fa-knowledge-base-template.md) — standard shell + searchable article index, topic cards, trending articles, support CTA
+- [FaRoadmapTemplate](fa-roadmap-template.md) — standard shell + Kanban/timeline columns (Planned, In Progress, Shipped), filters
+- [FaGlossaryTemplate](fa-glossary-template.md) — standard shell + A–Z alphabetical index, term definitions, quick-jump letter bar
+- [FaBlogIndexTemplate](fa-blog-index-template.md) — standard shell + featured article hero, category pills, 3-column post grid, pagination
+- [FaBlogPostTemplate](fa-blog-post-template.md) — standard shell + single-article layout, author card, reading time, share actions, related posts
+- [FaBillingTemplate](fa-billing-template.md) — sidebar shell + subscription tier, payment cards, billing contact, invoices history table
+- [FaActivityFeedTemplate](fa-activity-feed-template.md) — sidebar shell + audit log & timeline stream, summary metrics, filter toolbar, pagination
+- [FaStatusTemplate](fa-status-template.md) — standard shell + system status banner, component health list, 90-day uptime metrics, incidents
+- [FaOnboardingTemplate](fa-onboarding-template.md) — standard shell + step progress wizard, step title & desc, active step card, Back/Continue
+- [FaCalendarTemplate](fa-calendar-template.md) — sidebar shell + date pager, month/week/day view switcher, calendar grid, agenda aside
+- [FaFileManagerTemplate](fa-file-manager-template.md) — sidebar shell + storage quota, folder breadcrumbs, search, file grid, inspector drawer
 
 ## Layout & chrome
 
@@ -116,4 +143,5 @@ Two binding shapes show up repeatedly:
 - [FaPaletteSwitcher](palette-switcher.md) — dropdown over all 28 color palettes
 - [FaInputStyleSwitcher](input-style-switcher.md) — Standard/Minimal/Maximal buttons for the app-wide input-style axis
 - [FaUiStyleSwitcher](ui-style-switcher.md) — Flow/Terse/Typewriter buttons for the app-wide UI-style axis
+- [FaFontStyleSwitcher](font-style-switcher.md) — 10 font styles (DOS, CLI, Elementary, College, Flowing, Water, Rock, Comical, Flow, Contrasting)
 - [FaIcon](fa-icon.md) — the hand-drawn SVG icon set

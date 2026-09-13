@@ -118,3 +118,2010 @@
     color: var(--fa-text-muted);
     font-size: 0.88rem;
 }
+
+/* ============================= FaPricingTemplate ============================= */
+
+.fa-template-pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 72rem;
+    margin: 1.5rem auto;
+}
+
+.fa-template-pricing-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.fa-template-pricing-title {
+    margin: 0;
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-family: var(--fa-font);
+    font-weight: 800;
+}
+
+.fa-template-pricing-description {
+    max-width: 48ch;
+    margin: 0 auto;
+    color: var(--fa-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.fa-template-pricing-toggle {
+    margin-top: 0.8rem;
+}
+
+.fa-template-pricing-plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+    align-items: stretch;
+}
+
+.fa-template-pricing-comparison {
+    margin-top: 1.5rem;
+    overflow-x: auto;
+}
+
+.fa-template-pricing-faq {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.fa-template-pricing-faq-title {
+    text-align: center;
+    margin: 0;
+    font-size: 1.75rem;
+}
+
+/* ============================= FaContactTemplate ============================= */
+
+.fa-template-contact {
+    max-width: 68rem;
+    margin: 1.5rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.fa-template-contact-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.fa-template-contact-title {
+    margin: 0;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-family: var(--fa-font);
+    font-weight: 800;
+}
+
+.fa-template-contact-description {
+    max-width: 52ch;
+    margin: 0 auto;
+    color: var(--fa-text-muted);
+    font-size: 1.05rem;
+}
+
+.fa-template-contact-body {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .fa-template-contact-body {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fa-template-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.fa-template-contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.fa-template-contact-map {
+    margin-top: 1rem;
+    border-radius: var(--fa-radius-lg);
+    overflow: hidden;
+    border: var(--fa-border-width) solid var(--fa-border);
+}
+
+/* ============================= FaFaqTemplate ============================= */
+
+.fa-template-faq {
+    max-width: 52rem;
+    margin: 1.5rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+}
+
+.fa-template-faq-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.fa-template-faq-title {
+    margin: 0;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-family: var(--fa-font);
+    font-weight: 800;
+}
+
+.fa-template-faq-description {
+    max-width: 50ch;
+    margin: 0 auto;
+    color: var(--fa-text-muted);
+    font-size: 1.05rem;
+}
+
+.fa-template-faq-search {
+    width: 100%;
+    max-width: 32rem;
+    margin-top: 0.5rem;
+}
+
+.fa-template-faq-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+}
+
+.fa-template-faq-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.fa-template-faq-support {
+    margin-top: 1.5rem;
+}
+
+.fa-template-faq-support-content {
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.fa-template-faq-support-title {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.fa-template-faq-support-description {
+    margin: 0;
+    color: var(--fa-text-muted);
+    max-width: 44ch;
+}
+
+.fa-template-faq-support-action {
+    margin-top: 0.5rem;
+}
+
+/* ============================= FaNotFoundTemplate ============================= */
+
+.fa-template-notfound-standalone {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    background: var(--fa-cream);
+}
+
+.fa-template-notfound-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--fa-font);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--fa-primary-dark);
+    text-decoration: none;
+}
+
+.fa-template-notfound-brand-icon {
+    height: 1.5rem;
+    width: auto;
+    border-radius: var(--fa-radius-sm);
+}
+
+.fa-template-notfound-wrap {
+    width: 100%;
+    max-width: 32rem;
+}
+
+.fa-template-notfound-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    gap: 0.85rem;
+}
+
+.fa-template-notfound-code {
+    display: inline-block;
+    font-family: var(--fa-font);
+    font-weight: 900;
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--fa-primary);
+    letter-spacing: -0.04em;
+}
+
+.fa-template-notfound-title {
+    margin: 0;
+    font-size: 1.6rem;
+    font-family: var(--fa-font);
+    font-weight: 800;
+}
+
+.fa-template-notfound-description {
+    margin: 0;
+    color: var(--fa-text-muted);
+    line-height: 1.55;
+    max-width: 40ch;
+}
+
+.fa-template-notfound-actions {
+    margin-top: 0.8rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ============================= FaSettingsTemplate ============================= */
+
+.fa-template-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.fa-template-settings-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.fa-template-settings-title {
+    margin: 0;
+    font-size: 1.75rem;
+    font-family: var(--fa-font);
+    font-weight: 800;
+}
+
+.fa-template-settings-description {
+    margin: 0;
+    color: var(--fa-text-muted);
+    font-size: 0.95rem;
+}
+
+.fa-template-settings-body {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .fa-template-settings-body {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fa-template-settings-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.fa-template-settings-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.fa-template-settings-section-header {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--fa-border);
+}
+
+.fa-template-settings-section-title {
+    margin: 0 0 0.3rem;
+    font-size: 1.25rem;
+    font-family: var(--fa-font);
+    font-weight: 700;
+}
+
+.fa-template-settings-section-description {
+    margin: 0;
+    color: var(--fa-text-muted);
+    font-size: 0.88rem;
+}
+
+.fa-template-settings-section-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--fa-border);
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+/* ============================= FaListViewTemplate ============================= */
+
+.fa-template-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.fa-template-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.fa-template-list-title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.fa-template-list-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.fa-template-list-title {
+    margin: 0;
+    font-size: 1.75rem;
+    font-family: var(--fa-font);
+    font-weight: 800;
+}
+
+.fa-template-list-description {
+    margin: 0;
+    color: var(--fa-text-muted);
+    font-size: 0.92rem;
+}
+
+.fa-template-list-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.fa-template-list-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.fa-template-list-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.fa-template-list-pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+}
+
+/* ============================= FaDetailViewTemplate ============================= */
+
+.fa-template-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.fa-template-detail-breadcrumb {
+    margin-bottom: 0.5rem;
+}
+
+.fa-template-detail-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.fa-template-detail-title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.fa-template-detail-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.fa-template-detail-title {
+    margin: 0;
+    font-size: 1.75rem;
+    font-family: var(--fa-font);
+    font-weight: 800;
+}
+
+.fa-template-detail-subtitle {
+    margin: 0;
+    color: var(--fa-text-muted);
+    font-size: 0.92rem;
+}
+
+.fa-template-detail-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.fa-template-detail-tabs {
+    margin-top: 0.25rem;
+}
+
+.fa-template-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .fa-template-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fa-template-detail-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.fa-template-detail-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* ============================= FaAboutTemplate ============================= */
+
+.fa-about-template {
+    max-width: 68rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.fa-about-hero {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.fa-about-title {
+    margin: 0;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-family: var(--fa-font);
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.fa-about-description {
+    max-width: 60ch;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: var(--fa-text-muted);
+    line-height: 1.6;
+}
+
+.fa-about-media {
+    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 50rem;
+    border-radius: var(--fa-radius-lg);
+    overflow: hidden;
+}
+
+.fa-about-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--fa-bg-subtle, rgba(0, 0, 0, 0.02));
+    border-radius: var(--fa-radius-lg);
+    border: var(--fa-border-width) solid var(--fa-border);
+}
+
+.fa-about-mission {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.fa-about-section-title {
+    margin: 0;
+    font-size: 1.75rem;
+    font-family: var(--fa-font);
+    font-weight: 700;
+}
+
+.fa-about-section-description {
+    margin: 0;
+    color: var(--fa-text-muted);
+    font-size: 1.05rem;
+}
+
+.fa-about-mission-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--fa-text);
+}
+
+.fa-about-team {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.fa-about-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.fa-about-cta {
+    padding: 3rem 2rem;
+    text-align: center;
+    background: var(--fa-bg-subtle, rgba(0, 0, 0, 0.02));
+    border-radius: var(--fa-radius-lg);
+    border: var(--fa-border-width) solid var(--fa-border);
+}
+
+/* ============================= FaDocsTemplate ============================= */
+
+.fa-docs-template {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.fa-docs-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    border-bottom: var(--fa-border-width) solid var(--fa-border);
+}
+
+.fa-docs-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.fa-docs-search {
+    min-width: 240px;
+}
+
+.fa-docs-layout {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+@media (max-width: 960px) {
+    .fa-docs-layout {
+        grid-template-columns: 1fr;
+    }
+    .fa-docs-toc {
+        display: none;
+    }
+}
+
+.fa-docs-article {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-width: 0;
+}
+
+.fa-docs-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.fa-docs-title-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.fa-docs-title {
+    margin: 0;
+    font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+    font-family: var(--fa-font);
+    font-weight: 800;
+}
+
+.fa-docs-description {
+    margin: 0;
+    font-size: 1.15rem;
+    color: var(--fa-text-muted);
+    line-height: 1.6;
+}
+
+.fa-docs-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    line-height: 1.7;
+}
+
+.fa-docs-prev-next {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: var(--fa-border-width) solid var(--fa-border);
+}
+
+.fa-docs-toc {
+    position: sticky;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.fa-docs-toc-title {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--fa-text-muted);
+}
+
+.fa-docs-toc-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* ============================= FaChangelogTemplate ============================= */
+
+.fa-changelog-template {
+    max-width: 54rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.fa-changelog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.fa-changelog-header-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.fa-changelog-title {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-family: var(--fa-font);
+    font-weight: 800;
+}
+
+.fa-changelog-description {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--fa-text-muted);
+}
+
+.fa-changelog-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.fa-changelog-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.fa-changelog-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--fa-border);
+}
+
+/* ============================= FaLegalTemplate ============================= */
+
+.fa-legal-template {
+    max-width: 68rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.fa-legal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding-bottom: 1.5rem;
+    border-bottom: var(--fa-border-width) solid var(--fa-border);
+}
+
+.fa-legal-header-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.fa-legal-title {
+    margin: 0;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-family: var(--fa-font);
+    font-weight: 800;
+}
+
+.fa-legal-date {
+    font-size: 0.9rem;
+    color: var(--fa-text-muted);
+    font-weight: 500;
+}
+
+.fa-legal-description {
+    margin: 0;
+    color: var(--fa-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.fa-legal-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+@media (max-width: 800px) {
+    .fa-legal-layout {
+        grid-template-columns: 1fr;
+    }
+    .fa-legal-toc {
+        display: none;
+    }
+}
+
+.fa-legal-toc {
+    position: sticky;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.fa-legal-toc-title {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--fa-text-muted);
+}
+
+.fa-legal-toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.fa-legal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    line-height: 1.7;
+}
+
+/* ============================= FaThankYouTemplate ============================= */
+
+.fa-thank-you-template {
+    max-width: 44rem;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+}
+
+.fa-thank-you-standalone {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    background: var(--fa-bg-subtle, #f9f9f9);
+}
+
+.fa-thank-you-standalone-card {
+    background: var(--fa-bg);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius-lg);
+    padding: 3rem 2.5rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+    max-width: 40rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+}
+
+.fa-thank-you-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.fa-thank-you-icon-wrap {
+    margin-bottom: 0.5rem;
+}
+
+.fa-thank-you-title {
+    margin: 0;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-family: var(--fa-font);
+    font-weight: 800;
+}
+
+.fa-thank-you-description {
+    margin: 0;
+    color: var(--fa-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.fa-thank-you-summary {
+    width: 100%;
+    text-align: left;
+}
+
+.fa-thank-you-steps {
+    width: 100%;
+    text-align: left;
+}
+
+.fa-thank-you-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ============================= FaComingSoonTemplate ============================= */
+
+.fa-coming-soon-template {
+    max-width: 46rem;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+}
+
+.fa-coming-soon-standalone {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    background: var(--fa-bg-subtle, #f9f9f9);
+}
+
+.fa-coming-soon-standalone-card {
+    background: var(--fa-bg);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius-lg);
+    padding: 3.5rem 2.5rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+    max-width: 42rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+}
+
+.fa-coming-soon-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.fa-coming-soon-logo {
+    height: 32px;
+    width: auto;
+}
+
+.fa-coming-soon-brand-name {
+    font-family: var(--fa-font);
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.fa-coming-soon-title {
+    margin: 0;
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-family: var(--fa-font);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.fa-coming-soon-description {
+    margin: 0;
+    color: var(--fa-text-muted);
+    font-size: 1.15rem;
+    max-width: 50ch;
+    line-height: 1.6;
+}
+
+.fa-coming-soon-countdown {
+    width: 100%;
+}
+
+.fa-coming-soon-notify {
+    width: 100%;
+    max-width: 28rem;
+}
+
+.fa-coming-soon-social {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* ============================= FaTutorialTemplate ============================= */
+
+.fa-tutorial-template {
+    max-width: 76rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.fa-tutorial-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+}
+
+.fa-tutorial-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--fa-text-muted);
+}
+
+.fa-tutorial-tags {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--fa-text-muted);
+}
+
+.fa-tutorial-difficulty {
+    font-weight: 600;
+    color: var(--fa-primary-dark);
+}
+
+.fa-tutorial-header {
+    margin-bottom: 2.5rem;
+}
+
+.fa-tutorial-title {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    margin: 0 0 0.75rem;
+    line-height: 1.2;
+}
+
+.fa-tutorial-description {
+    font-size: 1.15rem;
+    color: var(--fa-text-muted);
+    line-height: 1.6;
+    max-width: 65ch;
+    margin: 0 0 1.25rem;
+}
+
+.fa-tutorial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.fa-tutorial-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 2.5rem;
+    align-items: start;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fa-tutorial-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.fa-tutorial-aside {
+    position: sticky;
+    top: 2rem;
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius);
+    padding: 1.25rem;
+}
+
+.fa-tutorial-aside-title {
+    margin: 0 0 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--fa-text-muted);
+}
+
+.fa-tutorial-prev-next {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: var(--fa-border-width) solid var(--fa-border);
+}
+
+/* ============================= FaKnowledgeBaseTemplate ============================= */
+
+.fa-kb-template {
+    max-width: 76rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.fa-kb-hero {
+    text-align: center;
+    padding: 3rem 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.fa-kb-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin: 0;
+}
+
+.fa-kb-desc {
+    font-size: 1.15rem;
+    color: var(--fa-text-muted);
+    max-width: 55ch;
+    margin: 0;
+}
+
+.fa-kb-search {
+    width: 100%;
+    max-width: 38rem;
+    margin-top: 1rem;
+}
+
+.fa-kb-section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 1.25rem;
+}
+
+.fa-kb-category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+.fa-kb-popular-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+}
+
+.fa-kb-support {
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius-lg);
+    padding: 2.5rem;
+    text-align: center;
+}
+
+/* ============================= FaRoadmapTemplate ============================= */
+
+.fa-roadmap-template {
+    max-width: 80rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.fa-roadmap-header {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.fa-roadmap-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.fa-roadmap-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    margin: 0 0 0.5rem;
+}
+
+.fa-roadmap-desc {
+    color: var(--fa-text-muted);
+    font-size: 1.05rem;
+    margin: 0;
+    max-width: 60ch;
+}
+
+.fa-roadmap-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.fa-roadmap-filter-bar {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.fa-roadmap-kanban {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fa-roadmap-col {
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius);
+    padding: 1.25rem;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.fa-roadmap-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.75rem;
+    border-bottom: var(--fa-border-width) solid var(--fa-border);
+}
+
+.fa-roadmap-col-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.fa-roadmap-col-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+}
+
+/* ============================= FaGlossaryTemplate ============================= */
+
+.fa-glossary-template {
+    max-width: 68rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.fa-glossary-header {
+    margin-bottom: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.fa-glossary-title {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    margin: 0;
+}
+
+.fa-glossary-desc {
+    color: var(--fa-text-muted);
+    font-size: 1.1rem;
+    margin: 0;
+    max-width: 55ch;
+}
+
+.fa-glossary-search {
+    width: 100%;
+    max-width: 32rem;
+    margin-top: 0.5rem;
+}
+
+.fa-glossary-alphabet-nav {
+    position: sticky;
+    top: 1rem;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.75rem 1rem;
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius);
+    margin-bottom: 2.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.fa-glossary-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* ============================= FaBlogIndexTemplate ============================= */
+
+.fa-blog-index-template {
+    max-width: 76rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.fa-blog-index-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.fa-blog-index-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.fa-blog-index-title {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    margin: 0 0 0.5rem;
+}
+
+.fa-blog-index-desc {
+    color: var(--fa-text-muted);
+    font-size: 1.1rem;
+    margin: 0;
+    max-width: 60ch;
+}
+
+.fa-blog-index-header-action {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.fa-blog-index-categories {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.fa-blog-index-featured {
+    margin-bottom: 1rem;
+}
+
+.fa-blog-index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.fa-blog-index-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+/* ============================= FaBlogPostTemplate ============================= */
+
+.fa-blog-post-template {
+    max-width: 52rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.fa-blog-post-back {
+    margin-bottom: -1rem;
+}
+
+.fa-blog-post-back-link {
+    color: var(--fa-text-muted);
+    font-size: 0.9rem;
+    text-decoration: none;
+    
+    &:hover {
+        color: var(--fa-primary-dark);
+    }
+}
+
+.fa-blog-post-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.fa-blog-post-category {
+    display: inline-flex;
+}
+
+.fa-blog-post-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.fa-blog-post-subtitle {
+    font-size: 1.25rem;
+    color: var(--fa-text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.fa-blog-post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+    border-top: var(--fa-border-width) solid var(--fa-border);
+}
+
+.fa-blog-post-dates {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--fa-text-muted);
+}
+
+.fa-blog-post-cover {
+    margin: 0;
+    border-radius: var(--fa-radius-lg);
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+.fa-blog-post-content {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.fa-blog-post-share {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-top: var(--fa-border-width) solid var(--fa-border);
+    border-bottom: var(--fa-border-width) solid var(--fa-border);
+}
+
+.fa-blog-post-author-bio {
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius);
+    padding: 1.5rem;
+}
+
+.fa-blog-post-related {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.fa-blog-post-related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+/* ============================= FaBillingTemplate ============================= */
+
+.fa-billing-template {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0.5rem 0;
+}
+
+.fa-billing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.fa-billing-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin: 0 0 0.4rem;
+}
+
+.fa-billing-desc {
+    color: var(--fa-text-muted);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.fa-billing-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.fa-billing-section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.fa-billing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+/* ============================= FaActivityFeedTemplate ============================= */
+
+.fa-activity-feed-template {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.5rem 0;
+}
+
+.fa-activity-feed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.fa-activity-feed-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin: 0 0 0.4rem;
+}
+
+.fa-activity-feed-desc {
+    color: var(--fa-text-muted);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.fa-activity-feed-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.fa-activity-feed-filters {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem;
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius);
+}
+
+.fa-activity-feed-stream {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.fa-activity-feed-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* ============================= FaStatusTemplate ============================= */
+
+.fa-status-template {
+    max-width: 68rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.fa-status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.fa-status-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    margin: 0 0 0.35rem;
+}
+
+.fa-status-last-updated {
+    color: var(--fa-text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.fa-status-banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.75rem;
+    border-radius: var(--fa-radius-lg);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.fa-status-banner-success {
+    background: rgba(34, 197, 94, 0.12);
+    color: #15803d;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.fa-status-banner-danger {
+    background: rgba(239, 68, 68, 0.12);
+    color: #b91c1c;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.fa-status-banner-primary {
+    background: rgba(59, 130, 246, 0.12);
+    color: #1d4ed8;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.fa-status-banner-neutral {
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    color: var(--fa-text);
+}
+
+.fa-status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+}
+
+.fa-status-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.fa-status-section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* ============================= FaOnboardingTemplate ============================= */
+
+.fa-onboarding-template {
+    max-width: 44rem;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.fa-onboarding-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.fa-onboarding-brand-title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    margin: 0;
+}
+
+.fa-onboarding-brand-desc {
+    color: var(--fa-text-muted);
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+.fa-onboarding-indicator {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.fa-onboarding-step-counter {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--fa-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+}
+
+.fa-onboarding-card {
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius-lg);
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.fa-onboarding-step-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    border-bottom: var(--fa-border-width) solid var(--fa-border);
+    padding-bottom: 1.25rem;
+}
+
+.fa-onboarding-step-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.fa-onboarding-step-desc {
+    color: var(--fa-text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.fa-onboarding-step-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.fa-onboarding-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-top: var(--fa-border-width) solid var(--fa-border);
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.fa-onboarding-nav-left {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.fa-onboarding-nav-right {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+/* ============================= FaCalendarTemplate ============================= */
+
+.fa-calendar-template {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.5rem 0;
+}
+
+.fa-calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.fa-calendar-title-group {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.fa-calendar-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.fa-calendar-range-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--fa-text-muted);
+}
+
+.fa-calendar-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.fa-calendar-filters {
+    padding: 0.75rem 1rem;
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius);
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.fa-calendar-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 1.5rem;
+    align-items: start;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fa-calendar-main {
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+}
+
+.fa-calendar-aside {
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* ============================= FaFileManagerTemplate ============================= */
+
+.fa-file-manager-template {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.5rem 0;
+}
+
+.fa-file-manager-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.fa-file-manager-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.fa-file-manager-title-group {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.fa-file-manager-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.fa-file-manager-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.fa-file-manager-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius);
+}
+
+.fa-file-manager-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 1.5rem;
+    align-items: start;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fa-file-manager-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.fa-file-manager-inspector {
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+
