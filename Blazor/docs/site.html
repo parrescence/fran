@@ -1388,11 +1388,15 @@ builder.Services.AddScoped&lt;FaToastService&gt;();</code></pre></div>
     <!-- ============================= FaFile ============================= -->
     <section class="component" id="fa-file">
       <span class="kicker">Form fields</span>
-      <h2>FaFile</h2>
-      <p class="dek">File picker. Set <code>AsButton</code> to show a styled button instead of the browser's default file-input chrome.</p>
+      <h2>FaFile &amp; FaFileDropZone</h2>
+      <p class="dek">File picker and drag-and-drop file upload target. Set <code>DropZone="true"</code> (or use <code>&lt;FaFileDropZone&gt;</code>) for an authentic drag-and-drop upload zone, or <code>AsButton="true"</code> for a styled button.</p>
 
       <h3>Usage</h3>
-      <div class="code-block"><button class="copy-btn" data-copy>Copy</button><pre><code>&lt;FaFile AsButton="true" ButtonLabel="Upload receipt" OnChange="HandleFileSelectedAsync" /&gt;
+      <div class="code-block"><button class="copy-btn" data-copy>Copy</button><pre><code>&lt;!-- 1. Drag &amp; Drop Target --&gt;
+&lt;FaFileDropZone Multiple="true" Accept=".pdf,.png,.jpg" Prompt="Drag &amp; drop files here, or browse" Hint="Max 10MB" OnChange="HandleFileSelectedAsync" /&gt;
+
+&lt;!-- 2. Styled Button --&gt;
+&lt;FaFile AsButton="true" ButtonLabel="Upload receipt" OnChange="HandleFileSelectedAsync" /&gt;
 
 @code {
     private async Task HandleFileSelectedAsync(InputFileChangeEventArgs e)
@@ -1403,16 +1407,22 @@ builder.Services.AddScoped&lt;FaToastService&gt;();</code></pre></div>
     }
 }</code></pre></div>
 
-      <p class="getting-value"><strong>Getting the value:</strong> no bound Value — <code>OnChange</code> hands you the raw <code>InputFileChangeEventArgs</code>, same as Blazor's own <code>InputFile.OnChange</code>.</p>
+      <p class="getting-value"><strong>Getting the value:</strong> no bound Value — <code>OnChange</code> hands you the raw <code>InputFileChangeEventArgs</code>, same as Blazor's own <code>InputFile.OnChange</code>. <code>&lt;FaFileDropZone&gt;</code> also exposes a <code>Files</code> list and <code>ClearFiles()</code> method.</p>
 
       <h4>Parameters</h4>
       <div class="table-wrap">
         <table class="params">
           <tr><th>Parameter</th><th>Type</th><th>Notes</th></tr>
-          <tr><td><code>OnChange</code></td><td><code>EventCallback&lt;InputFileChangeEventArgs&gt;</code></td><td></td></tr>
-          <tr><td><code>AsButton</code></td><td><code>bool</code></td><td></td></tr>
-          <tr><td><code>ButtonLabel</code></td><td><code>string</code></td><td>default "Choose file"</td></tr>
-          <tr><td><code>Multiple</code></td><td><code>bool</code></td><td></td></tr>
+          <tr><td><code>OnChange</code></td><td><code>EventCallback&lt;InputFileChangeEventArgs&gt;</code></td><td>Fired when files are dropped or chosen</td></tr>
+          <tr><td><code>DropZone</code></td><td><code>bool</code></td><td>Renders drag-and-drop dropzone (default false)</td></tr>
+          <tr><td><code>Prompt</code></td><td><code>string</code></td><td>Dropzone headline ("Drag &amp; drop files here, or browse")</td></tr>
+          <tr><td><code>Hint</code></td><td><code>string?</code></td><td>Optional dropzone subtext</td></tr>
+          <tr><td><code>ButtonText</code> / <code>ButtonLabel</code></td><td><code>string</code></td><td>Action button text</td></tr>
+          <tr><td><code>Accept</code></td><td><code>string?</code></td><td>Allowed file extensions or MIME types</td></tr>
+          <tr><td><code>Multiple</code></td><td><code>bool</code></td><td>Allows multi-file selection/drop</td></tr>
+          <tr><td><code>ShowFileList</code></td><td><code>bool</code></td><td>Shows selected files list with remove buttons (default true)</td></tr>
+          <tr><td><code>Disabled</code></td><td><code>bool</code></td><td>Disables interactions</td></tr>
+          <tr><td><code>AsButton</code></td><td><code>bool</code></td><td>Styled button instead of default chrome</td></tr>
           <tr><td><code>CssClass</code></td><td><code>string?</code></td><td></td></tr>
         </table>
       </div>
@@ -1831,17 +1841,17 @@ builder.Services.AddFaValidator&lt;ProductModel, ProductModelValidator&gt;();</c
     <section class="component" id="fa-tabs">
       <span class="kicker">Navigation &amp; structure</span>
       <h2>FaTabs&lt;TValue&gt;</h2>
-      <p class="dek">Tab strip over a (Title, Value) list, same tuple shape as FaToggle/FaRadioGroup, rendered as a proper role="tablist"/role="tab" strip with an underline active-indicator. Only renders the strip — which panel shows is your own <code>@@if</code> on whichever value you bind.</p>
+      <p class="dek">Tab strip and section over a (Title, Value) list. Supports multiple presentation styles via <code>FaTabStyle</code>: <strong>Underline</strong> (default), <strong>Folder</strong> (file folder tabs with seamless panel connection), <strong>Slide</strong> (separated capsules where the active choice slides to the left and is placed first), and <strong>Wheel</strong> (scrollable cylindrical thumbwheel switch with stepper buttons and edge fades). Can render solely the tab strip or an attached panel via <code>ChildContent</code>.</p>
 
       <h3>Usage</h3>
-      <div class="code-block"><button class="copy-btn" data-copy>Copy</button><pre><code>&lt;FaTabs TValue="string" Options="_tabs" @@bind-Value="_activeTab" /&gt;
+      <div class="code-block"><button class="copy-btn" data-copy>Copy</button><pre><code>&lt;FaTabs TValue="string" Style="FaTabStyle.Folder" Options="_tabs" @@bind-Value="_activeTab"&gt;
+    @@if (_activeTab == "details")
+    {
+        &lt;p&gt;Order details go here.&lt;/p&gt;
+    }
+&lt;/FaTabs&gt;</code></pre></div>
 
-@@if (_activeTab == "details")
-{
-    &lt;p&gt;Order details go here.&lt;/p&gt;
-}</code></pre></div>
-
-      <p class="getting-value"><strong>Getting the value:</strong> <code>@@bind-Value</code> keeps your field in sync as tabs are clicked or navigated with the arrow keys (Home/End jump to the first/last tab).</p>
+      <p class="getting-value"><strong>Getting the value:</strong> <code>@@bind-Value</code> keeps your field in sync as tabs are clicked, scrolled (via mousewheel in thumbwheel mode), or navigated with the arrow keys (Home/End jump to the first/last tab).</p>
     </section>
 
     <!-- ============================= FaAccordion ============================= -->
@@ -2387,7 +2397,7 @@ builder.Services.AddScoped&lt;FaToastService&gt;();</code></pre></div>
       </div>
 
       <h4>Available FaIconName values</h4>
-      <p>Home, Plus, Ledger, PiggyBank, Dashboard, People, Sun, Moon, Eye, ChevronLeft, ChevronRight, Tag, Person, Receipt, Calendar</p>
+      <p>Home, Plus, Ledger, PiggyBank, Dashboard, People, Sun, Moon, Eye, ChevronLeft, ChevronRight, Tag, Person, Receipt, Calendar, Edit, Save, Delete, Cancel, Confirm, Search, Filter, Sort, Download, Upload, Copy, Print, Refresh, Settings, Menu, MoreHorizontal, MoreVertical, Warning, Info, Success, Error, EyeOff, Star, Bell, Lock, Unlock, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, ChevronUp, ChevronDown, Undo, Redo, Login, Logout, Share, ExternalLink, Document, DocumentSearch, Stopwatch, Trophy, Bolt</p>
     </section>
 
     <footer class="page-end">
