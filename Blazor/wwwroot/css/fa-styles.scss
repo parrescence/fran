@@ -17,6 +17,7 @@
 // each component, then cross-cutting utilities and the responsive overrides last.
 
 @use "scss/palettes";
+@use "scss/font-styles";
 @use "scss/base";
 @use "scss/layout";
 @use "scss/buttons";
@@ -40,6 +41,8 @@
 @use "scss/badges";
 @use "scss/alerts";
 @use "scss/avatar";
+@use "scss/avatar-form";
+@use "scss/account-form";
 @use "scss/icons";
 @use "scss/dashboard";
 @use "scss/blazor-chrome";

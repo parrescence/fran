@@ -32,6 +32,35 @@ public sealed class FaHeader : ComponentBase
     [Parameter] public EventCallback OnLogin { get; set; }
     [Parameter] public EventCallback OnLogout { get; set; }
 
+    /// <summary>
+    /// When true, renders <see cref="FaAvatarForm"/> in the header user area instead
+    /// of the inline theme switcher, username text, and standalone login/logout button.
+    /// Default is false for backward compatibility.
+    /// </summary>
+    [Parameter] public bool UseAvatarForm { get; set; }
+
+    /// <summary>
+    /// When <see cref="UseAvatarForm"/> is true, controls whether the user's name is
+    /// shown next to the avatar in the header bar. Defaults to false (only the avatar
+    /// is shown in the topbar).
+    /// </summary>
+    [Parameter] public bool ShowUserNameInHeader { get; set; }
+
+    /// <summary>Optional user email or subtitle shown in the opened avatar form.</summary>
+    [Parameter] public string? UserEmail { get; set; }
+
+    /// <summary>Optional URL navigating to the user's account settings/profile form.</summary>
+    [Parameter] public string? AccountHref { get; set; }
+
+    /// <summary>Optional callback invoked when the user clicks the account settings action.</summary>
+    [Parameter] public EventCallback OnAccountClick { get; set; }
+
+    /// <summary>Label for the account link/button. Defaults to "Account settings".</summary>
+    [Parameter] public string AccountText { get; set; } = "Account settings";
+
+    /// <summary>Optional application-specific content rendered inside the opened avatar form.</summary>
+    [Parameter] public RenderFragment? UserMenuContent { get; set; }
+
     /// <summary>Whether the header scrolls away with the page (default) or stays pinned to the top.</summary>
     [Parameter] public FaNavPosition Position { get; set; } = FaNavPosition.Standard;
 
@@ -102,36 +131,55 @@ public sealed class FaHeader : ComponentBase
         builder.OpenElement(6, "div");
         builder.AddAttribute(7, "class", "fa-header-user");
 
-        builder.OpenComponent<FaThemeSwitcher>(8);
-        builder.CloseComponent();
-
-        if (IsAuthenticated)
+        if (UseAvatarForm)
         {
-            builder.OpenComponent<FaAvatar>(9);
-            builder.AddComponentParameter(10, nameof(FaAvatar.DisplayName), UserDisplayName);
-            builder.AddComponentParameter(11, nameof(FaAvatar.ImageUrl), UserImageUrl);
-            builder.CloseComponent();
-
-            builder.OpenElement(12, "span");
-            builder.AddAttribute(13, "class", "fa-header-username");
-            builder.AddContent(14, UserDisplayName);
-            builder.CloseElement();
-
-            builder.OpenComponent<FaButton>(15);
-            builder.AddComponentParameter(16, nameof(FaButton.Variant), FaButtonVariant.Secondary);
-            builder.AddComponentParameter(17, nameof(FaButton.Size), FaSize.Small);
-            builder.AddComponentParameter(18, nameof(FaButton.OnClick), EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, () => OnLogout.InvokeAsync()));
-            builder.AddComponentParameter(19, nameof(FaButton.ChildContent), (RenderFragment)(b => b.AddContent(0, "Log out")));
+            builder.OpenComponent<FaAvatarForm>(8);
+            builder.AddComponentParameter(9, nameof(FaAvatarForm.IsAuthenticated), IsAuthenticated);
+            builder.AddComponentParameter(10, nameof(FaAvatarForm.DisplayName), UserDisplayName);
+            builder.AddComponentParameter(11, nameof(FaAvatarForm.ImageUrl), UserImageUrl);
+            builder.AddComponentParameter(12, nameof(FaAvatarForm.Email), UserEmail);
+            builder.AddComponentParameter(13, nameof(FaAvatarForm.ShowDisplayName), ShowUserNameInHeader);
+            builder.AddComponentParameter(14, nameof(FaAvatarForm.AccountHref), AccountHref);
+            builder.AddComponentParameter(15, nameof(FaAvatarForm.OnAccountClick), OnAccountClick);
+            builder.AddComponentParameter(16, nameof(FaAvatarForm.AccountText), AccountText);
+            builder.AddComponentParameter(17, nameof(FaAvatarForm.OnLogin), OnLogin);
+            builder.AddComponentParameter(18, nameof(FaAvatarForm.OnLogout), OnLogout);
+            builder.AddComponentParameter(19, nameof(FaAvatarForm.ChildContent), UserMenuContent);
             builder.CloseComponent();
         }
         else
         {
-            builder.OpenComponent<FaButton>(20);
-            builder.AddComponentParameter(21, nameof(FaButton.Variant), FaButtonVariant.Secondary);
-            builder.AddComponentParameter(22, nameof(FaButton.Size), FaSize.Small);
-            builder.AddComponentParameter(23, nameof(FaButton.OnClick), EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, () => OnLogin.InvokeAsync()));
-            builder.AddComponentParameter(24, nameof(FaButton.ChildContent), (RenderFragment)(b => b.AddContent(0, "Log in")));
+            builder.OpenComponent<FaThemeSwitcher>(8);
             builder.CloseComponent();
+
+            if (IsAuthenticated)
+            {
+                builder.OpenComponent<FaAvatar>(9);
+                builder.AddComponentParameter(10, nameof(FaAvatar.DisplayName), UserDisplayName);
+                builder.AddComponentParameter(11, nameof(FaAvatar.ImageUrl), UserImageUrl);
+                builder.CloseComponent();
+
+                builder.OpenElement(12, "span");
+                builder.AddAttribute(13, "class", "fa-header-username");
+                builder.AddContent(14, UserDisplayName);
+                builder.CloseElement();
+
+                builder.OpenComponent<FaButton>(15);
+                builder.AddComponentParameter(16, nameof(FaButton.Variant), FaButtonVariant.Secondary);
+                builder.AddComponentParameter(17, nameof(FaButton.Size), FaSize.Small);
+                builder.AddComponentParameter(18, nameof(FaButton.OnClick), EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, () => OnLogout.InvokeAsync()));
+                builder.AddComponentParameter(19, nameof(FaButton.ChildContent), (RenderFragment)(b => b.AddContent(0, "Log out")));
+                builder.CloseComponent();
+            }
+            else
+            {
+                builder.OpenComponent<FaButton>(20);
+                builder.AddComponentParameter(21, nameof(FaButton.Variant), FaButtonVariant.Secondary);
+                builder.AddComponentParameter(22, nameof(FaButton.Size), FaSize.Small);
+                builder.AddComponentParameter(23, nameof(FaButton.OnClick), EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, () => OnLogin.InvokeAsync()));
+                builder.AddComponentParameter(24, nameof(FaButton.ChildContent), (RenderFragment)(b => b.AddContent(0, "Log in")));
+                builder.CloseComponent();
+            }
         }
 
         builder.CloseElement();
