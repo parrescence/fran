@@ -17,3 +17,172 @@
     text-align: right;
 }
 
+/* ----------------------------- Drag & Drop File Dropzone ----------------------------- */
+
+.fa-file-dropzone-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.fa-file-dropzone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2.25rem 1.5rem;
+    border: var(--fa-border-width) dashed var(--fa-border);
+    border-radius: var(--fa-radius-md);
+    background-color: var(--fa-surface);
+    color: var(--fa-text);
+    cursor: pointer;
+    transition: border-color var(--fa-transition-fast), background-color var(--fa-transition-fast), box-shadow var(--fa-transition-fast), transform var(--fa-transition-fast);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+    .fa-file-dropzone:hover:not(.fa-file-dropzone-disabled) {
+        border-color: var(--fa-primary-light);
+        background-color: var(--fa-cream);
+    }
+
+    .fa-file-dropzone.fa-file-dropzone-dragover:not(.fa-file-dropzone-disabled) {
+        border-color: var(--fa-primary);
+        border-style: solid;
+        background-color: var(--fa-cream);
+        box-shadow: var(--fa-border-glow);
+        transform: scale(1.008);
+    }
+
+        .fa-file-dropzone.fa-file-dropzone-dragover:not(.fa-file-dropzone-disabled) .fa-file-dropzone-icon {
+            transform: translateY(-2px) scale(1.1);
+            color: var(--fa-primary);
+        }
+
+    .fa-file-dropzone.fa-file-dropzone-disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+        border-style: dashed;
+        background-color: var(--fa-surface);
+    }
+
+.fa-file-dropzone-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+    .fa-file-dropzone-input:disabled {
+        cursor: not-allowed;
+    }
+
+.fa-file-dropzone-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.fa-file-dropzone-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--fa-radius-pill);
+    background-color: var(--fa-cream);
+    border: 1px solid var(--fa-border);
+    color: var(--fa-primary);
+    margin-bottom: 0.25rem;
+    transition: transform var(--fa-transition-fast), color var(--fa-transition-fast), background-color var(--fa-transition-fast);
+}
+
+.fa-file-dropzone-title {
+    font-family: var(--fa-font);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--fa-text);
+}
+
+.fa-file-dropzone-hint {
+    font-size: 0.82rem;
+    color: var(--fa-text-muted);
+}
+
+.fa-file-dropzone-btn {
+    margin-top: 0.25rem;
+    pointer-events: none;
+}
+
+/* --- Selected files list --- */
+
+.fa-file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+}
+
+.fa-file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--fa-border);
+    border-radius: var(--fa-radius-sm);
+    background-color: var(--fa-surface);
+    font-size: 0.88rem;
+    transition: border-color var(--fa-transition-fast), background-color var(--fa-transition-fast);
+}
+
+.fa-file-item-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+    flex: 1;
+}
+
+.fa-file-item-name {
+    font-weight: 600;
+    color: var(--fa-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fa-file-item-size {
+    color: var(--fa-text-muted);
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.fa-file-item-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    margin-left: 0.5rem;
+    color: var(--fa-text-muted);
+    cursor: pointer;
+    border-radius: var(--fa-radius-sm);
+    transition: color var(--fa-transition-fast), background-color var(--fa-transition-fast);
+}
+
+    .fa-file-item-remove:hover {
+        color: var(--fa-ember);
+        background-color: var(--fa-alert-danger-bg);
+    }

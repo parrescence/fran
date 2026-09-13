@@ -50,7 +50,7 @@ Two binding shapes show up repeatedly:
 - [FaDate](fa-date.md) — day/month/year fields + calendar popup
 - [FaDateRange](fa-date-range.md) — linked From/To date fields
 - [FaCurrency](fa-currency.md) — formatted amount field
-- [FaFile](fa-file.md) — file picker, optionally styled as a button
+- [FaFile](fa-file.md) — file picker, button style, or drag-and-drop dropzone
 
 ## Data display
 
@@ -86,7 +86,7 @@ Two binding shapes show up repeatedly:
 
 ## Navigation & structure
 
-- [FaTabs](fa-tabs.md) — role="tablist" tab strip over a (Title, Value) list, you render the panel
+- [FaTabs](fa-tabs.md) — tab strip and section: Underline, Folder, Slide, and Thumbwheel styles
 - [FaAccordion](fa-accordion.md) — stacked collapsible sections, smooth height animation, no JS
 - [FaBreadcrumb](fa-breadcrumb.md) — Home › Section › current page trail
 - [FaPagination](fa-pagination.md) — standalone windowed page-number strip

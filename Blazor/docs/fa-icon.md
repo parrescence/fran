@@ -38,4 +38,8 @@ Action suite — CRUD, editing, and general UI actions:
 `Lock`, `Unlock`, `ArrowUp`, `ArrowDown`, `ArrowLeft`, `ArrowRight`, `ChevronUp`,
 `ChevronDown`, `Undo`, `Redo`, `Login`, `Logout`, `Share`, `ExternalLink`
 
+Documents, files, and domain tools:
+
+`Document`, `DocumentSearch`, `Stopwatch`, `Trophy`, `Bolt`
+
 [← Back to index](index.md)
