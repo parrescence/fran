@@ -1,0 +1,217 @@
+/* ============================= Font Style Axis ============================= */
+/* A fifth independent axis stamped as data-fa-font-style on <html> alongside
+   palette, mode, input style, and UI style.
+   Provides 10 distinct typographic personalities:
+   - "flow" (default) — warm, approachable rounded look ('Baloo 2', ui-rounded)
+   - "dos" — retro PC MS-DOS matrix look (Fixedsys / Courier New, zero-radius, uppercase)
+   - "cli" — modern developer console (Cascadia Code / JetBrains Mono / Consolas)
+   - "elementary" — schoolbook / primary handwriting (Comic Sans / Chalkboard / Fredoka)
+   - "college" — varsity athletic collegiate slab serif (Rockwell / Clarendon / Impact)
+   - "flowing" — fluid cursive / calligraphic script display (Caveat / Brush Script / Segoe Script)
+   - "water" — aqueous fluid droplet curves (Comfortaa / Quicksand / Nunito)
+   - "rock" — brutalist heavy chiseled stone / heavy metal (Impact / Arial Black)
+   - "comical" — comic book / cartoon pop-art (Comic Sans / Bangers / Chalkboard)
+   - "contrasting" — musical octave contrast: dramatic Didone/serif display paired with crisp technical mono/sans
+*/
+
+:root {
+    --fa-font-heading: var(--fa-font);
+    --fa-font-mono: ui-monospace, 'Cascadia Code', Consolas, 'Liberation Mono', monospace;
+    --fa-font-accent: var(--fa-font);
+    --fa-heading-weight: 700;
+    --fa-heading-letter-spacing: normal;
+    --fa-heading-transform: none;
+}
+
+/* --- 1. Flow (Default) --- */
+:root[data-fa-font-style="flow"] {
+    --fa-font: 'Baloo 2', ui-rounded, 'Segoe UI Rounded', 'Nunito', system-ui, sans-serif;
+    --fa-font-heading: 'Baloo 2', ui-rounded, 'Segoe UI Rounded', 'Nunito', system-ui, sans-serif;
+    --fa-font-mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+    --fa-heading-weight: 800;
+    --fa-heading-letter-spacing: -0.01em;
+    --fa-heading-transform: none;
+}
+
+/* --- 2. DOS Style --- */
+:root[data-fa-font-style="dos"] {
+    --fa-font: 'Fixedsys', 'DOS VGA', 'Courier New', 'Lucida Console', monospace;
+    --fa-font-heading: 'Fixedsys', 'DOS VGA', 'Courier New', 'Lucida Console', monospace;
+    --fa-font-mono: 'Fixedsys', 'Courier New', monospace;
+    --fa-heading-weight: 700;
+    --fa-heading-letter-spacing: 0.05em;
+    --fa-heading-transform: uppercase;
+    --fa-radius-sm: 0px;
+    --fa-radius-md: 0px;
+    --fa-radius-lg: 0px;
+    --fa-radius-pill: 0px;
+}
+
+:root[data-fa-font-style="dos"] .fa-btn,
+:root[data-fa-font-style="dos"] .fa-badge,
+:root[data-fa-font-style="dos"] .fa-chip,
+:root[data-fa-font-style="dos"] .fa-card,
+:root[data-fa-font-style="dos"] .fa-input,
+:root[data-fa-font-style="dos"] .fa-select {
+    border-radius: 0 !important;
+}
+
+/* --- 3. CLI Style --- */
+:root[data-fa-font-style="cli"] {
+    --fa-font: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'Consolas', 'Menlo', monospace;
+    --fa-font-heading: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+    --fa-font-mono: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', monospace;
+    --fa-heading-weight: 700;
+    --fa-heading-letter-spacing: -0.02em;
+    --fa-heading-transform: none;
+    --fa-radius-sm: 2px;
+    --fa-radius-md: 4px;
+    --fa-radius-lg: 6px;
+}
+
+/* --- 4. Elementary School Style --- */
+:root[data-fa-font-style="elementary"] {
+    --fa-font: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', 'Short Stack', 'Fredoka', cursive, sans-serif;
+    --fa-font-heading: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', 'Fredoka', cursive, sans-serif;
+    --fa-heading-weight: 700;
+    --fa-heading-letter-spacing: 0.02em;
+    --fa-heading-transform: none;
+    --fa-radius-sm: 10px;
+    --fa-radius-md: 18px;
+    --fa-radius-lg: 26px;
+}
+
+/* --- 5. College Style --- */
+:root[data-fa-font-style="college"] {
+    --fa-font: 'Rockwell', 'Clarendon', 'Century Schoolbook', 'Georgia', serif;
+    --fa-font-heading: 'Impact', 'Rockwell Extra Bold', 'Clarendon', 'College', serif;
+    --fa-heading-weight: 800;
+    --fa-heading-letter-spacing: 0.06em;
+    --fa-heading-transform: uppercase;
+    --fa-radius-sm: 2px;
+    --fa-radius-md: 4px;
+    --fa-radius-lg: 8px;
+}
+
+/* --- 6. Flowing Style --- */
+:root[data-fa-font-style="flowing"] {
+    --fa-font: 'Segoe UI', -apple-system, system-ui, sans-serif;
+    --fa-font-heading: 'Caveat', 'Brush Script MT', 'Segoe Script', 'Dancing Script', cursive;
+    --fa-font-accent: 'Caveat', 'Segoe Script', cursive;
+    --fa-heading-weight: 600;
+    --fa-heading-letter-spacing: 0.02em;
+    --fa-heading-transform: none;
+}
+
+/* --- 7. Water Style --- */
+:root[data-fa-font-style="water"] {
+    --fa-font: 'Comfortaa', 'Quicksand', 'Segoe UI Rounded', 'Nunito', system-ui, sans-serif;
+    --fa-font-heading: 'Comfortaa', 'Quicksand', 'Nunito', sans-serif;
+    --fa-heading-weight: 700;
+    --fa-heading-letter-spacing: 0.03em;
+    --fa-heading-transform: none;
+    --fa-radius-sm: 14px;
+    --fa-radius-md: 22px;
+    --fa-radius-lg: 32px;
+}
+
+/* --- 8. Rock Style --- */
+:root[data-fa-font-style="rock"] {
+    --fa-font: 'Trebuchet MS', 'Arial Black', -apple-system, sans-serif;
+    --fa-font-heading: 'Impact', 'Haettenschweiler', 'Arial Black', 'Franklin Gothic Heavy', sans-serif;
+    --fa-heading-weight: 900;
+    --fa-heading-letter-spacing: 0.03em;
+    --fa-heading-transform: uppercase;
+    --fa-radius-sm: 1px;
+    --fa-radius-md: 2px;
+    --fa-radius-lg: 4px;
+}
+
+/* --- 9. Comical Style --- */
+:root[data-fa-font-style="comical"] {
+    --fa-font: 'Comic Sans MS', 'Chalkboard', 'Comic Relief', cursive, sans-serif;
+    --fa-font-heading: 'Bangers', 'Impact', 'Comic Sans MS', 'Chalkboard SE', cursive, fantasy, sans-serif;
+    --fa-heading-weight: 800;
+    --fa-heading-letter-spacing: 0.04em;
+    --fa-heading-transform: uppercase;
+}
+
+/* --- 10. Contrasting Styles (Harmonic Octave Register) --- */
+:root[data-fa-font-style="contrasting"] {
+    --fa-font: 'Segoe UI', -apple-system, 'Inter', system-ui, sans-serif;
+    --fa-font-heading: 'Playfair Display', 'Didot', 'Bodoni MT', 'Cinzel', 'Georgia', serif;
+    --fa-font-mono: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+    --fa-font-accent: 'Playfair Display', 'Georgia', serif;
+    --fa-heading-weight: 800;
+    --fa-heading-letter-spacing: -0.02em;
+    --fa-heading-transform: none;
+}
+
+:root[data-fa-font-style="contrasting"] .fa-badge,
+:root[data-fa-font-style="contrasting"] .fa-chip {
+    font-family: var(--fa-font-mono);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ============================= FaFontStyleSwitcher UI ============================= */
+
+.fa-font-style-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.fa-font-style-btn {
+    appearance: none;
+    border: var(--fa-border-width) solid var(--fa-border);
+    background: var(--fa-surface);
+    color: var(--fa-text);
+    font-family: var(--fa-font);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.65rem;
+    border-radius: var(--fa-radius-sm);
+    cursor: pointer;
+    transition: background var(--fa-transition-fast), border-color var(--fa-transition-fast), color var(--fa-transition-fast);
+}
+
+.fa-font-style-btn:hover {
+    background: var(--fa-primary-light);
+    color: var(--fa-text-on-primary);
+    border-color: var(--fa-primary);
+}
+
+.fa-font-style-btn.fa-font-style-btn-active {
+    background: var(--fa-primary);
+    color: var(--fa-text-on-primary);
+    border-color: var(--fa-primary-dark);
+}
+
+.fa-font-style-btn:focus-visible {
+    outline: 2px solid var(--fa-border-focus);
+    outline-offset: 2px;
+}
+
+.fa-font-style-select {
+    appearance: none;
+    background: var(--fa-surface);
+    color: var(--fa-text);
+    font-family: var(--fa-font);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.4rem 2rem 0.4rem 0.75rem;
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius-sm);
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.6rem center;
+    background-size: 12px;
+}
+
+.fa-font-style-select:focus-visible {
+    outline: 2px solid var(--fa-border-focus);
+    outline-offset: 2px;
+}

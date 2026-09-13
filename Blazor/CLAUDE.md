@@ -68,7 +68,7 @@ a zero-risk, no-version-bump move:
   `InputBase<TValue>` field up through a whole `<EditForm>`-wrapping composite:
   `FaInput`, `FaSelect`, `FaSearchSelect`, `FaDropdown`, `FaTextarea`, `FaCheckbox`,
   `FaRadioGroup`, `FaToggle`, `FaDate`, `FaDateRange`, `FaCurrency`, `FaFile`,
-  `FaForm`, `FaLoginForm`, `FaLogoutForm`.
+  `FaForm`, `FaLoginForm`, `FaLogoutForm`, `FaAvatarForm`, `FaAccountForm`.
 - **`Components/Feedback/`** — communicates state rather than taking input:
   `FaAlert`, `FaModal`, `FaProgress`, `FaSpinner`, `FaLoadingDots`, `FaHelixLoader`,
   `FaPongLoader`, `FaTooltip`, `FaPopover`, `FaToastHost`, `FaSkeleton`.
@@ -88,10 +88,20 @@ section.
 its own `namespace Fran.Templates` — not folded into `Fran.Layout` even though every
 template wraps `FaStandardShell`/`FaSidebarShell`, because the two are a different
 kind of thing for a consumer to reach for: `Layout/` is the shell primitives
-themselves (header/sidebar/footer, the two shells), `Templates/` is a handful of
+themselves (header/sidebar/footer, the two shells), `Templates/` is a suite of
 full-page compositions built on top of them (`FaDashboardTemplate`,
-`FaFormTemplate`, `FaHomeTemplate`, `FaAuthTemplate`) — a page-header row, a
-centered form card, a hero band, a chrome-free auth card, respectively. Every
+`FaFormTemplate`, `FaHomeTemplate`, `FaAuthTemplate`, `FaPricingTemplate`, `FaContactTemplate`,
+`FaFaqTemplate`, `FaNotFoundTemplate`, `FaSettingsTemplate`, `FaListViewTemplate`,
+`FaDetailViewTemplate`, `FaAboutTemplate`, `FaDocsTemplate`, `FaChangelogTemplate`,
+`FaLegalTemplate`, `FaThankYouTemplate`, `FaComingSoonTemplate`, `FaTutorialTemplate`,
+`FaKnowledgeBaseTemplate`, `FaRoadmapTemplate`, `FaGlossaryTemplate`, `FaBlogIndexTemplate`,
+`FaBlogPostTemplate`, `FaBillingTemplate`, `FaActivityFeedTemplate`, `FaStatusTemplate`,
+`FaOnboardingTemplate`, `FaCalendarTemplate`, `FaFileManagerTemplate`) — page-header rows, forms,
+heroes, auth/error cards, pricing grids, contact forms, FAQs, settings panels, list/data views,
+detail/profile views, company about pages, API docs, changelog streams, legal agreements,
+thank-you confirmations, coming-soon splash cards, tutorials, help centers, roadmaps, glossaries,
+blog indices and posts, billing management, activity feeds, system status, onboarding wizards,
+calendars, and file managers. Every
 shell-level parameter a template exposes (brand/auth props, `Sidebar`,
 `FooterContent`, and each bar's own `FaNavPosition`) is a straight pass-through
 using the shell's own parameter names, so switching between the raw shell and a
@@ -111,11 +121,11 @@ more folders instead:
 - **`Enums/`** — `FaButtonVariant`, `FaBadgeVariant`, `FaAlertVariant`,
   `FaTogglePosition`, `FaTabStyle`, `FaIconColor`, `FaIconName`, `FaSkeletonVariant`,
   `FaTooltipPosition` (shared by `FaTooltip` and `FaPopover`), `FaToastPosition`,
-  `FaAlign`, `FaCodeLanguage`, `FaFormMode`, `FaLoaderVariant`, `FaModalPosition`,
+  `FaAlign`, `FaCodeLanguage`, `FaFontStyle`, `FaFormMode`, `FaLoaderVariant`, `FaModalPosition`,
   `FaModalSize`, `FaNavPosition`, `FaProgressDirection`, `FaSize` (shared
   XSmall–XLarge scale — see `docs/sizing.md` for which components take it).
 - **`Models/`** — `FaDateRangeValue`, `FaGridColumn<TItem>`, `FaGridRequest`,
-  `FaGridResult<TItem>`, `FaToastMessage`, `FaLoginRequest`, `FaPalette`,
+  `FaGridResult<TItem>`, `FaToastMessage`, `FaLoginRequest`, `FaAccountModel`, `FaPalette`,
   `FaPaletteColors`, `FaPaletteDarkOverrides` (DTOs/records passed to or bound by a
   specific component).
 

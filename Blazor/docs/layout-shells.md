@@ -214,5 +214,11 @@ works) — nothing to wire up for it.
 | `SidebarPosition` | `FaNavPosition` | **`FaSidebarShell` only** — `Standard` (default) \| `Sticky` \| `Floating` |
 | `SidebarCollapsible` | `bool` | **`FaSidebarShell` only** — icon-only collapse toggle, defaults to `false` |
 | `ContainScroll` | `bool` | pins header/sidebar/footer to the viewport, only `<main>` scrolls internally, defaults to `false` |
+| `UseAvatarForm` | `bool` | when `true`, renders `FaAvatarForm` in place of inline theme switcher and logout button, defaults to `false` |
+| `ShowUserNameInHeader` | `bool` | when `UseAvatarForm` is true, controls whether the user's name is shown in the topbar trigger (default `false`) |
+| `UserEmail` | `string?` | optional email/subtitle in the opened avatar form panel |
+| `AccountHref` | `string?` | optional URL navigating to user account form |
+| `OnAccountClick` | `EventCallback` | callback when account settings is clicked |
+| `UserMenuContent` | `RenderFragment?` | custom application items inside opened avatar form |
 
 [← Back to index](index.md)
