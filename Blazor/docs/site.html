@@ -442,6 +442,8 @@
         <li><a href="#fa-form">FaForm</a></li>
         <li><a href="#fa-login-form">FaLoginForm</a></li>
         <li><a href="#fa-logout-form">FaLogoutForm</a></li>
+        <li><a href="#fa-avatar-form">FaAvatarForm</a></li>
+        <li><a href="#fa-account-form">FaAccountForm</a></li>
       </ul>
     </div>
     <div class="nav-group">
@@ -1780,6 +1782,72 @@ builder.Services.AddScoped&lt;FaToastService&gt;();</code></pre></div>
           <tr><td><code>Busy</code></td><td><code>bool</code></td><td>disables Confirm, "Logging out…" text</td></tr>
           <tr><td><code>ButtonAlign</code></td><td><code>FaAlign</code></td><td>Start · Center · End (default) · Between · Around · Evenly</td></tr>
           <tr><td><code>CssClass</code></td><td><code>string?</code></td><td></td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================= FaAvatarForm ============================= -->
+    <section class="component" id="fa-avatar-form">
+      <span class="kicker">Self-contained forms</span>
+      <h2>FaAvatarForm</h2>
+      <p class="dek">An avatar-triggered profile and session menu for app headers and topbars. Resting state shows the avatar (and optional username); clicking opens a contextual panel with user identity, theme switcher, account navigation, app-specific items, and login/logout.</p>
+
+      <h3>Usage</h3>
+      <div class="code-block"><button class="copy-btn" data-copy>Copy</button><pre><code>&lt;FaAvatarForm IsAuthenticated="true"
+              DisplayName="Jane Doe"
+              Email="jane@example.com"
+              ShowDisplayName="false"
+              AccountHref="/account"
+              OnLogout="HandleLogout"&gt;
+    &lt;a class="fa-avatar-form-item" href="/settings"&gt;App Settings&lt;/a&gt;
+&lt;/FaAvatarForm&gt;</code></pre></div>
+
+      <p class="getting-value"><strong>Getting the value:</strong> click events fire through <code>OnLogin</code>, <code>OnLogout</code>, and <code>OnAccountClick</code>. Can be embedded directly into <code>FaHeader</code> or shells via <code>UseAvatarForm="true"</code>.</p>
+
+      <h4>Parameters</h4>
+      <div class="table-wrap">
+        <table class="params">
+          <tr><th>Parameter</th><th>Type</th><th>Notes</th></tr>
+          <tr><td><code>IsAuthenticated</code></td><td><code>bool</code></td><td>default false</td></tr>
+          <tr><td><code>DisplayName</code></td><td><code>string?</code></td><td>user display name</td></tr>
+          <tr><td><code>ImageUrl</code></td><td><code>string?</code></td><td>photo URL</td></tr>
+          <tr><td><code>Email</code></td><td><code>string?</code></td><td>email or role text in identity header</td></tr>
+          <tr><td><code>ShowDisplayName</code></td><td><code>bool</code></td><td>default false — shows name next to avatar in topbar when true</td></tr>
+          <tr><td><code>ShowThemeSwitcher</code></td><td><code>bool</code></td><td>default true — includes Light/Dark/Colorblind switcher</td></tr>
+          <tr><td><code>AccountHref</code></td><td><code>string?</code></td><td>navigates to user account form</td></tr>
+          <tr><td><code>OnAccountClick</code></td><td><code>EventCallback</code></td><td>invoked when account action is clicked</td></tr>
+          <tr><td><code>OnLogin</code></td><td><code>EventCallback</code></td><td>fires when Log in is clicked</td></tr>
+          <tr><td><code>OnLogout</code></td><td><code>EventCallback</code></td><td>fires when Log out is clicked</td></tr>
+          <tr><td><code>ChildContent</code></td><td><code>RenderFragment?</code></td><td>application-specific custom items or links</td></tr>
+          <tr><td><code>MenuAlign</code></td><td><code>FaAlign</code></td><td>End (default) · Start</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================= FaAccountForm ============================= -->
+    <section class="component" id="fa-account-form">
+      <span class="kicker">Self-contained forms</span>
+      <h2>FaAccountForm</h2>
+      <p class="dek">A ready-made account profile form allowing users to update their profile picture, display name, email, and bio, with a live avatar preview.</p>
+
+      <h3>Usage</h3>
+      <div class="code-block"><button class="copy-btn" data-copy>Copy</button><pre><code>&lt;FaAccountForm Model="_accountModel" OnSubmit="SaveAccountAsync" OnCancel="Dismiss" /&gt;</code></pre></div>
+
+      <p class="getting-value"><strong>Getting the value:</strong> OnSubmit receives the populated <code>FaAccountModel</code> with updated <code>DisplayName</code>, <code>ImageUrl</code>, <code>Email</code>, <code>Bio</code>, and <code>PhoneNumber</code>.</p>
+
+      <h4>Parameters</h4>
+      <div class="table-wrap">
+        <table class="params">
+          <tr><th>Parameter</th><th>Type</th><th>Notes</th></tr>
+          <tr><td><code>Model</code></td><td><code>FaAccountModel?</code></td><td>pre-populated account model</td></tr>
+          <tr><td><code>OnSubmit</code></td><td><code>EventCallback&lt;FaAccountModel&gt;</code></td><td class="req">required</td></tr>
+          <tr><td><code>OnCancel</code></td><td><code>EventCallback</code></td><td>invoked when Cancel is clicked</td></tr>
+          <tr><td><code>Title</code></td><td><code>string</code></td><td>default "Account settings"</td></tr>
+          <tr><td><code>SubmitText</code></td><td><code>string</code></td><td>default "Save changes"</td></tr>
+          <tr><td><code>Busy</code></td><td><code>bool</code></td><td>disables submit, shows loading indicator</td></tr>
+          <tr><td><code>SuccessText</code></td><td><code>string?</code></td><td>success alert message</td></tr>
+          <tr><td><code>ErrorText</code></td><td><code>string?</code></td><td>error alert message</td></tr>
+          <tr><td><code>AdditionalContent</code></td><td><code>RenderFragment?</code></td><td>extra application fields</td></tr>
         </table>
       </div>
     </section>

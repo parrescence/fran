@@ -1,0 +1,303 @@
+/* ============================= Avatar Form ============================= */
+
+.fa-avatar-form {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.fa-avatar-form-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.25rem 0.4rem;
+    border-radius: var(--fa-radius-pill);
+    border: var(--fa-border-width) solid transparent;
+    background: transparent;
+    color: var(--fa-text-on-primary);
+    cursor: pointer;
+    font-family: var(--fa-font);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color var(--fa-transition-fast), border-color var(--fa-transition-fast);
+}
+
+.fa-avatar-form-trigger:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.fa-avatar-form-trigger:focus-visible,
+.fa-avatar-form-trigger[aria-expanded="true"] {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 2px var(--fa-glow);
+}
+
+.fa-avatar-form-trigger-name {
+    max-width: 10rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fa-avatar-form-caret {
+    display: inline-flex;
+    align-items: center;
+    opacity: 0.75;
+    transition: transform var(--fa-transition-fast);
+}
+
+.fa-avatar-form-trigger[aria-expanded="true"] .fa-avatar-form-caret {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Panel */
+.fa-avatar-form-panel {
+    display: none;
+    position: absolute;
+    top: 100%;
+    margin-top: 0.5rem;
+    z-index: 50;
+    width: 18.5rem;
+    max-width: 90vw;
+    background: var(--fa-surface);
+    color: var(--fa-text);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius-lg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), var(--fa-border-glow);
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.fa-avatar-form-panel-align-end {
+    right: 0;
+    left: auto;
+}
+
+.fa-avatar-form-panel-align-start {
+    left: 0;
+    right: auto;
+}
+
+.fa-avatar-form-panel-open {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    animation: fa-avatar-form-pop 0.16s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fa-avatar-form-panel-open {
+        animation: none;
+    }
+}
+
+@keyframes fa-avatar-form-pop {
+    from {
+        opacity: 0;
+        transform: translateY(-0.35rem) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* User Identity Header */
+.fa-avatar-form-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--fa-border);
+}
+
+.fa-avatar-form-identity {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.fa-avatar-form-avatar-lg {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.15rem;
+}
+
+.fa-avatar-form-details {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 1;
+}
+
+.fa-avatar-form-display-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--fa-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fa-avatar-form-subtitle {
+    font-size: 0.82rem;
+    color: var(--fa-text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fa-avatar-form-account-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--fa-primary-dark);
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    padding: 0.35rem 0.5rem;
+    border-radius: var(--fa-radius-sm);
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color var(--fa-transition-fast), color var(--fa-transition-fast);
+}
+
+.fa-avatar-form-account-action:hover {
+    background: var(--fa-primary-light);
+    color: var(--fa-primary-dark);
+}
+
+.fa-avatar-form-account-action:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--fa-border-focus);
+}
+
+/* Theme Switcher inside Avatar Form */
+.fa-avatar-form-theme-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--fa-border);
+}
+
+.fa-avatar-form-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--fa-text-muted);
+}
+
+.fa-avatar-form-theme-group {
+    display: flex;
+    gap: 0.35rem;
+    background: var(--fa-footer);
+    border-radius: var(--fa-radius-pill);
+    padding: 0.2rem;
+}
+
+.fa-avatar-form-theme-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: var(--fa-radius-pill);
+    border: none;
+    background: transparent;
+    font-family: var(--fa-font);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--fa-text-muted);
+    cursor: pointer;
+    transition: background-color var(--fa-transition-fast), color var(--fa-transition-fast);
+}
+
+.fa-avatar-form-theme-btn:hover {
+    color: var(--fa-text);
+}
+
+.fa-avatar-form-theme-btn.fa-theme-btn-active,
+:root[data-theme="light"] .fa-avatar-form-theme-btn[data-theme-btn="light"],
+:root[data-theme="dark"] .fa-avatar-form-theme-btn[data-theme-btn="dark"],
+:root[data-theme="colorblind"] .fa-avatar-form-theme-btn[data-theme-btn="colorblind"] {
+    background: var(--fa-surface);
+    color: var(--fa-primary-dark);
+    box-shadow: var(--fa-border-glow);
+}
+
+.fa-avatar-form-theme-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--fa-border-focus);
+}
+
+.fa-avatar-form-theme-label {
+    white-space: nowrap;
+}
+
+/* Custom Content Section */
+.fa-avatar-form-custom-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--fa-border);
+}
+
+.fa-avatar-form-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.6rem;
+    border-radius: var(--fa-radius-md);
+    color: var(--fa-text);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color var(--fa-transition-fast), color var(--fa-transition-fast);
+}
+
+.fa-avatar-form-item:hover {
+    background: var(--fa-primary-light);
+    color: var(--fa-text);
+}
+
+.fa-avatar-form-item:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--fa-border-focus);
+}
+
+/* Footer (Login / Logout) */
+.fa-avatar-form-footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.fa-avatar-form-btn-block {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+}
+
+/* Terse UI style overrides */
+:root[data-fa-ui-style="terse"] .fa-avatar-form-panel {
+    box-shadow: none;
+    border-radius: var(--fa-radius-md);
+}
+
+/* Typewriter UI style overrides */
+:root[data-fa-ui-style="typewriter"] .fa-avatar-form-panel {
+    box-shadow: var(--fa-border-glow);
+    border-radius: var(--fa-radius-sm);
+}

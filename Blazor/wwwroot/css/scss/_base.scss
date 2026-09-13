@@ -15,7 +15,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0 0 0.6em;
-    font-weight: 700;
+    font-family: var(--fa-font-heading, var(--fa-font));
+    font-weight: var(--fa-heading-weight, 700);
+    letter-spacing: var(--fa-heading-letter-spacing, normal);
+    text-transform: var(--fa-heading-transform, none);
 }
 
 p {
