@@ -109,7 +109,7 @@ Supporting types a consumer references in their own C# (not as a tag) live in tw
 more folders instead:
 
 - **`Enums/`** — `FaButtonVariant`, `FaBadgeVariant`, `FaAlertVariant`,
-  `FaTogglePosition`, `FaIconColor`, `FaIconName`, `FaSkeletonVariant`,
+  `FaTogglePosition`, `FaTabStyle`, `FaIconColor`, `FaIconName`, `FaSkeletonVariant`,
   `FaTooltipPosition` (shared by `FaTooltip` and `FaPopover`), `FaToastPosition`,
   `FaAlign`, `FaCodeLanguage`, `FaFormMode`, `FaLoaderVariant`, `FaModalPosition`,
   `FaModalSize`, `FaNavPosition`, `FaProgressDirection`, `FaSize` (shared
