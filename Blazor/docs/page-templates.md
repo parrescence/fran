@@ -36,6 +36,8 @@ one recurring page shape needs beyond the bare shell:
 | [FaOnboardingTemplate](fa-onboarding-template.md) | `FaStandardShell` | step progress wizard, step title & desc, active step card, Back/Continue |
 | [FaCalendarTemplate](fa-calendar-template.md) | `FaSidebarShell` | date pager, month/week/day view switcher, calendar grid, agenda aside |
 | [FaFileManagerTemplate](fa-file-manager-template.md) | `FaSidebarShell` | storage quota, folder breadcrumbs, search, file grid, inspector drawer |
+| [FaCharterTemplate](fa-charter-template.md) | `FaStandardShell` | Parrescence project charter standard, cover plate, methodology (Agile/Scrum/Waterfall), DevOps agreement, sticky bookmark rail |
+| [FaRunbookTemplate](fa-runbook-template.md) | `FaStandardShell` | operational runbook & incident playbook, service tiers, SLAs, triage diagnostics, rollback procedures |
 | [FaAuthTemplate](fa-auth-template.md) | *(none — chrome-free)* | a centered card, no header/sidebar/footer |
 
 They're **routed pages, not layouts** — use one directly on a `@page`-attributed

@@ -19,6 +19,15 @@ public sealed class FaSidebar : ComponentBase
     [Parameter] public string? CssClass { get; set; }
     [Parameter] public RenderFragment? ChildContent { get; set; }
 
+    /// <summary>Optional action buttons or content rendered at the top of the sidebar above the scroll area.</summary>
+    [Parameter] public RenderFragment? HeaderActions { get; set; }
+
+    /// <summary>Optional action buttons or content rendered pinned at the bottom of the sidebar below the scroll area.</summary>
+    [Parameter] public RenderFragment? FooterActions { get; set; }
+
+    /// <summary>Alias or convenience parameter for action buttons.</summary>
+    [Parameter] public RenderFragment? NavButtons { get; set; }
+
     /// <summary>
     /// Whether the sidebar scrolls away with the page (default) or stays pinned
     /// full-height. Pinning means the sidebar's own content scrolls independently
@@ -74,6 +83,15 @@ public sealed class FaSidebar : ComponentBase
             builder.CloseElement();
         }
 
+        var topActions = HeaderActions ?? NavButtons;
+        if (topActions is not null)
+        {
+            builder.OpenElement(17, "div");
+            builder.AddAttribute(18, "class", "fa-sidebar-actions-top");
+            builder.AddContent(19, topActions);
+            builder.CloseElement();
+        }
+
         // Content lives in its own scrolling wrapper rather than making .fa-sidebar
         // itself overflow: auto — the toggle button above (and the collapsed-state
         // tooltip fly-outs inside ChildContent) are positioned outside/beyond this
@@ -85,6 +103,14 @@ public sealed class FaSidebar : ComponentBase
         builder.AddAttribute(15, "class", "fa-sidebar-scroll");
         builder.AddContent(16, ChildContent);
         builder.CloseElement();
+
+        if (FooterActions is not null)
+        {
+            builder.OpenElement(20, "div");
+            builder.AddAttribute(21, "class", "fa-sidebar-actions-bottom");
+            builder.AddContent(22, FooterActions);
+            builder.CloseElement();
+        }
 
         builder.CloseElement();
     }

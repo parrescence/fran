@@ -1,0 +1,98 @@
+/* ============================= FaBookmarkNav ============================= */
+
+.fa-bookmark-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    font-family: var(--fa-font);
+}
+
+.fa-bookmark-nav-sticky {
+    position: sticky;
+    top: calc(var(--fa-header-height, 3.5rem) + 1rem);
+    align-self: flex-start;
+    max-height: calc(100vh - var(--fa-header-height, 3.5rem) - 2rem);
+    overflow-y: auto;
+}
+
+.fa-bookmark-nav-header {
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--fa-border);
+}
+
+.fa-bookmark-nav-title {
+    font-family: var(--fa-font-mono, monospace);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fa-text-muted);
+}
+
+.fa-bookmark-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.fa-bookmark-nav-item {
+    margin: 0;
+    padding: 0;
+}
+
+.fa-bookmark-nav-link {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.42rem 0.65rem;
+    border-radius: var(--fa-radius, 4px);
+    color: var(--fa-text-muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: background-color var(--fa-transition-fast), color var(--fa-transition-fast);
+
+    &:hover {
+        background: var(--fa-surface-hover, rgba(0, 0, 0, 0.05));
+        color: var(--fa-text);
+    }
+}
+
+.fa-bookmark-nav-link-active,
+.fa-bookmark-nav-link[aria-current="true"] {
+    background: color-mix(in srgb, var(--fa-primary) 12%, transparent);
+    color: var(--fa-primary-dark);
+    font-weight: 600;
+
+    .fa-bookmark-nav-num {
+        color: var(--fa-primary-dark);
+        font-weight: 700;
+    }
+}
+
+.fa-bookmark-nav-num {
+    font-family: var(--fa-font-mono, monospace);
+    font-size: 0.78rem;
+    color: var(--fa-text-muted);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.fa-bookmark-nav-label {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.35;
+}
+
+.fa-bookmark-nav-badge {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: var(--fa-radius-pill);
+    background: var(--fa-surface);
+    border: 1px solid var(--fa-border);
+    color: var(--fa-text-muted);
+    font-weight: 600;
+}
