@@ -200,7 +200,7 @@ works) — nothing to wire up for it.
 
 | Parameter | Type | Notes |
 |---|---|---|
-| `BrandText` | `string` | **required** (no hardcoded default — see [CLAUDE.md](../CLAUDE.md)) |
+| `BrandText` | `string` | **required** (no hardcoded default — see [ARCHITECTURE.md](../ARCHITECTURE.md)) |
 | `BrandHref` | `string` | link target for the brand |
 | `BrandIconUrl` | `string?` | optional logo/icon shown left of `BrandText` — any `<img>` src (static asset path, `data:` URI, CDN URL); omit for text-only branding (default) |
 | `IsAuthenticated` | `bool` | swaps between login button and avatar+name+logout |
@@ -216,6 +216,10 @@ works) — nothing to wire up for it.
 | `ContainScroll` | `bool` | pins header/sidebar/footer to the viewport, only `<main>` scrolls internally, defaults to `false` |
 | `UseAvatarForm` | `bool` | when `true`, renders `FaAvatarForm` in place of inline theme switcher and logout button, defaults to `false` |
 | `ShowUserNameInHeader` | `bool` | when `UseAvatarForm` is true, controls whether the user's name is shown in the topbar trigger (default `false`) |
+| `HeaderNav` | `RenderFragment?` | navigation links or buttons in the topbar between brand and user area |
+| `FooterNav` | `RenderFragment?` | navigation links or buttons in the footer alongside copyright |
+| `SidebarHeaderActions` | `RenderFragment?` | **`FaSidebarShell` only** — action buttons at top of sidebar |
+| `SidebarFooterActions` | `RenderFragment?` | **`FaSidebarShell` only** — action buttons pinned at bottom of sidebar |
 | `UserEmail` | `string?` | optional email/subtitle in the opened avatar form panel |
 | `AccountHref` | `string?` | optional URL navigating to user account form |
 | `OnAccountClick` | `EventCallback` | callback when account settings is clicked |

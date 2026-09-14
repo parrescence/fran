@@ -13,7 +13,7 @@ Every component keeps its original `Fa`-prefixed name (`FaButton`, `FaCard`,
 `FaToggle<TValue>`, `FaIcon`, ...) — only the package/namespace/repo identity is
 `Fran`. Every component is a plain C# class (`ComponentBase`/
 `InputBase<TValue>` subclass overriding `BuildRenderTree` directly), not `.razor`
-markup — see `CLAUDE.md` if you're contributing.
+markup — see `ARCHITECTURE.md` if you're contributing.
 
 ## Install
 

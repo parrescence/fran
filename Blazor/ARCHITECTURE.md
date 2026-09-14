@@ -1,7 +1,7 @@
-# CLAUDE.md (Blazor)
+# Architecture & Standards (Blazor)
 
 Guidance for working in `Blazor/` specifically — the Blazor Razor Class Library
-style-library within the `Fran` repo. See the root `CLAUDE.md` first for
+style-library within the `Fran` repo. See the root `ARCHITECTURE.md` first for
 repo-wide policy (branching, publishing, the multi-library layout); this file only
 covers what's unique to this library.
 
@@ -251,7 +251,7 @@ reason to skip a real minor/major bump. That version rides unchanged through the
 Package versions are immutable once published (GitHub Packages rejects
 re-publishing an existing version), so leaving `<Version>` unchanged across several
 commits doesn't queue those changes up for consumers — it just means none of them
-are reachable until the next bump. See the root `CLAUDE.md` for the branching
+are reachable until the next bump. See the root `ARCHITECTURE.md` for the branching
 model and how `.github/workflows/publish-blazor.yml`/`ci-blazor.yml` build this
 project.
 
@@ -388,7 +388,7 @@ same change, not as a follow-up.** A rename in particular touches more than the
 component's own doc page: grep `docs/` here and `Showcase.Web.Client/` in that repo
 for the old name before considering the change done — stale examples/links that
 still reference it are as broken as a stale demo page (see root
-[`CLAUDE.md`](../CLAUDE.md)'s Showcase-sync rule, which this extends to `docs/`).
+[`ARCHITECTURE.md`](../ARCHITECTURE.md)'s Showcase-sync rule, which this extends to `docs/`).
 
 `FaToggle<TValue>` (`Components/Forms/FaToggle.cs`) is the one component with real runtime
 validation: it throws `ArgumentException` in `OnParametersSet` if fewer than two

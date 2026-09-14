@@ -52,7 +52,7 @@
        it everywhere" contract as the color/radius tokens above. Palette-agnostic —
        redefined here once, not per palette, since border weight and interaction
        speed aren't part of any palette's identity. Component partials should
-       reference these instead of repeating the literal values; see Blazor/CLAUDE.md's
+       reference these instead of repeating the literal values; see Blazor/ARCHITECTURE.md's
        "Themes" section. --- */
     --fa-border-width: 2px;
     --fa-transition-fast: 0.15s ease;   /* hover/focus color & shadow changes */
@@ -74,7 +74,7 @@
    font, moderate radii, and a soft neutral drop shadow standing in for the
    colored glow, read as the card physically resting just above the page). All
    three retune the same shared tokens every component already draws its shape
-   from (see Blazor/CLAUDE.md's Themes section), so a new value here is a token
+   from (see Blazor/ARCHITECTURE.md's Themes section), so a new value here is a token
    block plus a short explicit list of hardcoded (non-token) shadows each doesn't
    reach — header/sidebar chrome, toasts, tooltips, the avatar ring — get their
    own `[data-fa-ui-style="..."]` overrides in their own partials instead of

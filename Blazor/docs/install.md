@@ -175,7 +175,7 @@ palette's colors also go into `fa-custom-palette`) and stamps `data-fa-palette` 
 
 **Option D — override colors directly with your own CSS**, no picker at all. Every
 component reads color exclusively through the `--fa-*` custom properties `:root`
-defines (see `Blazor/CLAUDE.md`'s "Themes" section) — so redeclaring any of them in
+defines (see `Blazor/ARCHITECTURE.md`'s "Themes" section) — so redeclaring any of them in
 your own stylesheet, loaded **after** `fa-styles.css`, silently wins over whichever
 built-in palette is active, no `FaPalette`/C# involved:
 
@@ -248,7 +248,7 @@ once in `:root`, reused everywhere, and safe to override the same way:
 
 **Not** overridable this way: per-component padding/margin/gap and most font-size/
 font-weight values. Those are deliberately hand-tuned per component rather than
-drawn from a shared scale (see `Blazor/CLAUDE.md`'s "Themes" section) — two
+drawn from a shared scale (see `Blazor/ARCHITECTURE.md`'s "Themes" section) — two
 components using different spacing isn't drift to fix, it's the design. To change
 one of those, target that component's own class (`.fa-btn`, `.fa-card`, ...) in your
 own CSS instead of looking for a token.
@@ -265,7 +265,7 @@ Toggle it with `<FaUiStyleSwitcher />` or `window.faSetUiStyle('terse')` /
 ## 7. Set a favicon / app icon (optional)
 
 This library ships no favicon of its own — like `BrandText`, it's your app's own
-branding, not something a style library should hardcode (see `Blazor/CLAUDE.md`'s
+branding, not something a style library should hardcode (see `Blazor/ARCHITECTURE.md`'s
 "no hardcoded brand/app defaults" rule). Add the usual `<link>` tags to your host
 page's `<head>` yourself, the same as any Blazor app:
 

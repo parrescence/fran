@@ -6,7 +6,7 @@
 // Compiled to fa-styles.css by DartSassBuilder at build/pack time (see the
 // <SassFile>/<PackageReference> wiring in Fran.csproj) — every consumer's
 // index.html links the compiled file as _content/Fran/css/fa-styles.css
-// (see Blazor/CLAUDE.md). Edit the partials under scss/, not a checked-in
+// (see Blazor/ARCHITECTURE.md). Edit the partials under scss/, not a checked-in
 // fa-styles.css directly; there isn't one, it's gitignored/generated.
 //
 // Partials are plain CSS content (no Sass variables/mixins/nesting) split one-per-
@@ -59,6 +59,8 @@
 @use "scss/divider";
 @use "scss/empty-state";
 @use "scss/code-block";
+@use "scss/bookmark-nav";
+@use "scss/charter-runbook";
 @use "scss/utilities";
 @use "scss/responsive";
 // Updated with FaTabs styles & FaFileDropZone drag-and-drop styles

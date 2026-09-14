@@ -61,6 +61,12 @@ public sealed class FaHeader : ComponentBase
     /// <summary>Optional application-specific content rendered inside the opened avatar form.</summary>
     [Parameter] public RenderFragment? UserMenuContent { get; set; }
 
+    /// <summary>Optional navigation buttons or links rendered between the brand and the user area.</summary>
+    [Parameter] public RenderFragment? NavContent { get; set; }
+
+    /// <summary>Alias for <see cref="NavContent"/> for convenience.</summary>
+    [Parameter] public RenderFragment? NavButtons { get; set; }
+
     /// <summary>Whether the header scrolls away with the page (default) or stays pinned to the top.</summary>
     [Parameter] public FaNavPosition Position { get; set; } = FaNavPosition.Standard;
 
@@ -127,6 +133,16 @@ public sealed class FaHeader : ComponentBase
         builder.CloseElement();
 
         builder.CloseElement(); // .fa-header-left
+
+        var effectiveNav = NavContent ?? NavButtons;
+        if (effectiveNav is not null)
+        {
+            builder.OpenElement(48, "nav");
+            builder.AddAttribute(49, "class", "fa-header-nav");
+            builder.AddAttribute(50, "aria-label", "Header navigation");
+            builder.AddContent(51, effectiveNav);
+            builder.CloseElement(); // nav.fa-header-nav
+        }
 
         builder.OpenElement(6, "div");
         builder.AddAttribute(7, "class", "fa-header-user");
