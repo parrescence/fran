@@ -11,7 +11,7 @@ This assumes you've already done the install/wiring steps in
 picking a color palette).
 
 Every example is a `.razor` file — the components themselves are authored as plain C#
-(see [CLAUDE.md](../CLAUDE.md#component-authoring-c-builder-not-markup)), but you
+(see [ARCHITECTURE.md](../ARCHITECTURE.md#component-authoring-c-builder-not-markup)), but you
 consume them the normal Blazor way, tags and all.
 
 Two binding shapes show up repeatedly:
@@ -90,6 +90,7 @@ Two binding shapes show up repeatedly:
 
 - [FaTabs](fa-tabs.md) — tab strip and section: Underline, Folder, Slide, and Thumbwheel styles
 - [FaAccordion](fa-accordion.md) — stacked collapsible sections, smooth height animation, no JS
+- [FaBookmarkNav](fa-bookmark-nav.md) — sticky bookmark rail / table of contents with numbered badges & jump links
 - [FaBreadcrumb](fa-breadcrumb.md) — Home › Section › current page trail
 - [FaPagination](fa-pagination.md) — standalone windowed page-number strip
 - [FaDivider](fa-divider.md) — plain rule, or a rule split around a short label
@@ -135,6 +136,9 @@ Two binding shapes show up repeatedly:
 - [FaOnboardingTemplate](fa-onboarding-template.md) — standard shell + step progress wizard, step title & desc, active step card, Back/Continue
 - [FaCalendarTemplate](fa-calendar-template.md) — sidebar shell + date pager, month/week/day view switcher, calendar grid, agenda aside
 - [FaFileManagerTemplate](fa-file-manager-template.md) — sidebar shell + storage quota, folder breadcrumbs, search, file grid, inspector drawer
+- [FaCharterTemplate](fa-charter-template.md) — Parrescence project charter standard, cover plate, methodology (Agile/Scrum/Waterfall), DevOps agreement, sticky bookmark rail
+- [FaRunbookTemplate](fa-runbook-template.md) — operational runbook & incident playbook, service tiers, SLAs, triage diagnostics, rollback procedures
+- [FaDevOpsAgreementCard](fa-devops-agreement-card.md) — project delivery makeup card, branching policy, quality gates, environment tiers
 
 ## Layout & chrome
 

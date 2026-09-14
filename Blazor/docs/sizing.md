@@ -22,7 +22,7 @@ A shared five-step enum — `XSmall` \| `Small` \| `Medium` (default) \| `Large`
 of these components already had before `Size` existed, so adding `Size` to a
 component is never a visual change for a consumer who doesn't set it. Each
 component tunes its own padding/font-size per step rather than pulling from one
-shared token (see `Blazor/CLAUDE.md`'s "Themes" section on why spacing is
+shared token (see `Blazor/ARCHITECTURE.md`'s "Themes" section on why spacing is
 hand-tuned per component) — `FaSize` is the shared *scale*, not shared literal
 values. `FaInput`/`FaSelect`/`FaTextarea`/`FaCurrency` do share one CSS ladder
 between themselves (`.fa-input-xs`/`-sm`/`-lg`/`-xl` in `_inputs.scss`), since all

@@ -1,27 +1,27 @@
-# CLAUDE.md
+# Architecture & Standards
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in
-this repository.
+This file provides architecture, design standards, and developer guidance for
+working with code in this repository.
 
 `Fran` houses one or more standalone UI **style libraries**, each in its own
 top-level folder, each targeting a different framework/architecture. Currently:
 
 - **`Blazor/`** — a Blazor Razor Class Library (C#). See
-  [`Blazor/CLAUDE.md`](Blazor/CLAUDE.md) for its component-authoring rules, theming
+  [`Blazor/ARCHITECTURE.md`](Blazor/ARCHITECTURE.md) for its component-authoring rules, theming
   system, and package-specific conventions. That file was split out of a private
   monorepo (full history carried over via `git subtree split`).
 
 More libraries for other architectures will land as sibling folders over time (e.g. a
 future `React/`, `Vue/`). This repo is **public** — don't add anything anywhere in it
-(this file, a library's own CLAUDE.md, docs, code comments) that names or describes
+(this file, a library's own ARCHITECTURE.md, docs, code comments) that names or describes
 the internals of a private app a library was split from, beyond "it was split from
-one." The guardrails in each library's own CLAUDE.md apply regardless of which app
+one." The guardrails in each library's own ARCHITECTURE.md apply regardless of which app
 they originally came from.
 
 Nothing at the repo root is itself a library — root-level files are repo-wide (this
 file, `README.md`, `.github/workflows/`, branch/version policy below). Each library
 folder owns everything specific to it: its own `README.md` (packed into that
-library's published artifact), `docs/`, `CLAUDE.md`, build/package config, and any
+library's published artifact), `docs/`, `ARCHITECTURE.md`, build/package config, and any
 local-only design-reference folders.
 
 ## Showcase lives in a separate, private repo
@@ -34,7 +34,7 @@ separate private repo, split out so the demo app can stay non-public while the
 libraries here stay open source. It references this repo's `Blazor/Fran.csproj` via
 a source-level `<ProjectReference>` rather than the published package (so it always
 reflects whatever's on this repo's checked-out branch), which means working on it
-locally requires cloning both repos as siblings — see its own README/CLAUDE.md for
+locally requires cloning both repos as siblings — see its own README/ARCHITECTURE.md for
 details.
 
 **Keep Fran-Showcase in sync with every library change made here.** Any change to a
@@ -97,4 +97,4 @@ After a successful publish, stamps a `vX.Y.Z` git tag on the `main` commit that
 shipped it (skipped if it already exists, never re-pointed) — the pinnable target for
 anything consuming that library as source instead of tracking `main`'s moving tip.
 Each library bumps/publishes its own `<Version>` independently — see that library's
-own `CLAUDE.md` for its specific policy (e.g. [`Blazor/CLAUDE.md`](Blazor/CLAUDE.md)).
+own `ARCHITECTURE.md` for its specific policy (e.g. [`Blazor/ARCHITECTURE.md`](Blazor/ARCHITECTURE.md)).

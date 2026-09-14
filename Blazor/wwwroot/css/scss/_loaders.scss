@@ -1,7 +1,7 @@
 /* ============================= Loaders ============================= */
 /* Four different "still working" indicators, each purely CSS keyframes — no JS,
    consistent with the "vanilla-JS only when Blazor/CSS genuinely can't do it"
-   rule in CLAUDE.md. Color variants (.fa-loader-primary/-gold/-danger; default is
+   rule in ARCHITECTURE.md. Color variants (.fa-loader-primary/-gold/-danger; default is
    --fa-accent, undecorated) are shared with FaProgress — see _progress.scss. */
 
 /* --- FaSpinner: the classic rotating ring. --- */
