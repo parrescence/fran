@@ -46,6 +46,12 @@ public sealed class FaStandardShell : ComponentBase
     [Parameter] public RenderFragment? ChildContent { get; set; }
     [Parameter] public RenderFragment? FooterContent { get; set; }
 
+    /// <summary>Passed straight through to <see cref="FaHeader.NavContent"/>.</summary>
+    [Parameter] public RenderFragment? HeaderNav { get; set; }
+
+    /// <summary>Passed straight through to <see cref="FaFooter.NavContent"/>.</summary>
+    [Parameter] public RenderFragment? FooterNav { get; set; }
+
     /// <summary>Passed straight through to <see cref="FaHeader.Position"/>.</summary>
     [Parameter] public FaNavPosition HeaderPosition { get; set; } = FaNavPosition.Standard;
 
@@ -84,6 +90,7 @@ public sealed class FaStandardShell : ComponentBase
         builder.AddComponentParameter(27, nameof(FaHeader.OnAccountClick), OnAccountClick);
         builder.AddComponentParameter(28, nameof(FaHeader.AccountText), AccountText);
         builder.AddComponentParameter(29, nameof(FaHeader.UserMenuContent), UserMenuContent);
+        builder.AddComponentParameter(30, nameof(FaHeader.NavContent), HeaderNav);
         builder.CloseComponent();
 
         builder.OpenElement(10, "main");
@@ -94,6 +101,7 @@ public sealed class FaStandardShell : ComponentBase
         builder.OpenComponent<FaFooter>(13);
         builder.AddComponentParameter(14, nameof(FaFooter.BrandText), BrandText);
         builder.AddComponentParameter(15, nameof(FaFooter.ChildContent), FooterContent);
+        builder.AddComponentParameter(16, nameof(FaFooter.NavContent), FooterNav);
         builder.AddComponentParameter(21, nameof(FaFooter.Position), FooterPosition);
         builder.CloseComponent();
 

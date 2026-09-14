@@ -150,6 +150,20 @@
         box-shadow: 0 0 0 2px var(--fa-text-on-primary);
     }
 
+.fa-header-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: 1.5rem;
+    margin-right: auto;
+    flex-wrap: wrap;
+
+    a, button {
+        color: var(--fa-text-on-primary);
+        text-decoration: none;
+    }
+}
+
 .fa-header-user {
     display: flex;
     align-items: center;
@@ -337,6 +351,37 @@
     padding: 0.85rem 1.5rem;
     font-size: 0.9rem;
     border-top: 3px solid var(--fa-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.fa-footer.fa-footer-with-nav {
+    justify-content: space-between;
+}
+
+.fa-footer-brand {
+    display: inline-flex;
+    align-items: center;
+}
+
+.fa-footer-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+
+    a {
+        color: var(--fa-text-muted);
+        text-decoration: none;
+        transition: color var(--fa-transition-fast);
+
+        &:hover {
+            color: var(--fa-text);
+        }
+    }
 }
 
 /* --- FaFooter.Position: same Standard/Sticky/Floating shape as .fa-header-*
@@ -410,6 +455,25 @@ html.fa-sidebar-collapsed .fa-sidebar.fa-sidebar-collapsible {
 .fa-sidebar-scroll {
     flex: 1;
     min-height: 0;
+}
+
+.fa-sidebar-actions-top,
+.fa-sidebar-actions-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+.fa-sidebar-actions-top {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 0.4rem;
+}
+
+.fa-sidebar-actions-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: auto;
+    padding-top: 0.5rem;
 }
 
 /* --- FaSidebar.Position: unlike the header/footer, pinning the sidebar full-height

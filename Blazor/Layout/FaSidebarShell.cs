@@ -48,6 +48,18 @@ public sealed class FaSidebarShell : ComponentBase
     [Parameter] public RenderFragment? ChildContent { get; set; }
     [Parameter] public RenderFragment? FooterContent { get; set; }
 
+    /// <summary>Passed straight through to <see cref="FaHeader.NavContent"/>.</summary>
+    [Parameter] public RenderFragment? HeaderNav { get; set; }
+
+    /// <summary>Passed straight through to <see cref="FaFooter.NavContent"/>.</summary>
+    [Parameter] public RenderFragment? FooterNav { get; set; }
+
+    /// <summary>Passed straight through to <see cref="FaSidebar.HeaderActions"/>.</summary>
+    [Parameter] public RenderFragment? SidebarHeaderActions { get; set; }
+
+    /// <summary>Passed straight through to <see cref="FaSidebar.FooterActions"/>.</summary>
+    [Parameter] public RenderFragment? SidebarFooterActions { get; set; }
+
     /// <summary>Passed straight through to <see cref="FaHeader.Position"/>.</summary>
     [Parameter] public FaNavPosition HeaderPosition { get; set; } = FaNavPosition.Standard;
 
@@ -94,6 +106,7 @@ public sealed class FaSidebarShell : ComponentBase
         builder.AddComponentParameter(32, nameof(FaHeader.OnAccountClick), OnAccountClick);
         builder.AddComponentParameter(33, nameof(FaHeader.AccountText), AccountText);
         builder.AddComponentParameter(34, nameof(FaHeader.UserMenuContent), UserMenuContent);
+        builder.AddComponentParameter(35, nameof(FaHeader.NavContent), HeaderNav);
         builder.CloseComponent();
 
         builder.OpenElement(10, "div");
@@ -103,6 +116,8 @@ public sealed class FaSidebarShell : ComponentBase
         builder.AddComponentParameter(13, nameof(FaSidebar.ChildContent), Sidebar);
         builder.AddComponentParameter(21, nameof(FaSidebar.Position), SidebarPosition);
         builder.AddComponentParameter(25, nameof(FaSidebar.Collapsible), SidebarCollapsible);
+        builder.AddComponentParameter(26, nameof(FaSidebar.HeaderActions), SidebarHeaderActions);
+        builder.AddComponentParameter(27, nameof(FaSidebar.FooterActions), SidebarFooterActions);
         builder.CloseComponent();
 
         // main + footer share this column (rather than footer sitting after
@@ -123,6 +138,7 @@ public sealed class FaSidebarShell : ComponentBase
         builder.OpenComponent<FaFooter>(17);
         builder.AddComponentParameter(18, nameof(FaFooter.BrandText), BrandText);
         builder.AddComponentParameter(19, nameof(FaFooter.ChildContent), FooterContent);
+        builder.AddComponentParameter(20, nameof(FaFooter.NavContent), FooterNav);
         builder.AddComponentParameter(22, nameof(FaFooter.Position), FooterPosition);
         builder.CloseComponent();
 

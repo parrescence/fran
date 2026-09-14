@@ -41,7 +41,7 @@ public sealed class FaCodeBlock : ComponentBase
 
     // Stable id, generated once — pairs the copy button's data-copy-target with the
     // <code> element codeblock.js reads innerText from. Never regenerate this inside
-    // BuildRenderTree; see Blazor/CLAUDE.md's "stable ids are field initializers" rule.
+    // BuildRenderTree; see Blazor/ARCHITECTURE.md's "stable ids are field initializers" rule.
     private readonly string _id = $"fa-codeblock-{Guid.NewGuid():N}";
 
     protected override void BuildRenderTree(RenderTreeBuilder builder)

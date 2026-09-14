@@ -32,7 +32,7 @@
        is off and fa-styles.scss is the only explicit <SassFile> so the scss/ partials
        (Sass-partial-convention underscore-prefixed, never compiled standalone) are
        only ever pulled in via fa-styles.scss's @use chain, never compiled to their
-       own .css. See Blazor/CLAUDE.md's "Themes" section for the partial layout. -->
+       own .css. See Blazor/ARCHITECTURE.md's "Themes" section for the partial layout. -->
   <PropertyGroup>
     <EnableDefaultSassItems>false</EnableDefaultSassItems>
     <DartSassOutputStyle>expanded</DartSassOutputStyle>
@@ -99,7 +99,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Fran</PackageId>
-    <Version>0.8.0</Version>
+    <Version>0.9.0</Version>
     <Authors>Ben Calvin</Authors>
     <Description>Self-contained Blazor UI component library — buttons, cards, alerts, badges, modals, a generic N-option toggle, form inputs, page-shell layouts, a theme switcher, and a hand-drawn SVG icon set (all "Fa"-prefixed: FaButton, FaCard, FaToggle, FaIcon, ...). No dependency on any specific app's project or type; built to be reusable as-is in other Blazor apps.</Description>
     <PackageTags>blazor;razor;razorclasslibrary;ui;components</PackageTags>

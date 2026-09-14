@@ -9,7 +9,7 @@ namespace Fran.Rendering;
 /// Regex-driven, single-pass token classification backing <see cref="FaCodeBlock"/> —
 /// deliberately not a real parser or a third-party highlighting library (Prism/
 /// highlight.js/...), matching this package's "no external JS dependency" stance
-/// (see Blazor/CLAUDE.md). Each language gets one combined regex with named capture
+/// (see Blazor/ARCHITECTURE.md). Each language gets one combined regex with named capture
 /// groups (comment/string/number/keyword, or tag/attr for markup, or property/literal
 /// for JSON); <see cref="Highlight"/> walks the matches once, HTML-encoding both the
 /// matched tokens and the untouched text between them, and wraps a matched token in a
