@@ -49,6 +49,9 @@ public sealed class FaStandardShell : ComponentBase
     /// <summary>Passed straight through to <see cref="FaHeader.NavContent"/>.</summary>
     [Parameter] public RenderFragment? HeaderNav { get; set; }
 
+    /// <summary>Passed straight through to <see cref="FaHeader.ShowNavToggle"/>.</summary>
+    [Parameter] public bool ShowNavToggle { get; set; } = true;
+
     /// <summary>Passed straight through to <see cref="FaFooter.NavContent"/>.</summary>
     [Parameter] public RenderFragment? FooterNav { get; set; }
 
@@ -76,33 +79,34 @@ public sealed class FaStandardShell : ComponentBase
         builder.OpenComponent<FaHeader>(2);
         builder.AddComponentParameter(3, nameof(FaHeader.BrandText), BrandText);
         builder.AddComponentParameter(4, nameof(FaHeader.BrandHref), BrandHref);
-        builder.AddComponentParameter(22, nameof(FaHeader.BrandIconUrl), BrandIconUrl);
-        builder.AddComponentParameter(5, nameof(FaHeader.IsAuthenticated), IsAuthenticated);
-        builder.AddComponentParameter(6, nameof(FaHeader.UserDisplayName), UserDisplayName);
-        builder.AddComponentParameter(7, nameof(FaHeader.UserImageUrl), UserImageUrl);
-        builder.AddComponentParameter(8, nameof(FaHeader.OnLogin), OnLogin);
-        builder.AddComponentParameter(9, nameof(FaHeader.OnLogout), OnLogout);
-        builder.AddComponentParameter(20, nameof(FaHeader.Position), HeaderPosition);
-        builder.AddComponentParameter(23, nameof(FaHeader.UseAvatarForm), UseAvatarForm);
-        builder.AddComponentParameter(24, nameof(FaHeader.ShowUserNameInHeader), ShowUserNameInHeader);
-        builder.AddComponentParameter(25, nameof(FaHeader.UserEmail), UserEmail);
-        builder.AddComponentParameter(26, nameof(FaHeader.AccountHref), AccountHref);
-        builder.AddComponentParameter(27, nameof(FaHeader.OnAccountClick), OnAccountClick);
-        builder.AddComponentParameter(28, nameof(FaHeader.AccountText), AccountText);
-        builder.AddComponentParameter(29, nameof(FaHeader.UserMenuContent), UserMenuContent);
-        builder.AddComponentParameter(30, nameof(FaHeader.NavContent), HeaderNav);
+        builder.AddComponentParameter(5, nameof(FaHeader.BrandIconUrl), BrandIconUrl);
+        builder.AddComponentParameter(6, nameof(FaHeader.IsAuthenticated), IsAuthenticated);
+        builder.AddComponentParameter(7, nameof(FaHeader.UserDisplayName), UserDisplayName);
+        builder.AddComponentParameter(8, nameof(FaHeader.UserImageUrl), UserImageUrl);
+        builder.AddComponentParameter(9, nameof(FaHeader.OnLogin), OnLogin);
+        builder.AddComponentParameter(10, nameof(FaHeader.OnLogout), OnLogout);
+        builder.AddComponentParameter(11, nameof(FaHeader.Position), HeaderPosition);
+        builder.AddComponentParameter(12, nameof(FaHeader.UseAvatarForm), UseAvatarForm);
+        builder.AddComponentParameter(13, nameof(FaHeader.ShowUserNameInHeader), ShowUserNameInHeader);
+        builder.AddComponentParameter(14, nameof(FaHeader.UserEmail), UserEmail);
+        builder.AddComponentParameter(15, nameof(FaHeader.AccountHref), AccountHref);
+        builder.AddComponentParameter(16, nameof(FaHeader.OnAccountClick), OnAccountClick);
+        builder.AddComponentParameter(17, nameof(FaHeader.AccountText), AccountText);
+        builder.AddComponentParameter(18, nameof(FaHeader.UserMenuContent), UserMenuContent);
+        builder.AddComponentParameter(19, nameof(FaHeader.NavContent), HeaderNav);
+        builder.AddComponentParameter(20, nameof(FaHeader.ShowNavToggle), ShowNavToggle);
         builder.CloseComponent();
 
-        builder.OpenElement(10, "main");
-        builder.AddAttribute(11, "class", "fa-shell-main");
-        builder.AddContent(12, ChildContent);
+        builder.OpenElement(21, "main");
+        builder.AddAttribute(22, "class", "fa-shell-main");
+        builder.AddContent(23, ChildContent);
         builder.CloseElement();
 
-        builder.OpenComponent<FaFooter>(13);
-        builder.AddComponentParameter(14, nameof(FaFooter.BrandText), BrandText);
-        builder.AddComponentParameter(15, nameof(FaFooter.ChildContent), FooterContent);
-        builder.AddComponentParameter(16, nameof(FaFooter.NavContent), FooterNav);
-        builder.AddComponentParameter(21, nameof(FaFooter.Position), FooterPosition);
+        builder.OpenComponent<FaFooter>(24);
+        builder.AddComponentParameter(25, nameof(FaFooter.BrandText), BrandText);
+        builder.AddComponentParameter(26, nameof(FaFooter.ChildContent), FooterContent);
+        builder.AddComponentParameter(27, nameof(FaFooter.NavContent), FooterNav);
+        builder.AddComponentParameter(28, nameof(FaFooter.Position), FooterPosition);
         builder.CloseComponent();
 
         builder.CloseElement();

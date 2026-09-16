@@ -1,6 +1,7 @@
 using Bunit;
 using Fran.Components;
 using Fran.Layout;
+using Microsoft.AspNetCore.Components;
 using Xunit;
 
 namespace Fran.Tests;
@@ -67,5 +68,79 @@ public class FaHeaderTests : BunitContext
         var triggerName = cut.Find(".fa-avatar-form-trigger-name");
         Assert.NotNull(triggerName);
         Assert.Equal("Jane Doe", triggerName.TextContent.Trim());
+    }
+
+    [Fact]
+    public void NavContent_WithShowNavToggle_RendersNavMobileToggle()
+    {
+        RenderFragment nav = builder =>
+        {
+            builder.OpenElement(0, "a");
+            builder.AddAttribute(1, "href", "/dashboard");
+            builder.AddContent(2, "Dashboard");
+            builder.CloseElement();
+        };
+
+        var cut = Render<FaHeader>(p => p
+            .Add(x => x.BrandText, "Test App")
+            .Add(x => x.NavContent, nav));
+
+        var toggle = cut.Find("button.fa-header-nav-toggle");
+        Assert.NotNull(toggle);
+        Assert.Equal("faToggleNavMobile()", toggle.GetAttribute("onclick"));
+        Assert.True(toggle.HasAttribute("data-nav-mobile-toggle"));
+
+        var navElement = cut.Find("nav.fa-header-nav");
+        Assert.NotNull(navElement);
+        Assert.Contains("Dashboard", navElement.TextContent);
+    }
+
+    [Fact]
+    public void NavContent_WithShowNavToggleFalse_DoesNotRenderNavMobileToggle()
+    {
+        RenderFragment nav = builder =>
+        {
+            builder.OpenElement(0, "a");
+            builder.AddAttribute(1, "href", "/dashboard");
+            builder.AddContent(2, "Dashboard");
+            builder.CloseElement();
+        };
+
+        var cut = Render<FaHeader>(p => p
+            .Add(x => x.BrandText, "Test App")
+            .Add(x => x.NavContent, nav)
+            .Add(x => x.ShowNavToggle, false));
+
+        var toggles = cut.FindAll("button.fa-header-nav-toggle");
+        Assert.Empty(toggles);
+
+        var navElement = cut.Find("nav.fa-header-nav");
+        Assert.NotNull(navElement);
+    }
+
+    [Fact]
+    public void ShowSidebarToggle_TakesPrecedenceOverNavToggle()
+    {
+        RenderFragment nav = builder =>
+        {
+            builder.OpenElement(0, "a");
+            builder.AddAttribute(1, "href", "/dashboard");
+            builder.AddContent(2, "Dashboard");
+            builder.CloseElement();
+        };
+
+        var cut = Render<FaHeader>(p => p
+            .Add(x => x.BrandText, "Test App")
+            .Add(x => x.NavContent, nav)
+            .Add(x => x.ShowSidebarToggle, true));
+
+        // Renders sidebar toggle
+        var sidebarToggle = cut.Find("button.fa-header-sidebar-toggle");
+        Assert.NotNull(sidebarToggle);
+        Assert.Equal("faToggleSidebarMobile()", sidebarToggle.GetAttribute("onclick"));
+
+        // Does NOT render nav toggle
+        var navToggles = cut.FindAll("button.fa-header-nav-toggle");
+        Assert.Empty(navToggles);
     }
 }
