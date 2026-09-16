@@ -21,6 +21,57 @@
         display: inline-flex;
     }
 
+    /* Topbar nav on mobile: hidden by default, shown as a full-width slide-down
+       drawer menu once html carries .fa-header-nav-mobile-open (js/sidebar.js's faToggleNavMobile,
+       wired to the nav's hamburger button above). */
+    .fa-header-nav {
+        display: none;
+    }
+
+    html.fa-header-nav-mobile-open .fa-header-nav {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0.75rem 1rem 1rem;
+        background: var(--fa-primary);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.35rem;
+        box-shadow: 0 4px 14px rgba(140, 67, 27, 0.35), 0 2px 0 var(--fa-glow);
+        border-bottom: 2px solid var(--fa-glow);
+        z-index: 50;
+        max-height: calc(100vh - var(--fa-header-height) - 1rem);
+        overflow-y: auto;
+        animation: fa-header-nav-slide-down 0.2s ease-out;
+    }
+
+    html.fa-header-nav-mobile-open .fa-header-nav a,
+    html.fa-header-nav-mobile-open .fa-header-nav button,
+    html.fa-header-nav-mobile-open .fa-header-nav .fa-header-nav-link {
+        width: 100%;
+        padding: 0.65rem 1rem;
+        font-size: 1rem;
+        border-radius: var(--fa-radius-md);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    @keyframes fa-header-nav-slide-down {
+        from {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     /* Off-canvas below this breakpoint, regardless of FaSidebar.Collapsible (that's a
        separate, desktop-only icon-rail affordance) — closed by default and shown only
        once html carries .fa-sidebar-mobile-open (js/sidebar.js's faToggleSidebarMobile,
@@ -273,6 +324,10 @@
 
     @media (prefers-reduced-motion: reduce) {
         .fa-date-calendar.fa-date-calendar-open {
+            animation: none;
+        }
+
+        html.fa-header-nav-mobile-open .fa-header-nav {
             animation: none;
         }
     }
