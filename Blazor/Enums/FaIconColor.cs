@@ -3,5 +3,13 @@ namespace Fran.Icons;
 public enum FaIconColor
 {
     White,
-    Black
+    Black,
+    Primary,
+    Secondary,
+    Success,
+    Warning,
+    Danger,
+    Info,
+    Muted,
+    Inherit
 }
