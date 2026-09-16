@@ -91,33 +91,33 @@ public sealed class FaSidebarShell : ComponentBase
         builder.OpenComponent<FaHeader>(2);
         builder.AddComponentParameter(3, nameof(FaHeader.BrandText), BrandText);
         builder.AddComponentParameter(4, nameof(FaHeader.BrandHref), BrandHref);
-        builder.AddComponentParameter(27, nameof(FaHeader.BrandIconUrl), BrandIconUrl);
-        builder.AddComponentParameter(5, nameof(FaHeader.IsAuthenticated), IsAuthenticated);
-        builder.AddComponentParameter(6, nameof(FaHeader.UserDisplayName), UserDisplayName);
-        builder.AddComponentParameter(7, nameof(FaHeader.UserImageUrl), UserImageUrl);
-        builder.AddComponentParameter(8, nameof(FaHeader.OnLogin), OnLogin);
-        builder.AddComponentParameter(9, nameof(FaHeader.OnLogout), OnLogout);
-        builder.AddComponentParameter(20, nameof(FaHeader.Position), HeaderPosition);
-        builder.AddComponentParameter(26, nameof(FaHeader.ShowSidebarToggle), true);
-        builder.AddComponentParameter(28, nameof(FaHeader.UseAvatarForm), UseAvatarForm);
-        builder.AddComponentParameter(29, nameof(FaHeader.ShowUserNameInHeader), ShowUserNameInHeader);
-        builder.AddComponentParameter(30, nameof(FaHeader.UserEmail), UserEmail);
-        builder.AddComponentParameter(31, nameof(FaHeader.AccountHref), AccountHref);
-        builder.AddComponentParameter(32, nameof(FaHeader.OnAccountClick), OnAccountClick);
-        builder.AddComponentParameter(33, nameof(FaHeader.AccountText), AccountText);
-        builder.AddComponentParameter(34, nameof(FaHeader.UserMenuContent), UserMenuContent);
-        builder.AddComponentParameter(35, nameof(FaHeader.NavContent), HeaderNav);
+        builder.AddComponentParameter(5, nameof(FaHeader.BrandIconUrl), BrandIconUrl);
+        builder.AddComponentParameter(6, nameof(FaHeader.IsAuthenticated), IsAuthenticated);
+        builder.AddComponentParameter(7, nameof(FaHeader.UserDisplayName), UserDisplayName);
+        builder.AddComponentParameter(8, nameof(FaHeader.UserImageUrl), UserImageUrl);
+        builder.AddComponentParameter(9, nameof(FaHeader.OnLogin), OnLogin);
+        builder.AddComponentParameter(10, nameof(FaHeader.OnLogout), OnLogout);
+        builder.AddComponentParameter(11, nameof(FaHeader.Position), HeaderPosition);
+        builder.AddComponentParameter(12, nameof(FaHeader.ShowSidebarToggle), true);
+        builder.AddComponentParameter(13, nameof(FaHeader.UseAvatarForm), UseAvatarForm);
+        builder.AddComponentParameter(14, nameof(FaHeader.ShowUserNameInHeader), ShowUserNameInHeader);
+        builder.AddComponentParameter(15, nameof(FaHeader.UserEmail), UserEmail);
+        builder.AddComponentParameter(16, nameof(FaHeader.AccountHref), AccountHref);
+        builder.AddComponentParameter(17, nameof(FaHeader.OnAccountClick), OnAccountClick);
+        builder.AddComponentParameter(18, nameof(FaHeader.AccountText), AccountText);
+        builder.AddComponentParameter(19, nameof(FaHeader.UserMenuContent), UserMenuContent);
+        builder.AddComponentParameter(20, nameof(FaHeader.NavContent), HeaderNav);
         builder.CloseComponent();
 
-        builder.OpenElement(10, "div");
-        builder.AddAttribute(11, "class", "fa-shell-body");
+        builder.OpenElement(21, "div");
+        builder.AddAttribute(22, "class", "fa-shell-body");
 
-        builder.OpenComponent<FaSidebar>(12);
-        builder.AddComponentParameter(13, nameof(FaSidebar.ChildContent), Sidebar);
-        builder.AddComponentParameter(21, nameof(FaSidebar.Position), SidebarPosition);
-        builder.AddComponentParameter(25, nameof(FaSidebar.Collapsible), SidebarCollapsible);
-        builder.AddComponentParameter(26, nameof(FaSidebar.HeaderActions), SidebarHeaderActions);
-        builder.AddComponentParameter(27, nameof(FaSidebar.FooterActions), SidebarFooterActions);
+        builder.OpenComponent<FaSidebar>(23);
+        builder.AddComponentParameter(24, nameof(FaSidebar.ChildContent), Sidebar);
+        builder.AddComponentParameter(25, nameof(FaSidebar.Position), SidebarPosition);
+        builder.AddComponentParameter(26, nameof(FaSidebar.Collapsible), SidebarCollapsible);
+        builder.AddComponentParameter(27, nameof(FaSidebar.HeaderActions), SidebarHeaderActions);
+        builder.AddComponentParameter(28, nameof(FaSidebar.FooterActions), SidebarFooterActions);
         builder.CloseComponent();
 
         // main + footer share this column (rather than footer sitting after
@@ -127,19 +127,19 @@ public sealed class FaSidebarShell : ComponentBase
         // the sidebar got shoved upward the instant main content ended, well before
         // the actual bottom of the page, on any page shorter than a couple of
         // viewports tall.
-        builder.OpenElement(23, "div");
-        builder.AddAttribute(24, "class", "fa-shell-main-col");
+        builder.OpenElement(29, "div");
+        builder.AddAttribute(30, "class", "fa-shell-main-col");
 
-        builder.OpenElement(14, "main");
-        builder.AddAttribute(15, "class", "fa-shell-main");
-        builder.AddContent(16, ChildContent);
+        builder.OpenElement(31, "main");
+        builder.AddAttribute(32, "class", "fa-shell-main");
+        builder.AddContent(33, ChildContent);
         builder.CloseElement();
 
-        builder.OpenComponent<FaFooter>(17);
-        builder.AddComponentParameter(18, nameof(FaFooter.BrandText), BrandText);
-        builder.AddComponentParameter(19, nameof(FaFooter.ChildContent), FooterContent);
-        builder.AddComponentParameter(20, nameof(FaFooter.NavContent), FooterNav);
-        builder.AddComponentParameter(22, nameof(FaFooter.Position), FooterPosition);
+        builder.OpenComponent<FaFooter>(34);
+        builder.AddComponentParameter(35, nameof(FaFooter.BrandText), BrandText);
+        builder.AddComponentParameter(36, nameof(FaFooter.ChildContent), FooterContent);
+        builder.AddComponentParameter(37, nameof(FaFooter.NavContent), FooterNav);
+        builder.AddComponentParameter(38, nameof(FaFooter.Position), FooterPosition);
         builder.CloseComponent();
 
         builder.CloseElement(); // .fa-shell-main-col
