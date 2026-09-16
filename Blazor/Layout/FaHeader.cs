@@ -81,6 +81,13 @@ public sealed class FaHeader : ComponentBase
     /// </summary>
     [Parameter] public bool ShowSidebarToggle { get; set; }
 
+    /// <summary>
+    /// When true and navigation content is present (<see cref="NavContent"/> or <see cref="NavButtons"/>)
+    /// without a sidebar toggle, renders a hamburger button on mobile screens that toggles the header
+    /// nav menu slide-down via window.faToggleNavMobile(). Defaults to true.
+    /// </summary>
+    [Parameter] public bool ShowNavToggle { get; set; } = true;
+
     private string? PositionClass => Position switch
     {
         FaNavPosition.Sticky => "fa-header-sticky",
@@ -90,115 +97,135 @@ public sealed class FaHeader : ComponentBase
 
     protected override void BuildRenderTree(RenderTreeBuilder builder)
     {
+        var effectiveNav = NavContent ?? NavButtons;
+
         builder.OpenElement(0, "header");
         builder.AddAttribute(1, "class", CssClassNames.Combine("fa-header", PositionClass));
 
-        builder.OpenElement(30, "div");
-        builder.AddAttribute(31, "class", "fa-header-left");
+        builder.OpenElement(2, "div");
+        builder.AddAttribute(3, "class", "fa-header-left");
 
         if (ShowSidebarToggle)
         {
-            builder.OpenElement(32, "button");
-            builder.AddAttribute(33, "type", "button");
-            builder.AddAttribute(34, "class", "fa-header-menu-toggle");
-            builder.AddAttribute(35, "data-sidebar-mobile-toggle", true);
-            builder.AddAttribute(36, "title", "Toggle menu");
-            builder.AddAttribute(37, "aria-label", "Toggle menu");
-            builder.AddAttribute(38, "aria-expanded", "false");
-            builder.AddAttribute(39, "onclick", "faToggleSidebarMobile()");
+            builder.OpenElement(4, "button");
+            builder.AddAttribute(5, "type", "button");
+            builder.AddAttribute(6, "class", "fa-header-menu-toggle fa-header-sidebar-toggle");
+            builder.AddAttribute(7, "data-sidebar-mobile-toggle", true);
+            builder.AddAttribute(8, "title", "Toggle menu");
+            builder.AddAttribute(9, "aria-label", "Toggle menu");
+            builder.AddAttribute(10, "aria-expanded", "false");
+            builder.AddAttribute(11, "onclick", "faToggleSidebarMobile()");
 
-            builder.OpenComponent<FaIcon>(40);
-            builder.AddComponentParameter(41, nameof(FaIcon.Name), FaIconName.Menu);
-            builder.AddComponentParameter(42, nameof(FaIcon.Color), FaIconColor.White);
-            builder.AddComponentParameter(43, nameof(FaIcon.Size), 18);
+            builder.OpenComponent<FaIcon>(12);
+            builder.AddComponentParameter(13, nameof(FaIcon.Name), FaIconName.Menu);
+            builder.AddComponentParameter(14, nameof(FaIcon.Color), FaIconColor.White);
+            builder.AddComponentParameter(15, nameof(FaIcon.Size), 18);
             builder.CloseComponent();
 
             builder.CloseElement(); // .fa-header-menu-toggle
         }
+        else if (ShowNavToggle && effectiveNav is not null)
+        {
+            builder.OpenElement(16, "button");
+            builder.AddAttribute(17, "type", "button");
+            builder.AddAttribute(18, "class", "fa-header-menu-toggle fa-header-nav-toggle");
+            builder.AddAttribute(19, "data-nav-mobile-toggle", true);
+            builder.AddAttribute(20, "title", "Toggle navigation");
+            builder.AddAttribute(21, "aria-label", "Toggle navigation");
+            builder.AddAttribute(22, "aria-expanded", "false");
+            builder.AddAttribute(23, "onclick", "faToggleNavMobile()");
 
-        builder.OpenElement(2, "a");
-        builder.AddAttribute(3, "class", "fa-header-brand");
-        builder.AddAttribute(4, "href", BrandHref);
+            builder.OpenComponent<FaIcon>(24);
+            builder.AddComponentParameter(25, nameof(FaIcon.Name), FaIconName.Menu);
+            builder.AddComponentParameter(26, nameof(FaIcon.Color), FaIconColor.White);
+            builder.AddComponentParameter(27, nameof(FaIcon.Size), 18);
+            builder.CloseComponent();
+
+            builder.CloseElement(); // .fa-header-nav-toggle
+        }
+
+        builder.OpenElement(28, "a");
+        builder.AddAttribute(29, "class", "fa-header-brand");
+        builder.AddAttribute(30, "href", BrandHref);
 
         if (!string.IsNullOrEmpty(BrandIconUrl))
         {
-            builder.OpenElement(44, "img");
-            builder.AddAttribute(45, "class", "fa-header-brand-icon");
-            builder.AddAttribute(46, "src", BrandIconUrl);
-            builder.AddAttribute(47, "alt", "");
+            builder.OpenElement(31, "img");
+            builder.AddAttribute(32, "class", "fa-header-brand-icon");
+            builder.AddAttribute(33, "src", BrandIconUrl);
+            builder.AddAttribute(34, "alt", "");
             builder.CloseElement();
         }
 
-        builder.AddContent(5, BrandText);
-        builder.CloseElement();
+        builder.AddContent(35, BrandText);
+        builder.CloseElement(); // .fa-header-brand
 
         builder.CloseElement(); // .fa-header-left
 
-        var effectiveNav = NavContent ?? NavButtons;
         if (effectiveNav is not null)
         {
-            builder.OpenElement(48, "nav");
-            builder.AddAttribute(49, "class", "fa-header-nav");
-            builder.AddAttribute(50, "aria-label", "Header navigation");
-            builder.AddContent(51, effectiveNav);
+            builder.OpenElement(36, "nav");
+            builder.AddAttribute(37, "class", "fa-header-nav");
+            builder.AddAttribute(38, "aria-label", "Header navigation");
+            builder.AddContent(39, effectiveNav);
             builder.CloseElement(); // nav.fa-header-nav
         }
 
-        builder.OpenElement(6, "div");
-        builder.AddAttribute(7, "class", "fa-header-user");
+        builder.OpenElement(40, "div");
+        builder.AddAttribute(41, "class", "fa-header-user");
 
         if (UseAvatarForm)
         {
-            builder.OpenComponent<FaAvatarForm>(8);
-            builder.AddComponentParameter(9, nameof(FaAvatarForm.IsAuthenticated), IsAuthenticated);
-            builder.AddComponentParameter(10, nameof(FaAvatarForm.DisplayName), UserDisplayName);
-            builder.AddComponentParameter(11, nameof(FaAvatarForm.ImageUrl), UserImageUrl);
-            builder.AddComponentParameter(12, nameof(FaAvatarForm.Email), UserEmail);
-            builder.AddComponentParameter(13, nameof(FaAvatarForm.ShowDisplayName), ShowUserNameInHeader);
-            builder.AddComponentParameter(14, nameof(FaAvatarForm.AccountHref), AccountHref);
-            builder.AddComponentParameter(15, nameof(FaAvatarForm.OnAccountClick), OnAccountClick);
-            builder.AddComponentParameter(16, nameof(FaAvatarForm.AccountText), AccountText);
-            builder.AddComponentParameter(17, nameof(FaAvatarForm.OnLogin), OnLogin);
-            builder.AddComponentParameter(18, nameof(FaAvatarForm.OnLogout), OnLogout);
-            builder.AddComponentParameter(19, nameof(FaAvatarForm.ChildContent), UserMenuContent);
+            builder.OpenComponent<FaAvatarForm>(42);
+            builder.AddComponentParameter(43, nameof(FaAvatarForm.IsAuthenticated), IsAuthenticated);
+            builder.AddComponentParameter(44, nameof(FaAvatarForm.DisplayName), UserDisplayName);
+            builder.AddComponentParameter(45, nameof(FaAvatarForm.ImageUrl), UserImageUrl);
+            builder.AddComponentParameter(46, nameof(FaAvatarForm.Email), UserEmail);
+            builder.AddComponentParameter(47, nameof(FaAvatarForm.ShowDisplayName), ShowUserNameInHeader);
+            builder.AddComponentParameter(48, nameof(FaAvatarForm.AccountHref), AccountHref);
+            builder.AddComponentParameter(49, nameof(FaAvatarForm.OnAccountClick), OnAccountClick);
+            builder.AddComponentParameter(50, nameof(FaAvatarForm.AccountText), AccountText);
+            builder.AddComponentParameter(51, nameof(FaAvatarForm.OnLogin), OnLogin);
+            builder.AddComponentParameter(52, nameof(FaAvatarForm.OnLogout), OnLogout);
+            builder.AddComponentParameter(53, nameof(FaAvatarForm.ChildContent), UserMenuContent);
             builder.CloseComponent();
         }
         else
         {
-            builder.OpenComponent<FaThemeSwitcher>(8);
+            builder.OpenComponent<FaThemeSwitcher>(54);
             builder.CloseComponent();
 
             if (IsAuthenticated)
             {
-                builder.OpenComponent<FaAvatar>(9);
-                builder.AddComponentParameter(10, nameof(FaAvatar.DisplayName), UserDisplayName);
-                builder.AddComponentParameter(11, nameof(FaAvatar.ImageUrl), UserImageUrl);
+                builder.OpenComponent<FaAvatar>(55);
+                builder.AddComponentParameter(56, nameof(FaAvatar.DisplayName), UserDisplayName);
+                builder.AddComponentParameter(57, nameof(FaAvatar.ImageUrl), UserImageUrl);
                 builder.CloseComponent();
 
-                builder.OpenElement(12, "span");
-                builder.AddAttribute(13, "class", "fa-header-username");
-                builder.AddContent(14, UserDisplayName);
+                builder.OpenElement(58, "span");
+                builder.AddAttribute(59, "class", "fa-header-username");
+                builder.AddContent(60, UserDisplayName);
                 builder.CloseElement();
 
-                builder.OpenComponent<FaButton>(15);
-                builder.AddComponentParameter(16, nameof(FaButton.Variant), FaButtonVariant.Secondary);
-                builder.AddComponentParameter(17, nameof(FaButton.Size), FaSize.Small);
-                builder.AddComponentParameter(18, nameof(FaButton.OnClick), EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, () => OnLogout.InvokeAsync()));
-                builder.AddComponentParameter(19, nameof(FaButton.ChildContent), (RenderFragment)(b => b.AddContent(0, "Log out")));
+                builder.OpenComponent<FaButton>(61);
+                builder.AddComponentParameter(62, nameof(FaButton.Variant), FaButtonVariant.Secondary);
+                builder.AddComponentParameter(63, nameof(FaButton.Size), FaSize.Small);
+                builder.AddComponentParameter(64, nameof(FaButton.OnClick), EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, () => OnLogout.InvokeAsync()));
+                builder.AddComponentParameter(65, nameof(FaButton.ChildContent), (RenderFragment)(b => b.AddContent(0, "Log out")));
                 builder.CloseComponent();
             }
             else
             {
-                builder.OpenComponent<FaButton>(20);
-                builder.AddComponentParameter(21, nameof(FaButton.Variant), FaButtonVariant.Secondary);
-                builder.AddComponentParameter(22, nameof(FaButton.Size), FaSize.Small);
-                builder.AddComponentParameter(23, nameof(FaButton.OnClick), EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, () => OnLogin.InvokeAsync()));
-                builder.AddComponentParameter(24, nameof(FaButton.ChildContent), (RenderFragment)(b => b.AddContent(0, "Log in")));
+                builder.OpenComponent<FaButton>(66);
+                builder.AddComponentParameter(67, nameof(FaButton.Variant), FaButtonVariant.Secondary);
+                builder.AddComponentParameter(68, nameof(FaButton.Size), FaSize.Small);
+                builder.AddComponentParameter(69, nameof(FaButton.OnClick), EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, () => OnLogin.InvokeAsync()));
+                builder.AddComponentParameter(70, nameof(FaButton.ChildContent), (RenderFragment)(b => b.AddContent(0, "Log in")));
                 builder.CloseComponent();
             }
         }
 
-        builder.CloseElement();
-        builder.CloseElement();
+        builder.CloseElement(); // .fa-header-user
+        builder.CloseElement(); // header
     }
 }

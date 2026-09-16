@@ -1,8 +1,5 @@
-// Sidebar collapse toggle — plain JS on purpose, same reasoning as theme.js: this is
-// pure client-side UI state (collapsed vs expanded), persisted to localStorage and
-// stamped as a class on <html> so CSS alone handles the width/tooltip/icon-rotation
-// changes. FaSidebar's toggle button calls window.faToggleSidebar() directly via a
-// plain onclick attribute — no Blazor state to keep in sync, nothing to re-render.
+// Sidebar collapse toggle & mobile menu toggles — plain JS on purpose, same reasoning as theme.js:
+// pure client-side UI state, persisted to localStorage where applicable and stamped as a class on <html>.
 (function () {
     var STORAGE_KEY = 'fa-sidebar-collapsed';
     var CLASS_NAME = 'fa-sidebar-collapsed';
@@ -51,7 +48,7 @@
         apply(next, false);
     };
 
-    // Mobile off-canvas open/closed — a separate axis from the desktop icon-rail
+    // Mobile off-canvas sidebar open/closed — a separate axis from the desktop icon-rail
     // collapse above (CLASS_NAME/apply()). Not persisted to localStorage: unlike
     // the desktop rail, staying open across page loads on a small screen would
     // just mean every new page starts covered by the menu.
@@ -64,6 +61,44 @@
             buttons[i].setAttribute('aria-expanded', open ? 'true' : 'false');
         }
     };
+
+    // Mobile topbar nav menu open/closed
+    var NAV_MOBILE_CLASS_NAME = 'fa-header-nav-mobile-open';
+
+    window.faToggleNavMobile = function () {
+        var open = document.documentElement.classList.toggle(NAV_MOBILE_CLASS_NAME);
+        var buttons = document.querySelectorAll('[data-nav-mobile-toggle]');
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+    };
+
+    // Auto-close mobile menus on link click or outside click
+    document.addEventListener('click', function (e) {
+        // Nav mobile menu closing
+        if (document.documentElement.classList.contains(NAV_MOBILE_CLASS_NAME)) {
+            if (!e.target.closest('[data-nav-mobile-toggle]')) {
+                if (e.target.closest('.fa-header-nav a') || e.target.closest('.fa-header-nav button') || !e.target.closest('.fa-header-nav')) {
+                    document.documentElement.classList.remove(NAV_MOBILE_CLASS_NAME);
+                    var navButtons = document.querySelectorAll('[data-nav-mobile-toggle]');
+                    for (var n = 0; n < navButtons.length; n++) {
+                        navButtons[n].setAttribute('aria-expanded', 'false');
+                    }
+                }
+            }
+        }
+
+        // Sidebar mobile menu closing on navigation click
+        if (document.documentElement.classList.contains(MOBILE_CLASS_NAME)) {
+            if (!e.target.closest('[data-sidebar-mobile-toggle]') && e.target.closest('.fa-sidebar a')) {
+                document.documentElement.classList.remove(MOBILE_CLASS_NAME);
+                var sideButtons = document.querySelectorAll('[data-sidebar-mobile-toggle]');
+                for (var s = 0; s < sideButtons.length; s++) {
+                    sideButtons[s].setAttribute('aria-expanded', 'false');
+                }
+            }
+        }
+    });
 
     document.addEventListener('DOMContentLoaded', function () {
         // Applying the saved state on page load should never animate — only the
