@@ -13,25 +13,43 @@ public sealed class FaIcon : ComponentBase
 {
     [Parameter, EditorRequired] public FaIconName Name { get; set; }
     [Parameter] public FaIconColor Color { get; set; } = FaIconColor.White;
+    [Parameter] public string? CustomColor { get; set; }
     [Parameter] public int Size { get; set; } = 20;
     [Parameter] public string? Title { get; set; }
     [Parameter] public string? CssClass { get; set; }
 
-    private string ColorClass => Color == FaIconColor.Black ? "fa-icon-black" : "fa-icon-white";
+    private string ColorClass => Color switch
+    {
+        FaIconColor.White => "fa-icon-white",
+        FaIconColor.Black => "fa-icon-black",
+        FaIconColor.Primary => "fa-icon-primary",
+        FaIconColor.Secondary => "fa-icon-secondary",
+        FaIconColor.Success => "fa-icon-success",
+        FaIconColor.Warning => "fa-icon-warning",
+        FaIconColor.Danger => "fa-icon-danger",
+        FaIconColor.Info => "fa-icon-info",
+        FaIconColor.Muted => "fa-icon-muted",
+        FaIconColor.Inherit => "fa-icon-inherit",
+        _ => "fa-icon-white"
+    };
 
     protected override void BuildRenderTree(RenderTreeBuilder builder)
     {
         var hasTitle = !string.IsNullOrEmpty(Title);
 
         builder.OpenElement(0, "svg");
-        builder.AddAttribute(1, "class", $"fa-icon {ColorClass} {CssClass}");
+        builder.AddAttribute(1, "class", $"fa-icon {ColorClass} {CssClass}".Trim());
         builder.AddAttribute(2, "viewBox", "0 0 24 24");
         builder.AddAttribute(3, "width", Size);
         builder.AddAttribute(4, "height", Size);
-        builder.AddAttribute(5, "aria-hidden", hasTitle ? null : "true");
-        builder.AddAttribute(6, "role", hasTitle ? "img" : null);
+        if (!string.IsNullOrWhiteSpace(CustomColor))
+        {
+            builder.AddAttribute(5, "style", $"color: {CustomColor};");
+        }
+        builder.AddAttribute(6, "aria-hidden", hasTitle ? null : "true");
+        builder.AddAttribute(7, "role", hasTitle ? "img" : null);
 
-        var seq = 7;
+        var seq = 8;
 
         if (hasTitle)
         {
@@ -317,6 +335,28 @@ public sealed class FaIcon : ComponentBase
                 break;
             case FaIconName.Bolt:
                 Path("M13 2 4.5 13.5h6L9.5 22l9-11.5h-6.2L14 2z");
+                break;
+            case FaIconName.Target:
+                FillRulePath("M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 3a7 7 0 1 1 0 14 7 7 0 0 1 0-14zm0 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 2.2a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6z");
+                break;
+            case FaIconName.TrendingUp:
+                Path("M3.5 18.5 2 17l7.5-7.5 4 4 7-7H16V4.5h6.5V11H20.5V7.1l-8 8-4-4z");
+                break;
+            case FaIconName.BarChart:
+                Rect("4", "11", "3", "9", "1");
+                Rect("10.5", "5", "3", "15", "1");
+                Rect("17", "8", "3", "12", "1");
+                Path("M2 20h20v2H2z");
+                break;
+            case FaIconName.Swimmer:
+                Circle("18", "6.5", "2.2");
+                Path("M15.2 9.2 11.8 11 8.5 8.8l-4 2.2 1 1.8 2.8-1.5 2.8 1.9-1.8 3.5-4.8 1.6.6 2 6-2 2.2-4.3 2.9-1.5 2 2.5 1.6-1.3z");
+                Path("M2 18.5c1.8 0 2.8-.8 4.6-.8s2.8.8 4.6.8 2.8-.8 4.6-.8 2.8.8 4.6.8 2.8-.8 3.6-.8v1.8c-1.2 0-2.2.8-4 .8s-2.8-.8-4.6-.8-2.8.8-4.6.8-2.8-.8-4.6-.8-2.8.8-4.2.8z");
+                break;
+            case FaIconName.Medal:
+                Path("M8 2l4 4.5L16 2v5.5l-4 4-4-4z");
+                Circle("12", "16.5", "4.5");
+                Circle("12", "16.5", "2.2");
                 break;
         }
 

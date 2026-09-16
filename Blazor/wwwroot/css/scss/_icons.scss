@@ -27,6 +27,38 @@
     color: var(--fa-text);
 }
 
+.fa-icon-primary {
+    color: var(--fa-primary, #0284c7);
+}
+
+.fa-icon-secondary {
+    color: var(--fa-secondary, #475569);
+}
+
+.fa-icon-success {
+    color: var(--fa-success, #16a34a);
+}
+
+.fa-icon-warning {
+    color: var(--fa-warning, #d97706);
+}
+
+.fa-icon-danger {
+    color: var(--fa-danger, #dc2626);
+}
+
+.fa-icon-info {
+    color: var(--fa-info, #0284c7);
+}
+
+.fa-icon-muted {
+    color: var(--fa-text-muted, #64748b);
+}
+
+.fa-icon-inherit {
+    color: inherit;
+}
+
 .fa-nav-icon {
     display: inline-flex;
     align-items: center;

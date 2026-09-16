@@ -63,5 +63,10 @@ public enum FaIconName
     DocumentSearch,
     Stopwatch,
     Trophy,
-    Bolt
+    Bolt,
+    Target,
+    TrendingUp,
+    BarChart,
+    Swimmer,
+    Medal
 }
