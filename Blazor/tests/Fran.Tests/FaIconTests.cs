@@ -15,6 +15,11 @@ public class FaIconTests : BunitContext
     [InlineData(FaIconName.Bolt)]
     [InlineData(FaIconName.Upload)]
     [InlineData(FaIconName.Search)]
+    [InlineData(FaIconName.Target)]
+    [InlineData(FaIconName.TrendingUp)]
+    [InlineData(FaIconName.BarChart)]
+    [InlineData(FaIconName.Swimmer)]
+    [InlineData(FaIconName.Medal)]
     public void FaIcon_RendersSvg_ForIconName(FaIconName iconName)
     {
         var cut = Render<FaIcon>(p => p
@@ -37,5 +42,37 @@ public class FaIconTests : BunitContext
             var cut = Render<FaIcon>(p => p.Add(x => x.Name, icon));
             Assert.NotNull(cut.Find("svg"));
         }
+    }
+
+    [Theory]
+    [InlineData(FaIconColor.White, "fa-icon-white")]
+    [InlineData(FaIconColor.Black, "fa-icon-black")]
+    [InlineData(FaIconColor.Primary, "fa-icon-primary")]
+    [InlineData(FaIconColor.Secondary, "fa-icon-secondary")]
+    [InlineData(FaIconColor.Success, "fa-icon-success")]
+    [InlineData(FaIconColor.Warning, "fa-icon-warning")]
+    [InlineData(FaIconColor.Danger, "fa-icon-danger")]
+    [InlineData(FaIconColor.Info, "fa-icon-info")]
+    [InlineData(FaIconColor.Muted, "fa-icon-muted")]
+    [InlineData(FaIconColor.Inherit, "fa-icon-inherit")]
+    public void FaIcon_RendersCorrectColorClass(FaIconColor color, string expectedClass)
+    {
+        var cut = Render<FaIcon>(p => p
+            .Add(x => x.Name, FaIconName.Star)
+            .Add(x => x.Color, color));
+
+        var svg = cut.Find("svg");
+        Assert.Contains(expectedClass, svg.GetAttribute("class"));
+    }
+
+    [Fact]
+    public void FaIcon_RendersCustomColorStyle()
+    {
+        var cut = Render<FaIcon>(p => p
+            .Add(x => x.Name, FaIconName.Target)
+            .Add(x => x.CustomColor, "#FF00AA"));
+
+        var svg = cut.Find("svg");
+        Assert.Contains("color: #FF00AA;", svg.GetAttribute("style"));
     }
 }
