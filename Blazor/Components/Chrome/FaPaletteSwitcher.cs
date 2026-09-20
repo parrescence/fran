@@ -65,6 +65,7 @@ public sealed class FaPaletteSwitcher : ComponentBase
         ("hang-in", "Hang'In"),
         ("floating", "Floating"),
         ("fit", "Fit"),
+        ("parrescence", "Parrescence"),
     ];
 
     /// <summary>

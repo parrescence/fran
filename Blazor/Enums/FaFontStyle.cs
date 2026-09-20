@@ -26,5 +26,7 @@ public enum FaFontStyle
     Water,
     Rock,
     Comical,
-    Contrasting
+    Contrasting,
+    /// <summary>Crisp executive command center with modern geometric sans Inter metrics, uppercase letter spacing, and clean technical hierarchy.</summary>
+    Executive
 }
