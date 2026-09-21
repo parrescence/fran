@@ -9,6 +9,10 @@
 .fa-shell-main {
     flex: 1;
     padding: 1.75rem 2rem;
+    /* Positioned so FaSignInGate (position: absolute, see _forms.scss) anchors to
+       the content area instead of the viewport — it should never sit over the
+       header/sidebar chrome outside this element. */
+    position: relative;
 }
 
 .fa-shell-sidebar .fa-shell-body {
