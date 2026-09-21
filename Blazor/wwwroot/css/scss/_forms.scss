@@ -23,20 +23,25 @@
 }
 
 /* --- FaSignInGate --- */
-/* Fixed-position card, not a full-viewport block: it overlays whatever page it
-   gates instead of reserving min-height:100vh, so Position just picks one of the
-   9 viewport anchors (same left/center/right x top/center/bottom scheme as
-   FaToastHost's corners, plus the 3 center-row spots toast doesn't need). */
+/* Absolutely positioned within its nearest positioned ancestor (.fa-shell-main is
+   position: relative — see _layout.scss — for FaStandardShell/FaSidebarShell
+   consumers), not fixed to the viewport: it overlays the page's content area
+   instead of reserving min-height:100vh, and — critically — never sits over a
+   header/sidebar outside that content area. Position just picks one of the 9
+   anchors within that container (same left/center/right x top/center/bottom
+   scheme as FaToastHost's corners, plus the 3 center-row spots toast doesn't
+   need). Falls back to the initial containing block (scrolls with the page) if
+   rendered outside any positioned ancestor. */
 
 .fa-sign-in-gate {
-    position: fixed;
+    position: absolute;
     z-index: 1000;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.9rem;
     padding: 1rem;
-    max-width: min(24rem, calc(100vw - 2rem));
+    max-width: min(24rem, calc(100% - 2rem));
     pointer-events: none;
 }
 
