@@ -1,5 +1,5 @@
 /* ============================= Forms ============================= */
-/* Shared by FaForm<TModel>, FaLoginForm, and FaLogoutForm. Field styling itself
+/* Shared by FaForm<TModel>, FaLoginForm, FaLogoutForm, and FaSignInGate. Field styling itself
    (.fa-field/.fa-label/.fa-input/.fa-checkbox/...) already lives in _inputs.scss/
    _checkbox-radio.scss — this partial only covers the wrapper and the action-button
    row all three add on top of that. */
@@ -18,6 +18,11 @@
 }
 
 .fa-logout-message {
+    margin: 0;
+    color: var(--fa-text);
+}
+
+.fa-sign-in-gate-message {
     margin: 0;
     color: var(--fa-text);
 }

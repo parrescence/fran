@@ -68,7 +68,7 @@ a zero-risk, no-version-bump move:
   `InputBase<TValue>` field up through a whole `<EditForm>`-wrapping composite:
   `FaInput`, `FaSelect`, `FaSearchSelect`, `FaDropdown`, `FaTextarea`, `FaCheckbox`,
   `FaRadioGroup`, `FaToggle`, `FaDate`, `FaDateRange`, `FaCurrency`, `FaFile`,
-  `FaForm`, `FaLoginForm`, `FaLogoutForm`, `FaAvatarForm`, `FaAccountForm`.
+  `FaForm`, `FaLoginForm`, `FaLogoutForm`, `FaSignInGate`, `FaAvatarForm`, `FaAccountForm`.
 - **`Components/Feedback/`** — communicates state rather than taking input:
   `FaAlert`, `FaModal`, `FaProgress`, `FaSpinner`, `FaLoadingDots`, `FaHelixLoader`,
   `FaPongLoader`, `FaTooltip`, `FaPopover`, `FaToastHost`, `FaSkeleton`.

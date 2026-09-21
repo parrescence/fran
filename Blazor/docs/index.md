@@ -67,6 +67,7 @@ Two binding shapes show up repeatedly:
 - [FaForm](fa-form.md) — wraps EditForm around your own field markup, returns the populated model on submit; `Mode` (Create/Edit) covers "new" vs "update"
 - [FaLoginForm](fa-login-form.md) — username/password + remember-me, emits an `FaLoginRequest`
 - [FaLogoutForm](fa-logout-form.md) — "are you sure?" confirm/cancel
+- [FaSignInGate](fa-sign-in-gate.md) — the standard "sign in required" gate for a protected route
 - [FaAvatarForm](fa-avatar-form.md) — avatar trigger + dropdown identity card, theme switcher, app items, account navigation, login/logout
 - [FaAccountForm](fa-account-form.md) — profile picture preview/input, personal information, bio, save/cancel actions
 
