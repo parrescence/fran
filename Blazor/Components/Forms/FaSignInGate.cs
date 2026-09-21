@@ -10,9 +10,11 @@ namespace Fran.Components;
 /// unauthenticated visitor hits a protected route — not the credential-entry page
 /// itself (that's typically a hosted identity provider's own login page an app
 /// redirects to, outside this library's reach), just the one screen every consumer
-/// controls in between. Renders as a fixed-position card anchored via
+/// controls in between. Renders as an absolutely-positioned card anchored via
 /// <see cref="Position"/> rather than reserving a full-viewport block, so it can sit
-/// over whatever's already on the page instead of shoving it out of the way.
+/// over whatever's already on the page instead of shoving it out of the way — scoped
+/// to the page's content area (e.g. FaStandardShell/FaSidebarShell's &lt;main&gt;), not
+/// the viewport, so it never covers a header or sidebar outside that area.
 /// FaSignInGate never performs the actual sign-in redirect itself —
 /// <see cref="OnSignIn"/> is where the caller navigates to its own login route
 /// (e.g. <c>"authentication/login?returnUrl=..."</c> for a Blazor WebAssembly app
@@ -28,7 +30,7 @@ public sealed class FaSignInGate : ComponentBase
     [Parameter, EditorRequired] public EventCallback OnSignIn { get; set; }
     [Parameter] public string SignInText { get; set; } = "Sign In";
 
-    /// <summary>Which of the 9 viewport anchors the card sits at. Defaults to top-center.</summary>
+    /// <summary>Which of the 9 anchors within the page's content area the card sits at. Defaults to top-center.</summary>
     [Parameter] public FaSignInGatePosition Position { get; set; } = FaSignInGatePosition.TopCenter;
 
     /// <summary>Small content below the card — a "Contact support" link, terms text, etc.</summary>
