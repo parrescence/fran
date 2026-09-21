@@ -22,7 +22,68 @@
     color: var(--fa-text);
 }
 
+/* --- FaSignInGate --- */
+/* Fixed-position card, not a full-viewport block: it overlays whatever page it
+   gates instead of reserving min-height:100vh, so Position just picks one of the
+   9 viewport anchors (same left/center/right x top/center/bottom scheme as
+   FaToastHost's corners, plus the 3 center-row spots toast doesn't need). */
+
+.fa-sign-in-gate {
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem;
+    max-width: min(24rem, calc(100vw - 2rem));
+    pointer-events: none;
+}
+
+.fa-sign-in-gate-top-left { top: 0; left: 0; align-items: flex-start; }
+.fa-sign-in-gate-top-center { top: 0; left: 50%; transform: translateX(-50%); align-items: center; }
+.fa-sign-in-gate-top-right { top: 0; right: 0; align-items: flex-end; }
+.fa-sign-in-gate-center-left { top: 50%; left: 0; transform: translateY(-50%); align-items: flex-start; }
+.fa-sign-in-gate-center { top: 50%; left: 50%; transform: translate(-50%, -50%); align-items: center; }
+.fa-sign-in-gate-center-right { top: 50%; right: 0; transform: translateY(-50%); align-items: flex-end; }
+.fa-sign-in-gate-bottom-left { bottom: 0; left: 0; align-items: flex-start; }
+.fa-sign-in-gate-bottom-center { bottom: 0; left: 50%; transform: translateX(-50%); align-items: center; }
+.fa-sign-in-gate-bottom-right { bottom: 0; right: 0; align-items: flex-end; }
+
+.fa-sign-in-gate-panel {
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    width: 100%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.fa-sign-in-gate-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--fa-font);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--fa-primary-dark);
+    text-decoration: none;
+}
+
+.fa-sign-in-gate-brand-icon {
+    height: 1.3rem;
+    width: auto;
+    border-radius: var(--fa-radius-sm);
+}
+
 .fa-sign-in-gate-message {
     margin: 0;
     color: var(--fa-text);
+}
+
+.fa-sign-in-gate-footer {
+    pointer-events: auto;
+    text-align: center;
+    color: var(--fa-text-muted);
+    font-size: 0.88rem;
 }
