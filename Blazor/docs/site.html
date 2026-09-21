@@ -442,6 +442,7 @@
         <li><a href="#fa-form">FaForm</a></li>
         <li><a href="#fa-login-form">FaLoginForm</a></li>
         <li><a href="#fa-logout-form">FaLogoutForm</a></li>
+        <li><a href="#fa-sign-in-gate">FaSignInGate</a></li>
         <li><a href="#fa-avatar-form">FaAvatarForm</a></li>
         <li><a href="#fa-account-form">FaAccountForm</a></li>
       </ul>
@@ -1781,6 +1782,43 @@ builder.Services.AddScoped&lt;FaToastService&gt;();</code></pre></div>
           <tr><td><code>CancelText</code></td><td><code>string</code></td><td>default "Cancel"</td></tr>
           <tr><td><code>Busy</code></td><td><code>bool</code></td><td>disables Confirm, "Logging out…" text</td></tr>
           <tr><td><code>ButtonAlign</code></td><td><code>FaAlign</code></td><td>Start · Center · End (default) · Between · Around · Evenly</td></tr>
+          <tr><td><code>CssClass</code></td><td><code>string?</code></td><td></td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================= FaSignInGate ============================= -->
+    <section class="component" id="fa-sign-in-gate">
+      <span class="kicker">Self-contained forms</span>
+      <h2>FaSignInGate</h2>
+      <p class="dek">The standard "you need to sign in to view this page" gate — shown when an unauthenticated visitor hits a protected route. Not the credential-entry page itself, just the one screen every app controls in between.</p>
+
+      <h3>Usage</h3>
+      <div class="code-block"><button class="copy-btn" data-copy>Copy</button><pre><code>&lt;AuthorizeView&gt;
+    &lt;NotAuthorized&gt;
+        &lt;FaSignInGate BrandText="Vince" OnSignIn="SignIn" /&gt;
+    &lt;/NotAuthorized&gt;
+&lt;/AuthorizeView&gt;
+
+@code {
+    private void SignIn() =&gt;
+        Navigation.NavigateTo($"authentication/login?returnUrl={Uri.EscapeDataString(Navigation.Uri)}");
+}</code></pre></div>
+
+      <p class="getting-value"><strong>Getting the value:</strong> no bound value — OnSignIn is the signal to navigate to your app's own login route.</p>
+
+      <h4>Parameters</h4>
+      <div class="table-wrap">
+        <table class="params">
+          <tr><th>Parameter</th><th>Type</th><th>Notes</th></tr>
+          <tr><td><code>BrandText</code></td><td><code>string</code></td><td class="req">required</td></tr>
+          <tr><td><code>BrandHref</code></td><td><code>string</code></td><td>default "/"</td></tr>
+          <tr><td><code>BrandIconUrl</code></td><td><code>string?</code></td><td>optional logo shown left of BrandText</td></tr>
+          <tr><td><code>OnSignIn</code></td><td><code>EventCallback</code></td><td class="req">required</td></tr>
+          <tr><td><code>Title</code></td><td><code>string</code></td><td>default "Sign in required"</td></tr>
+          <tr><td><code>Description</code></td><td><code>string</code></td><td>default "You need to sign in to view this page."</td></tr>
+          <tr><td><code>SignInText</code></td><td><code>string</code></td><td>default "Sign In"</td></tr>
+          <tr><td><code>FooterContent</code></td><td><code>RenderFragment?</code></td><td>small content below the card</td></tr>
           <tr><td><code>CssClass</code></td><td><code>string?</code></td><td></td></tr>
         </table>
       </div>

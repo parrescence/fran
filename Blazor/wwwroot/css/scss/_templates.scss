@@ -2123,5 +2123,256 @@
     gap: 1rem;
 }
 
+/* ============================= FaCommandCenterTemplate ============================= */
+/* Executive Cloud Command Center & Multi-Tenant / Multi-Subscription Management */
+
+.fa-command-center-template {
+    min-height: 100vh;
+    background-color: var(--fa-cream);
+    color: var(--fa-text);
+    font-family: var(--fa-font);
+    display: flex;
+    flex-direction: column;
+}
+
+.fa-command-center-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(10, 25, 47, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: var(--fa-border-width) solid var(--fa-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.fa-command-center-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.fa-command-center-brand-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--fa-radius-sm);
+    filter: drop-shadow(0 0 8px rgba(0, 210, 180, 0.3));
+}
+
+.fa-command-center-brand-meta h1 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fa-text);
+}
+
+.fa-command-center-brand-meta p {
+    margin: 0.15rem 0 0;
+    font-size: 0.75rem;
+    color: var(--fa-text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.fa-command-center-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.fa-command-center-auth-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    background: rgba(0, 210, 180, 0.12);
+    border: 1px solid rgba(0, 210, 180, 0.35);
+    border-radius: var(--fa-radius-pill);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--fa-accent);
+}
+
+.fa-command-center-status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--fa-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--fa-accent);
+}
+
+.fa-command-center-tab-bar {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    background: var(--fa-surface);
+    border-bottom: var(--fa-border-width) solid var(--fa-border);
+    overflow-x: auto;
+}
+
+.fa-command-center-container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.fa-command-center-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+
+.fa-command-center-kpi-card {
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius-md);
+    padding: 1.25rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--fa-transition-fast), border-color var(--fa-transition-fast);
+}
+
+.fa-command-center-kpi-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--fa-accent);
+}
+
+.fa-command-center-kpi-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fa-text-muted);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.fa-command-center-kpi-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--fa-text);
+    margin-bottom: 0.25rem;
+}
+
+.fa-command-center-kpi-subtext {
+    font-size: 0.8rem;
+    color: var(--fa-text-muted);
+}
+
+.fa-command-center-quick-launch {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.fa-command-center-filter-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.fa-command-center-auth-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 1000;
+}
+
+.fa-command-center-auth-card {
+    max-width: 460px;
+    width: 100%;
+    text-align: center;
+    padding: 2.5rem;
+    border-radius: var(--fa-radius-lg);
+    border: var(--fa-border-width) solid var(--fa-border);
+    background: var(--fa-surface);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.fa-command-center-auth-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--fa-radius-md);
+    margin: 0 auto 1.25rem;
+    display: block;
+}
+
+.fa-command-center-auth-desc {
+    color: var(--fa-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.fa-command-center-auth-btn {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* Tree & Hierarchy Nodes (Tenant -> Subscription -> Resource Group -> Resources) */
+.fa-tree-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.fa-tree-node {
+    background: var(--fa-surface);
+    border: var(--fa-border-width) solid var(--fa-border);
+    border-radius: var(--fa-radius-md);
+    padding: 1.25rem;
+}
+
+.fa-tree-node-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.fa-tree-node-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.fa-shared-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--fa-radius-pill);
+    background: rgba(56, 229, 255, 0.15);
+    border: 1px solid rgba(56, 229, 255, 0.4);
+    color: var(--fa-accent-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+
 
 

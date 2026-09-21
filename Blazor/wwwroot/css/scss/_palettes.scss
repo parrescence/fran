@@ -862,6 +862,34 @@
     --fa-alert-info-bg: #dbe6f5;
 }
 
+:root[data-fa-palette="parrescence"] {
+    /* --- Parrescence - "Ideas, Matured, Realized." Parent company palette.
+       Primary is Wild Salmon Coral #FF5A36, secondary Salmon Amber #FF7650,
+       accent is Glacial River Teal #00D2B4, highlight is Electric River Cyan #38E5FF,
+       dark anchor is Deep Marine Navy #0A192F, text Smolt Silver / Deep Navy. --- */
+    --fa-primary: #ff5a36;          /* Wild Salmon Coral */
+    --fa-primary-dark: #d64423;
+    --fa-primary-light: #ff7650;    /* Salmon Amber */
+    --fa-footer: #e8ecf1;
+    --fa-glow: #00d2b4;             /* Glacial River Teal */
+    --fa-gold: #ffb84d;
+    --fa-accent: #00d2b4;           /* Glacial River Teal */
+    --fa-accent-dark: #009d86;
+    --fa-ember: #ff5a36;
+    --fa-wine: #9e2a14;
+    --fa-fir: #0a192f;              /* Deep Marine Navy */
+    --fa-cream: #f4f7fb;            /* Soft slate canvas */
+    --fa-surface: #ffffff;
+    --fa-text: #0a192f;
+    --fa-text-muted: #596a80;
+    --fa-text-on-primary: #ffffff;
+    --fa-border: #cbd5e1;
+    --fa-border-focus: #00d2b4;
+    --fa-alert-danger-bg: #ffece8;
+    --fa-alert-success-bg: #e6fbf7;
+    --fa-alert-info-bg: #e6f9ff;
+}
+
 /* --- Dark mode, per palette. Northwest Fall's dark block (no data-fa-palette
    attribute needed — it's the default) stays a single-attribute selector; every
    other palette needs data-fa-palette AND data-theme="dark" together so it wins
@@ -1292,6 +1320,21 @@
     --fa-alert-info-bg: rgba(31, 79, 160, 0.22);
 }
 
+:root[data-fa-palette="parrescence"][data-theme="dark"] {
+    --fa-cream: #0a192f;            /* Deep Marine Navy */
+    --fa-surface: #112240;          /* Surface Slate */
+    --fa-text: #f8fafb;             /* Smolt Silver */
+    --fa-text-muted: #8892b0;
+    --fa-border: #233554;
+    --fa-border-focus: #38e5ff;     /* Electric River Cyan */
+    --fa-footer: #071224;
+    --fa-primary-dark: #ff7650;
+    --fa-accent-dark: #38e5ff;
+    --fa-alert-danger-bg: rgba(255, 90, 54, 0.22);
+    --fa-alert-success-bg: rgba(0, 210, 180, 0.22);
+    --fa-alert-info-bg: rgba(56, 229, 255, 0.22);
+}
+
 /* --- Same dark values again, gated on prefers-color-scheme instead of an explicit
    data-theme="dark" — the OS-level fallback before any explicit mode choice. --- */
 
@@ -1714,6 +1757,21 @@
         --fa-alert-danger-bg: rgba(217, 67, 47, 0.22);
         --fa-alert-success-bg: rgba(47, 158, 110, 0.22);
         --fa-alert-info-bg: rgba(31, 79, 160, 0.22);
+    }
+
+    :root[data-fa-palette="parrescence"]:not([data-theme="light"]):not([data-theme="colorblind"]) {
+        --fa-cream: #0a192f;        /* Deep Marine Navy */
+        --fa-surface: #112240;      /* Surface Slate */
+        --fa-text: #f8fafb;         /* Smolt Silver */
+        --fa-text-muted: #8892b0;
+        --fa-border: #233554;
+        --fa-border-focus: #38e5ff; /* Electric River Cyan */
+        --fa-footer: #071224;
+        --fa-primary-dark: #ff7650;
+        --fa-accent-dark: #38e5ff;
+        --fa-alert-danger-bg: rgba(255, 90, 54, 0.22);
+        --fa-alert-success-bg: rgba(0, 210, 180, 0.22);
+        --fa-alert-info-bg: rgba(56, 229, 255, 0.22);
     }
 }
 

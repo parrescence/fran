@@ -43,7 +43,8 @@ public sealed class FaFontStyleSwitcher : ComponentBase
         ("water", "Water (Fluid)"),
         ("rock", "Rock (Heavy)"),
         ("comical", "Comical (Cartoon)"),
-        ("contrasting", "Contrasting (Octave Harmonic)")
+        ("contrasting", "Contrasting (Octave Harmonic)"),
+        ("executive", "Executive (Command Center)")
     ];
 
     protected override void BuildRenderTree(RenderTreeBuilder builder)
