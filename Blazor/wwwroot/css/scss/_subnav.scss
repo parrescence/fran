@@ -81,7 +81,44 @@
     }
 }
 
-/* Sticky pinning directly beneath sticky/floating FaHeader */
+/* Unified Sticky Header Group: pins header + subnav together as a single sticky unit with zero movement */
+.fa-header-group {
+    width: 100%;
+
+    &.fa-header-sticky {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+    }
+
+    &.fa-header-floating {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        margin: 0.75rem 1rem 0;
+        border-radius: var(--fa-radius-lg);
+        overflow: hidden;
+    }
+
+    .fa-header {
+        position: relative;
+        top: auto;
+        z-index: 2;
+        box-shadow: none !important;
+        border-bottom: none !important;
+    }
+
+    .fa-header-subnav-row,
+    .fa-shell-subnav-row {
+        position: relative;
+        top: auto;
+        z-index: 1;
+        border-top: none !important;
+        box-shadow: 0 2px 0 var(--fa-glow), 0 4px 14px rgba(140, 67, 27, 0.35);
+    }
+}
+
+/* Fallback sticky pinning directly beneath sticky/floating FaHeader */
 .fa-header-sticky + .fa-header-subnav-row,
 .fa-header-sticky + .fa-shell-subnav-row,
 .fa-header-floating + .fa-header-subnav-row,
