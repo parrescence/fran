@@ -112,16 +112,27 @@
    --fa-border-focus, same as every style), just without an oversized shadow
    piled on top of it. Motion is untouched (still flow's default transition
    speed): unlike terse's "no motion" stance, typewriter's whole point is gentle,
-   physical-feeling movement, not the absence of it. */
-:root[data-fa-ui-style="typewriter"] {
-    --fa-radius-sm: 3px;
-    --fa-radius-md: 4px;
-    --fa-radius-lg: 6px;
-    --fa-font: 'Courier New', Courier, ui-monospace, monospace;
+   physical-feeling movement, not the absence of it.
+   Modernized to use sleek digital ticker typography ('SF Mono', 'JetBrains Mono',
+   'Cascadia Code', 'Fira Code', 'Consolas') with tabular lining figures (tabular-nums),
+   tight professional tracking (-0.015em), and crisp 4-8px radii. */
+:root[data-fa-ui-style="typewriter"],
+:root[data-fa-ui-style="ticker"] {
+    --fa-radius-sm: 4px;
+    --fa-radius-md: 6px;
+    --fa-radius-lg: 8px;
+    --fa-font: 'SF Mono', 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Roboto Mono', 'Menlo', Consolas, 'Courier New', monospace;
+    --fa-font-mono: 'SF Mono', 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Roboto Mono', monospace;
+    --fa-font-heading: 'SF Mono', 'JetBrains Mono', 'Cascadia Code', -apple-system, sans-serif;
+    --fa-heading-weight: 700;
+    --fa-heading-letter-spacing: -0.015em;
     --fa-border-width: 1px;
-    --fa-border-glow: 0 1px 2px rgba(0, 0, 0, 0.06);
-    --fa-border-glow-focus: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --fa-border-glow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --fa-border-glow-focus: 0 0 0 2px var(--fa-border-focus);
+    font-feature-settings: "tnum" 1, "zero" 1;
+    font-variant-numeric: tabular-nums lining-nums;
 }
+
 
 /* Sharp: clean architectural lines, tight 1px borders, crisp micro-radii (2px-4px),
    and sharp typography (-apple-system / Segoe UI / Roboto). Eliminates fuzzy ambient
