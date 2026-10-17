@@ -1,0 +1,351 @@
+/* ============================= Financial Templates ============================= */
+/* Universal Financial Layouts: Ledger, 360° Overview & Account Portfolio
+   Designed for desktop-to-mobile responsiveness, container queries, and thumb-zone ergonomics. */
+
+/* --- 1. FaLedgerTemplate --- */
+.fa-financial-ledger-template {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+.fa-ledger-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--fa-border);
+}
+
+.fa-ledger-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.fa-ledger-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.fa-ledger-title {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--fa-text);
+    letter-spacing: -0.015em;
+}
+
+.fa-ledger-title-badge {
+    display: inline-flex;
+    align-items: center;
+}
+
+.fa-ledger-desc {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--fa-text-muted);
+}
+
+.fa-ledger-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.fa-ledger-summary {
+    width: 100%;
+}
+
+.fa-ledger-filter-bar {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    padding: 0.85rem 1rem;
+    background: var(--fa-surface);
+    border: var(--fa-border-width, 1px) solid var(--fa-border);
+    border-radius: var(--fa-radius-md, 8px);
+    box-shadow: var(--fa-border-glow);
+}
+
+.fa-ledger-content {
+    width: 100%;
+}
+
+.fa-ledger-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+/* --- 2. FaFinanceOverviewTemplate --- */
+.fa-finance-overview-template {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+.fa-overview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: var(--fa-border-width, 1px) solid var(--fa-border);
+}
+
+.fa-overview-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.fa-overview-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--fa-text);
+}
+
+.fa-overview-subtitle {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--fa-text-muted);
+}
+
+.fa-overview-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+}
+
+.fa-overview-period-slot {
+    display: inline-flex;
+    align-items: center;
+}
+
+.fa-overview-actions-slot {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Touch-friendly swipeable KPI strip on mobile; auto-fit grid on desktop */
+.fa-kpi-swipe-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+
+@media (max-width: 720px) {
+    .fa-kpi-swipe-strip {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 0.75rem;
+        padding: 0.25rem 0.25rem 0.75rem 0.25rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .fa-kpi-swipe-strip::-webkit-scrollbar {
+        display: none;
+    }
+
+    .fa-kpi-swipe-strip > * {
+        flex: 0 0 calc(80% - 0.5rem);
+        min-width: 230px;
+        max-width: 290px;
+        scroll-snap-align: start;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+}
+
+.fa-overview-cashflow-section {
+    width: 100%;
+}
+
+.fa-overview-columns {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+@media (max-width: 960px) {
+    .fa-overview-columns {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+.fa-overview-column-primary,
+.fa-overview-column-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    min-width: 0;
+}
+
+/* --- 3. FaAccountPortfolioTemplate --- */
+.fa-account-portfolio-template {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+.fa-portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--fa-border);
+}
+
+.fa-portfolio-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.fa-portfolio-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--fa-text);
+}
+
+.fa-portfolio-desc {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--fa-text-muted);
+}
+
+.fa-portfolio-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.fa-portfolio-networth-section,
+.fa-portfolio-institutions-section,
+.fa-portfolio-accounts-section,
+.fa-portfolio-vault-section {
+    width: 100%;
+}
+
+.fa-portfolio-accounts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: 1.25rem;
+}
+
+/* --- 4. Mobile Ergonomic Primitives (FAB & Bottom Nav) --- */
+.fa-financial-fab {
+    display: none;
+}
+
+@media (max-width: 720px) {
+    .fa-financial-fab {
+        display: inline-flex;
+        position: fixed;
+        bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+        right: 1.25rem;
+        z-index: 90;
+        align-items: center;
+        justify-content: center;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: var(--fa-primary);
+        color: var(--fa-text-on-primary, #ffffff);
+        box-shadow: 0 4px 14px rgba(31, 58, 51, 0.35);
+        border: none;
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .fa-financial-fab:active {
+        transform: scale(0.92);
+    }
+}
+
+/* Mobile Bottom Navigation Bar (Docked to Thumb Zone) */
+.fa-mobile-bottom-nav {
+    display: none;
+}
+
+@media (max-width: 720px) {
+    .fa-mobile-bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 58px;
+        background: var(--fa-surface);
+        border-top: 1px solid var(--fa-border);
+        z-index: 100;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.06);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    .fa-mobile-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--fa-text-muted);
+        text-decoration: none;
+        padding: 4px 12px;
+        gap: 3px;
+        transition: color 0.15s ease;
+    }
+
+    .fa-mobile-nav-item:hover,
+    .fa-mobile-nav-item.active {
+        color: var(--fa-primary);
+        font-weight: 700;
+    }
+
+    .fa-mobile-nav-fab {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--fa-primary);
+        color: var(--fa-text-on-primary, #ffffff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        box-shadow: 0 2px 8px rgba(31, 58, 51, 0.3);
+        margin-top: -12px;
+        cursor: pointer;
+    }
+}

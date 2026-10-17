@@ -38,9 +38,13 @@ one recurring page shape needs beyond the bare shell:
 | [FaFileManagerTemplate](fa-file-manager-template.md) | `FaSidebarShell` | storage quota, folder breadcrumbs, search, file grid, inspector drawer |
 | [FaCharterTemplate](fa-charter-template.md) | `FaStandardShell` | Parrescence project charter standard, cover plate, methodology (Agile/Scrum/Waterfall), DevOps agreement, sticky bookmark rail |
 | [FaRunbookTemplate](fa-runbook-template.md) | `FaStandardShell` | operational runbook & incident playbook, service tiers, SLAs, triage diagnostics, rollback procedures |
+| [FaLedgerTemplate](fa-financial-templates.md#faledgertemplate) | `FaSidebarShell` (or inner when `EmbedInLayout="true"`) | financial ledger view, summary bar, responsive search/filter bar, mobile drawer, thumb-zone FAB |
+| [FaFinanceOverviewTemplate](fa-financial-templates.md#fafinanceoverviewtemplate) | `FaSidebarShell` (or inner when `EmbedInLayout="true"`) | 360° financial overview, month stepper, swipeable KPI strip on mobile, cashflow visualizer |
+| [FaAccountPortfolioTemplate](fa-financial-templates.md#faaccountportfoliotemplate) | `FaSidebarShell` (or inner when `EmbedInLayout="true"`) | net worth hero banner, institution sync statuses, fluid account group cards, vault security badge |
 | [FaAuthTemplate](fa-auth-template.md) | *(none — chrome-free)* | a centered card, no header/sidebar/footer |
 
-They're **routed pages, not layouts** — use one directly on a `@page`-attributed
+They can be used as **routed pages** (rendering their own shell) or as **layout-embedded templates** via `EmbedInLayout="true"` (which drops the outer shell and renders purely the structured body inside your app's existing `MainLayout.razor`).
+
 `.razor` file, the same way you'd use any other component, rather than wrapping
 `@Body` in your `MainLayout.razor` (that's still `FaStandardShell`/`FaSidebarShell`'s
 job — see [layout shells](layout-shells.md)). A template *is* the shell for that one
