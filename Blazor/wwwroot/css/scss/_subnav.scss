@@ -20,66 +20,75 @@
     z-index: 35;
 }
 
-/* Attached row inside FaHeader */
-.fa-header.fa-header-has-subnav {
-    flex-wrap: wrap;
-    padding-bottom: 0;
+/* ============================= SubNav Row (Dedicated row beneath FaHeader) ============================= */
+.fa-header-subnav-row,
+.fa-shell-subnav-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+    padding: 0.35rem 1.5rem;
+    background: var(--fa-primary-dark, rgba(0, 0, 0, 0.14));
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 38;
+    gap: 0.75rem;
+    box-sizing: border-box;
 
-    .fa-header-subnav-row {
-        order: 10;
+    .fa-subnav {
+        background: transparent;
+        border-bottom: none;
+        box-shadow: none;
+        padding: 0;
+        min-height: auto;
         width: 100%;
-        margin-left: -1.5rem;
-        margin-right: -1.5rem;
-        padding: 0.35rem 1.5rem 0.45rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.18);
-        background: rgba(0, 0, 0, 0.12);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.75rem;
+    }
 
-        .fa-subnav {
-            background: transparent;
-            border-bottom: none;
-            box-shadow: none;
-            padding: 0;
-            min-height: auto;
-            width: 100%;
+    .fa-subnav-title {
+        color: var(--fa-text-on-primary, #FFFFFF);
+        opacity: 0.9;
+    }
+
+    .fa-subnav-link,
+    .fa-subnav-button {
+        color: var(--fa-text-on-primary, #FFFFFF);
+        opacity: 0.9;
+
+        .fa-icon,
+        svg {
+            color: inherit !important;
+            fill: currentColor !important;
         }
 
-        .fa-subnav-title {
+        &:hover {
             color: var(--fa-text-on-primary, #FFFFFF);
-            opacity: 0.9;
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.16);
         }
 
-        .fa-subnav-link,
-        .fa-subnav-button {
+        &.fa-subnav-link-active,
+        &[aria-current="page"],
+        &[aria-current="true"] {
             color: var(--fa-text-on-primary, #FFFFFF);
-            opacity: 0.9;
-
-            .fa-icon,
-            svg {
-                color: inherit !important;
-                fill: currentColor !important;
-            }
-
-            &:hover {
-                color: var(--fa-text-on-primary, #FFFFFF);
-                opacity: 1;
-                background: rgba(255, 255, 255, 0.16);
-            }
-
-            &.fa-subnav-link-active,
-            &[aria-current="page"],
-            &[aria-current="true"] {
-                color: var(--fa-text-on-primary, #FFFFFF);
-                opacity: 1;
-                background: rgba(255, 255, 255, 0.25);
-                box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-                font-weight: 700;
-            }
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+            font-weight: 700;
         }
     }
+}
+
+/* Sticky pinning directly beneath sticky/floating FaHeader */
+.fa-header-sticky + .fa-header-subnav-row,
+.fa-header-sticky + .fa-shell-subnav-row,
+.fa-header-floating + .fa-header-subnav-row,
+.fa-header-floating + .fa-shell-subnav-row {
+    position: sticky;
+    top: var(--fa-header-height, 4rem);
+    z-index: 39;
 }
 
 .fa-subnav-items {

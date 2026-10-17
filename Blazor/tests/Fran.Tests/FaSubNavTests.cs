@@ -97,7 +97,7 @@ public class FaSubNavTests : BunitContext
     }
 
     [Fact]
-    public void FaHeader_WithSubNavContent_RendersCollapseWrapperAndToggle()
+    public void FaHeader_WithSubNavContent_RendersDedicatedSubNavRowOutsideHeader()
     {
         RenderFragment subnav = builder =>
         {
@@ -114,16 +114,43 @@ public class FaSubNavTests : BunitContext
         var header = cut.Find("header.fa-header");
         Assert.Contains("fa-header-has-subnav", header.ClassName);
 
-        var collapse = cut.Find(".fa-header-collapse");
-        Assert.NotNull(collapse);
-
         var subnavRow = cut.Find(".fa-header-subnav-row");
         Assert.NotNull(subnavRow);
         Assert.Contains("SubNav Row", subnavRow.TextContent);
 
-        // Mobile hamburger toggle is present for subnav even without main nav
+        // Verify subnav row is a standalone sibling, NOT nested inside header.fa-header
+        Assert.Null(header.QuerySelector(".fa-header-subnav-row"));
+    }
+
+    [Fact]
+    public void FaHeader_WithNavAndSubNav_RendersCollapseForNavAndDedicatedRowForSubNav()
+    {
+        RenderFragment nav = builder => builder.AddContent(0, "Header Nav Content");
+        RenderFragment subnav = builder => builder.AddContent(0, "SubNav Row Content");
+
+        var cut = Render<FaHeader>(p => p
+            .Add(x => x.BrandText, "Test App")
+            .Add(x => x.NavContent, nav)
+            .Add(x => x.SubNavContent, subnav)
+            .Add(x => x.ShowNavToggle, true));
+
+        var header = cut.Find("header.fa-header");
+        Assert.Contains("fa-header-has-subnav", header.ClassName);
+
+        // Header nav is wrapped in collapse drawer
+        var collapse = cut.Find(".fa-header-collapse");
+        Assert.NotNull(collapse);
+        Assert.Contains("Header Nav Content", collapse.TextContent);
+
+        // Mobile toggle for header nav is present
         var toggle = cut.Find("button.fa-header-nav-toggle");
         Assert.NotNull(toggle);
+
+        // Secondary subnav is rendered outside header as its own row
+        var subnavRow = cut.Find(".fa-header-subnav-row");
+        Assert.NotNull(subnavRow);
+        Assert.Contains("SubNav Row Content", subnavRow.TextContent);
+        Assert.Null(header.QuerySelector(".fa-header-subnav-row"));
     }
 
     [Fact]

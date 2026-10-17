@@ -157,7 +157,7 @@ public sealed class FaHeader : ComponentBase, IDisposable
 
             builder.CloseElement(); // .fa-header-menu-toggle
         }
-        else if (ShowNavToggle && (effectiveNav is not null || effectiveSubNav is not null))
+        else if (ShowNavToggle && effectiveNav is not null)
         {
             builder.OpenElement(16, "button");
             builder.AddAttribute(17, "type", "button");
@@ -195,27 +195,16 @@ public sealed class FaHeader : ComponentBase, IDisposable
 
         builder.CloseElement(); // .fa-header-left
 
-        if (effectiveNav is not null || effectiveSubNav is not null)
+        if (effectiveNav is not null)
         {
             builder.OpenElement(36, "div");
             builder.AddAttribute(37, "class", "fa-header-collapse");
 
-            if (effectiveNav is not null)
-            {
-                builder.OpenElement(38, "nav");
-                builder.AddAttribute(39, "class", "fa-header-nav");
-                builder.AddAttribute(40, "aria-label", "Header navigation");
-                builder.AddContent(41, effectiveNav);
-                builder.CloseElement(); // nav.fa-header-nav
-            }
-
-            if (effectiveSubNav is not null)
-            {
-                builder.OpenElement(42, "div");
-                builder.AddAttribute(43, "class", "fa-header-subnav-row");
-                builder.AddContent(44, effectiveSubNav);
-                builder.CloseElement(); // div.fa-header-subnav-row
-            }
+            builder.OpenElement(38, "nav");
+            builder.AddAttribute(39, "class", "fa-header-nav");
+            builder.AddAttribute(40, "aria-label", "Header navigation");
+            builder.AddContent(41, effectiveNav);
+            builder.CloseElement(); // nav.fa-header-nav
 
             builder.CloseElement(); // div.fa-header-collapse
         }
@@ -277,5 +266,13 @@ public sealed class FaHeader : ComponentBase, IDisposable
         builder.CloseElement(); // .fa-header-user
 
         builder.CloseElement(); // header
+
+        if (effectiveSubNav is not null)
+        {
+            builder.OpenElement(80, "div");
+            builder.AddAttribute(81, "class", CssClassNames.Combine("fa-header-subnav-row", "fa-shell-subnav-row"));
+            builder.AddContent(82, effectiveSubNav);
+            builder.CloseElement(); // div.fa-header-subnav-row
+        }
     }
 }
