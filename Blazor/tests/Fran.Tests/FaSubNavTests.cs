@@ -168,4 +168,26 @@ public class FaSubNavTests : BunitContext
         Assert.NotNull(subnavRow);
         Assert.Contains("Dynamic SubNav Content", subnavRow.TextContent);
     }
+
+    [Fact]
+    public void FaHeader_StickyWithSubNav_RendersStickyHeaderGroup()
+    {
+        RenderFragment subnav = builder => builder.AddContent(0, "SubNav Content");
+
+        var cut = Render<FaHeader>(p => p
+            .Add(x => x.BrandText, "Test App")
+            .Add(x => x.Position, FaNavPosition.Sticky)
+            .Add(x => x.SubNavContent, subnav));
+
+        var group = cut.Find(".fa-header-group");
+        Assert.NotNull(group);
+        Assert.Contains("fa-header-sticky", group.ClassName);
+
+        var header = cut.Find("header.fa-header");
+        Assert.NotNull(header);
+        Assert.Contains("fa-header-has-subnav", header.ClassName);
+
+        var subnavRow = cut.Find(".fa-header-subnav-row");
+        Assert.NotNull(subnavRow);
+    }
 }
