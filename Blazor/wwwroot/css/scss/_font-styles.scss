@@ -181,6 +181,30 @@
     font-weight: 600;
 }
 
+/* --- 12. Modern Ticker Style (Fintech / Market Terminal) --- */
+:root[data-fa-font-style="ticker"] {
+    --fa-font: 'SF Mono', 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Roboto Mono', 'Menlo', Consolas, monospace;
+    --fa-font-heading: 'SF Mono', 'JetBrains Mono', 'Cascadia Code', -apple-system, sans-serif;
+    --fa-font-mono: 'SF Mono', 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Roboto Mono', monospace;
+    --fa-font-accent: 'SF Mono', 'JetBrains Mono', monospace;
+    --fa-heading-weight: 700;
+    --fa-heading-letter-spacing: -0.015em;
+    --fa-heading-transform: none;
+    --fa-radius-sm: 4px;
+    --fa-radius-md: 6px;
+    --fa-radius-lg: 8px;
+    --fa-radius-pill: 999px;
+    font-feature-settings: "tnum" 1, "zero" 1;
+    font-variant-numeric: tabular-nums lining-nums;
+}
+
+:root[data-fa-font-style="ticker"] .fa-badge,
+:root[data-fa-font-style="ticker"] .fa-chip {
+    font-family: var(--fa-font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+}
+
 /* ============================= FaFontStyleSwitcher UI ============================= */
 
 .fa-font-style-switcher {
