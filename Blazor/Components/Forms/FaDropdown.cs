@@ -537,28 +537,27 @@ public sealed class FaDropdown<TItem> : ComponentBase
         }
         else
         {
-            var seq = sequence + 8;
             var windowEnd = Math.Min(_windowStart + MaxVisibleItems, CurrentItems.Count);
             for (var index = _windowStart; index < windowEnd; index++)
             {
                 var item = CurrentItems[index];
                 var isHighlighted = index == _highlightedIndex;
 
-                builder.OpenElement(seq++, "button");
+                builder.OpenElement(sequence + 8, "button");
                 builder.SetKey(index);
-                builder.AddAttribute(seq++, "type", "button");
-                builder.AddAttribute(seq++, "class", CssClassNames.Combine("fa-dropdown-option", isHighlighted ? "fa-dropdown-option-highlighted" : null));
-                builder.AddAttribute(seq++, "role", "option");
-                builder.AddAttribute(seq++, "aria-selected", isHighlighted ? "true" : "false");
-                builder.AddAttribute(seq++, "onmouseenter", EventCallback.Factory.Create(this, () => _highlightedIndex = index));
-                builder.AddAttribute(seq++, "onclick", EventCallback.Factory.Create(this, () => SelectAsync(item)));
+                builder.AddAttribute(sequence + 9, "type", "button");
+                builder.AddAttribute(sequence + 10, "class", CssClassNames.Combine("fa-dropdown-option", isHighlighted ? "fa-dropdown-option-highlighted" : null));
+                builder.AddAttribute(sequence + 11, "role", "option");
+                builder.AddAttribute(sequence + 12, "aria-selected", isHighlighted ? "true" : "false");
+                builder.AddAttribute(sequence + 13, "onmouseenter", EventCallback.Factory.Create(this, () => _highlightedIndex = index));
+                builder.AddAttribute(sequence + 14, "onclick", EventCallback.Factory.Create(this, () => SelectAsync(item)));
                 if (ItemTemplate is not null)
                 {
-                    builder.AddContent(seq++, ItemTemplate(item));
+                    builder.AddContent(sequence + 15, ItemTemplate(item));
                 }
                 else
                 {
-                    builder.AddContent(seq++, ItemLabel(item));
+                    builder.AddContent(sequence + 16, ItemLabel(item));
                 }
                 builder.CloseElement();
             }
