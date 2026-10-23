@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -409,6 +409,7 @@
       <div class="nav-group-title">Form fields</div>
       <ul>
         <li><a href="#fa-input">FaInput</a></li>
+        <li><a href="#fa-input-group">FaInputGroup</a></li>
         <li><a href="#fa-select">FaSelect</a></li>
         <li><a href="#fa-search-select">FaSearchSelect</a></li>
         <li><a href="#fa-dropdown">FaDropdown</a></li>
@@ -953,6 +954,70 @@ builder.Services.AddScoped&lt;FaToastService&gt;();</code></pre></div>
           <tr><td><code>Responsive</code></td><td><code>bool</code></td><td>stretches to 100% width below 720px, default false</td></tr>
           <tr><td><code>FloatingLabel</code></td><td><code>bool</code></td><td>Material-style floating label instead of a block label above the field, default false</td></tr>
           <tr><td><code>ContainerCssClass</code></td><td><code>string?</code></td><td></td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================= FaInputGroup ============================= -->
+    <section class="component" id="fa-input-group">
+      <span class="kicker">Form fields</span>
+      <h2>FaInputGroup</h2>
+      <p class="dek">A seamless composite container that joins an input element with buttons and static text addons on the left, right, or in between. Modeled after button groups, the exterior wrapper controls the outer border radius while interior borders collapse and outer corners curve seamlessly.</p>
+
+      <h3>Usage</h3>
+      <div class="code-block"><button class="copy-btn" data-copy>Copy</button><pre><code>&lt;!-- Button on the right (search action) --&gt;
+&lt;FaInputGroup&gt;
+    &lt;input type="text" class="fa-input" placeholder="Search accounts or payees..." @bind="_searchQuery" /&gt;
+    &lt;FaButton Variant="FaButtonVariant.Primary" OnClick="HandleSearch"&gt;Search&lt;/FaButton&gt;
+&lt;/FaInputGroup&gt;
+
+&lt;!-- Button on the left (filter) --&gt;
+&lt;FaInputGroup&gt;
+    &lt;FaButton Variant="FaButtonVariant.Secondary" OnClick="ToggleFilter"&gt;Filter&lt;/FaButton&gt;
+    &lt;input type="text" class="fa-input" placeholder="Search within filtered set..." @bind="_query" /&gt;
+&lt;/FaInputGroup&gt;
+
+&lt;!-- Buttons on both sides (stepper) --&gt;
+&lt;FaInputGroup AriaLabel="Quantity Stepper"&gt;
+    &lt;FaButton Variant="FaButtonVariant.Secondary" OnClick="Decrement"&gt;-&lt;/FaButton&gt;
+    &lt;input type="number" class="fa-input" style="text-align:center;" @bind="_count" /&gt;
+    &lt;FaButton Variant="FaButtonVariant.Secondary" OnClick="Increment"&gt;+&lt;/FaButton&gt;
+&lt;/FaInputGroup&gt;
+
+&lt;!-- Pill search bar --&gt;
+&lt;FaInputGroup Pill="true"&gt;
+    &lt;input type="text" class="fa-input" placeholder="Quick search..." @bind="_search" /&gt;
+    &lt;FaButton Variant="FaButtonVariant.Primary"&gt;
+        &lt;FaIcon Name="FaIconName.Search" Size="14" Color="FaIconColor.White" /&gt;
+    &lt;/FaButton&gt;
+&lt;/FaInputGroup&gt;
+
+&lt;!-- Static text addons --&gt;
+&lt;FaInputGroup Label="Transaction Amount"&gt;
+    &lt;FaInputGroupText&gt;$&lt;/FaInputGroupText&gt;
+    &lt;input type="number" step="0.01" class="fa-input" @bind="_amount" /&gt;
+    &lt;FaInputGroupText&gt;USD&lt;/FaInputGroupText&gt;
+    &lt;FaButton Variant="FaButtonVariant.Primary" OnClick="SubmitTransfer"&gt;Transfer&lt;/FaButton&gt;
+&lt;/FaInputGroup&gt;</code></pre></div>
+
+      <p class="getting-value"><strong>Getting the value:</strong> The input inside the group binds directly to your model or state variable via <code>@bind</code> (or <code>@bind-Value</code> for <code>FaInput</code>).</p>
+
+      <h4>Parameters</h4>
+      <div class="table-wrap">
+        <table class="params">
+          <tr><th>Parameter</th><th>Type</th><th>Notes</th></tr>
+          <tr><td><code>Label</code></td><td><code>string?</code></td><td>Optional block label above group in <code>.fa-label</code></td></tr>
+          <tr><td><code>HelpText</code></td><td><code>string?</code></td><td>Optional helper text below group in <code>.fa-help-text</code></td></tr>
+          <tr><td><code>Size</code></td><td><code>FaSize</code></td><td><code>XSmall</code> · <code>Small</code> · <code>Medium</code> (default) · <code>Large</code> · <code>XLarge</code></td></tr>
+          <tr><td><code>Pill</code></td><td><code>bool</code></td><td>Sets exterior corner radius to full pill (<code>var(--fa-radius-pill)</code>), default <code>false</code></td></tr>
+          <tr><td><code>Inline</code></td><td><code>bool</code></td><td>Uses <code>inline-flex</code> with intrinsic width instead of 100% flex width</td></tr>
+          <tr><td><code>Responsive</code></td><td><code>bool</code></td><td>Stretches to 100% width below 720px, default <code>false</code></td></tr>
+          <tr><td><code>AriaLabel</code></td><td><code>string?</code></td><td>Accessible label on the <code>role="group"</code> container</td></tr>
+          <tr><td><code>Prepend</code></td><td><code>RenderFragment?</code></td><td>Content rendered before <code>ChildContent</code></td></tr>
+          <tr><td><code>ChildContent</code></td><td><code>RenderFragment?</code></td><td>Main content (inputs, buttons, addons)</td></tr>
+          <tr><td><code>Append</code></td><td><code>RenderFragment?</code></td><td>Content rendered after <code>ChildContent</code></td></tr>
+          <tr><td><code>CssClass</code></td><td><code>string?</code></td><td>Extra CSS classes applied to <code>.fa-input-group</code></td></tr>
+          <tr><td><code>ContainerCssClass</code></td><td><code>string?</code></td><td>Extra CSS classes applied to outer <code>.fa-field</code> if Label/HelpText is used</td></tr>
         </table>
       </div>
     </section>
