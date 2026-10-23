@@ -270,8 +270,9 @@ branding, not something a style library should hardcode (see `Blazor/ARCHITECTUR
 page's `<head>` yourself, the same as any Blazor app:
 
 ```html
-<link rel="icon" type="image/png" href="favicon.png" />
-<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="icon" type="image/svg+xml" href="_content/Fran/favicon.svg" />
+<link rel="icon" href="_content/Fran/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="_content/Fran/favicon-180.png" />
 ```
 
 If you want a logo next to your app's name in the header/sidebar chrome itself
