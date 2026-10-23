@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Fran mark</title>
+  <desc id="desc">Fran design system favicon featuring the signature Fa mark with Fran gold dot accent.</desc>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      rect { fill: #1F3A33; }
+      text { fill: #F2EEE6; }
+      circle { fill: #C98B2B; }
+    }
+  </style>
+  <rect width="512" height="512" rx="96" fill="#F2EEE6"/>
+  <text x="228" y="336" font-family="Poppins, 'Arial Rounded MT Bold', 'Varela Round', system-ui, -apple-system, sans-serif" font-weight="700" font-size="220" text-anchor="middle" fill="#1F3A33">Fa</text>
+  <circle cx="384" cy="340" r="20" fill="#C98B2B"/>
+</svg>
