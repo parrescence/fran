@@ -78,27 +78,257 @@
         box-shadow: var(--fa-border-glow);
     }
 
+/* ============================= Input Groups =============================
+   Unified inline or block groups combining inputs with buttons and addons on the
+   left, right, or in between. The exterior wrapper defines the outer border radius
+   while adjoining interior borders collapse and elevate cleanly on focus. */
+
 .fa-input-group {
+    position: relative;
     display: flex;
+    flex-wrap: nowrap;
     align-items: stretch;
+    width: 100%;
+    border-radius: var(--fa-radius-md);
+
+    /* Inputs flex to fill remaining width */
+    > .fa-input,
+    > input:not([type="checkbox"]):not([type="radio"]),
+    > select,
+    > .fa-select,
+    > .fa-textarea,
+    > .fa-field {
+        position: relative;
+        flex: 1 1 auto;
+        width: 1%;
+        min-width: 0;
+    }
+
+    /* Support when FaInput or other control wraps inside .fa-field */
+    > .fa-field {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+        gap: 0;
+
+        > .fa-input,
+        > .fa-select {
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+        }
+    }
+
+    /* Buttons inside input groups */
+    > .fa-btn,
+    > button,
+    > a.fa-btn {
+        position: relative;
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        border-radius: 0;
+        border-color: var(--fa-border);
+
+        &.fa-btn-primary {
+            border-color: var(--fa-primary);
+        }
+
+        &.fa-btn-accent {
+            border-color: var(--fa-accent);
+        }
+
+        &.fa-btn-danger,
+        &.fa-btn-outline-danger {
+            border-color: var(--fa-ember);
+        }
+    }
+
+    /* Static text/icon addons */
+    > .fa-input-group-text {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 0.9rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        line-height: 1.5;
+        color: var(--fa-text-muted);
+        text-align: center;
+        white-space: nowrap;
+        background-color: var(--fa-footer);
+        border: var(--fa-border-width, 1px) solid var(--fa-border);
+        flex: 0 0 auto;
+        user-select: none;
+        z-index: 1;
+    }
+
+    /* Reset all children's default corners so the group acts as a unified element */
+    > * {
+        border-radius: 0;
+    }
+
+    /* First visible child gets left border-radius */
+    > :first-child {
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    > .fa-field:first-child > .fa-input,
+    > .fa-field:first-child > .fa-select {
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    /* Last visible child gets right border-radius */
+    > :last-child {
+        border-top-right-radius: inherit;
+        border-bottom-right-radius: inherit;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    > .fa-field:last-child > .fa-input,
+    > .fa-field:last-child > .fa-select {
+        border-top-right-radius: inherit;
+        border-bottom-right-radius: inherit;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    /* Single child edge-case inherits all corners */
+    > :only-child {
+        border-radius: inherit;
+    }
+
+    > .fa-field:only-child > .fa-input,
+    > .fa-field:only-child > .fa-select {
+        border-radius: inherit;
+    }
+
+    /* Collapse adjacent borders to prevent 2px seams */
+    > :not(:first-child) {
+        margin-left: calc(-1 * var(--fa-border-width, 1px));
+    }
+
+    /* Elevation layering: hover raises z-index; focus raises higher to show full glow */
+    > :hover {
+        z-index: 2;
+    }
+
+    > :focus,
+    > :focus-visible,
+    > :focus-within,
+    > .fa-input:focus,
+    > .fa-select:focus,
+    > .fa-btn:focus-visible,
+    > .fa-field:focus-within {
+        z-index: 3;
+    }
 }
 
-    .fa-input-group .fa-field {
-        flex: 1;
+/* Inline modifier */
+.fa-input-group-inline {
+    display: inline-flex;
+    width: auto;
+}
+
+/* Pill modifier */
+.fa-input-group-pill {
+    border-radius: var(--fa-radius-pill);
+}
+
+/* Sizing scale */
+.fa-input-group-xs {
+    border-radius: var(--fa-radius-sm);
+
+    > .fa-input,
+    > input,
+    > select,
+    > .fa-select,
+    > .fa-field > .fa-input,
+    > .fa-field > .fa-select,
+    > .fa-input-group-text {
+        padding: 0.25rem 0.55rem;
+        font-size: 0.78rem;
     }
 
-    .fa-input-group .fa-input {
-        border-radius: var(--fa-radius-md) 0 0 var(--fa-radius-md);
-        border-right: none;
+    > .fa-btn,
+    > button {
+        padding: 0.25rem 0.65rem;
+        font-size: 0.78rem;
+    }
+}
+
+.fa-input-group-sm {
+    border-radius: var(--fa-radius-sm);
+
+    > .fa-input,
+    > input,
+    > select,
+    > .fa-select,
+    > .fa-field > .fa-input,
+    > .fa-field > .fa-select,
+    > .fa-input-group-text {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.86rem;
     }
 
-    .fa-input-group .fa-btn {
-        border-radius: 0 var(--fa-radius-md) var(--fa-radius-md) 0;
+    > .fa-btn,
+    > button {
+        padding: 0.35rem 0.85rem;
+        font-size: 0.86rem;
+    }
+}
+
+.fa-input-group-lg {
+    border-radius: var(--fa-radius-lg);
+
+    > .fa-input,
+    > input,
+    > select,
+    > .fa-select,
+    > .fa-field > .fa-input,
+    > .fa-field > .fa-select,
+    > .fa-input-group-text {
+        padding: 0.7rem 1.15rem;
+        font-size: 1.05rem;
     }
 
-.fa-input-group-sm .fa-input, .fa-input-group-sm .fa-btn {
-    padding: 0.32rem 0.9rem;
-    font-size: 0.82rem;
+    > .fa-btn,
+    > button {
+        padding: 0.7rem 1.4rem;
+        font-size: 1.05rem;
+    }
+}
+
+.fa-input-group-xl {
+    border-radius: var(--fa-radius-lg);
+
+    > .fa-input,
+    > input,
+    > select,
+    > .fa-select,
+    > .fa-field > .fa-input,
+    > .fa-field > .fa-select,
+    > .fa-input-group-text {
+        padding: 0.9rem 1.4rem;
+        font-size: 1.15rem;
+    }
+
+    > .fa-btn,
+    > button {
+        padding: 0.9rem 1.7rem;
+        font-size: 1.15rem;
+    }
 }
 
 /* --- Validation (see Fran.Validation, FaValidationMessageRenderer) ---
