@@ -85,6 +85,17 @@
     box-shadow: 0 2px 0 var(--fa-glow), 0 4px 14px rgba(140, 67, 27, 0.35);
 }
 
+.fa-header-has-subnav {
+    height: var(--fa-header-height, 4rem);
+    min-height: var(--fa-header-height, 4rem);
+    max-height: var(--fa-header-height, 4rem);
+    box-sizing: border-box;
+    padding-top: 0;
+    padding-bottom: 0;
+    box-shadow: none !important;
+    border-bottom: none !important;
+}
+
 /* --- FaHeader.Position: Standard (default, no class) scrolls away with the page.
    Sticky/Floating both pin it to the top once scrolled to; Floating additionally
    insets it with margin + rounded corners so it reads as a detached bar instead of
@@ -386,7 +397,7 @@
     text-align: center;
     padding: 0.85rem 1.5rem;
     font-size: 0.9rem;
-    border-top: 3px solid var(--fa-glow);
+    border-top: none;
     display: flex;
     align-items: center;
     justify-content: center;

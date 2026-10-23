@@ -20,8 +20,8 @@ public sealed class FaGrowthLoader : ComponentBase
     /// <summary>The currency symbol displayed floating above the peak growth bar. Defaults to "$".</summary>
     [Parameter] public string CurrencySymbol { get; set; } = "$";
 
-    /// <summary>Whether to display the floating currency symbol above the growth peak. Defaults to true.</summary>
-    [Parameter] public bool ShowCurrency { get; set; } = true;
+    /// <summary>Whether to display the floating currency symbol above the growth peak. Defaults to false.</summary>
+    [Parameter] public bool ShowCurrency { get; set; } = false;
 
     /// <summary>Optional text message displayed below the growth loader.</summary>
     [Parameter] public string? Label { get; set; }
@@ -63,11 +63,6 @@ public sealed class FaGrowthLoader : ComponentBase
             builder.AddAttribute(seq++, "class", "fa-growth-bar");
             builder.CloseElement();
         }
-
-        // Apex spark
-        builder.OpenElement(seq++, "span");
-        builder.AddAttribute(seq++, "class", "fa-growth-spark");
-        builder.CloseElement();
 
         // Floating currency symbol
         if (ShowCurrency && !string.IsNullOrEmpty(CurrencySymbol))

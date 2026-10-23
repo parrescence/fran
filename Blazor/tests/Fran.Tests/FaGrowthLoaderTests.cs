@@ -9,7 +9,7 @@ namespace Fran.Tests;
 public class FaGrowthLoaderTests : BunitContext
 {
     [Fact]
-    public void FaGrowthLoader_Default_RendersFiveBarsApexSparkAndCurrency()
+    public void FaGrowthLoader_Default_RendersFiveBarsExclusivelyWithoutYellowCircleOrCurrency()
     {
         var cut = Render<FaGrowthLoader>();
 
@@ -24,12 +24,11 @@ public class FaGrowthLoaderTests : BunitContext
         var bars = cut.FindAll(".fa-growth-bar");
         Assert.Equal(5, bars.Count);
 
-        var spark = cut.Find(".fa-growth-spark");
-        Assert.NotNull(spark);
+        // No yellow circle spark
+        Assert.Empty(cut.FindAll(".fa-growth-spark"));
 
-        var currency = cut.Find(".fa-growth-currency-symbol");
-        Assert.NotNull(currency);
-        Assert.Equal("$", currency.TextContent.Trim());
+        // No currency symbol by default
+        Assert.Empty(cut.FindAll(".fa-growth-currency-symbol"));
     }
 
     [Fact]
@@ -50,6 +49,7 @@ public class FaGrowthLoaderTests : BunitContext
     public void FaGrowthLoader_CustomCurrencyAndLabel_RendersLabelAndAria()
     {
         var cut = Render<FaGrowthLoader>(p => p
+            .Add(x => x.ShowCurrency, true)
             .Add(x => x.CurrencySymbol, "£")
             .Add(x => x.Label, "Syncing market ledgers..."));
 
