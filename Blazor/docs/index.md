@@ -40,6 +40,7 @@ Two binding shapes show up repeatedly:
 ## Form fields
 
 - [FaInput](fa-input.md) — generic text/number field
+- [FaInputGroup](fa-input-group.md) — composite group joining inputs with buttons or text addons
 - [FaSelect](fa-select.md) — plain `<select>`, options as child content
 - [FaSearchSelect](fa-search-select.md) — type-to-search combobox over your own query function
 - [FaDropdown](fa-dropdown.md) — type-to-filter combobox over a local list, windowed to N visible rows
